@@ -16,7 +16,7 @@ const HomeCard = ({ title, image, reverse,id, t }) => {
         'flex-row-reverse'}`}
     >
       <div className='relative h-[240px] md:h-[100vh] max-w-[820px]  flex-1 rounded-[40px] overflow-hidden'>
-        {<Image src={image[0]} srcSet={image}  fill loading="lazy" decoding="async" sizes='100%'   className='object-cover' alt={title} /> || (
+        {<Image src={image[0]} srcSet={image}    fill  loading="lazy" decoding="async" sizes='100%'    className='object-cover' alt={title} /> || (
           <Skeleton count={10} />
         )}
       </div>

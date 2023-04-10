@@ -15,7 +15,9 @@ const { Col } = Grid;
 export default function Home({ catalog ,blogs }) {
   const { t } = useTranslation('home');
   const {locale} =useRouter()
- 
+ console.log('====================================');
+ console.log(catalog);
+ console.log('====================================');
   
   return (
     <>
@@ -81,10 +83,12 @@ export default function Home({ catalog ,blogs }) {
                       {(
                         <Image
                         className={styles.imgLook}
-                          src="https://admin.marina.com.eg/storage/92/responsive-images/daan-evers-tKN1WXrzQ3s-unsplash___media_library_original_320_897.jpg"
+                          src={item.img_collection.responsive_urls[0]}
                           fill
-                         
-                          alt="BEACHS"
+                         srcSet={item.img_collection.responsive_urls}
+                         loading="lazy" decoding="async"
+                         sizes='100%'
+                          alt={item.name[locale]}
                         />
                       ) || <Skeleton />}
                       <h3>{item.name[locale]}</h3>
