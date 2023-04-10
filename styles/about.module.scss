@@ -1,0 +1,370 @@
+/*Mopile styles*/
+
+.sectionOne {
+  margin-bottom: 203px;
+  @apply mt-10 lg:mt-[120px];
+}
+
+.ContantnOne {
+  font-size: 85px;
+  font-weight: 800;
+  line-height: 130px;
+  color: #3a3a3a;
+}
+
+.textOne {
+  text-align: center;
+  font-size: 16px;
+  color: #3a3a3a;
+  line-height: 40px;
+  margin-top: 40px;
+}
+
+.sectionTwo {
+  min-height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("../public/Images/about/ivana-cajina-LlDQPnErFxo-unsplash.jpg");
+  justify-content: center;
+  @apply px-2 md:px-[60px] py-6;
+}
+
+.contantTwoTextOne p {
+  font-size: 37px;
+  font-weight: 800;
+  color: white;
+  margin-top: 111px;
+  text-align: center;
+}
+
+.contantTwoTextTwo p {
+  font-size: 40px;
+  line-height: 50px;
+  color: white;
+  text-align: center;
+  margin-bottom: 109px;
+}
+
+.sectionThree {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ContantOneSectionThree p {
+  margin-top: 30px;
+  margin-right: 60px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #3a3a3a;
+}
+
+.ContantOneSectionThree span {
+  position: absolute;
+  left: 177px;
+}
+
+.ContantOneSectionThree .lastSpan {
+  position: absolute;
+  left: 207px;
+}
+
+.grid {
+  display: grid;
+}
+
+.imgOne,
+.imgTwo {
+  flex: 1;
+  height: 242px;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 133px;
+  margin-bottom: 225px;
+  margin: 0;
+
+  @apply h-[240px] sm:h-[50vh] md:h-[70vh];
+}
+
+.imgOne {
+  background-image: url("../public/Images/about/Rectangle\ 12.jpg");
+}
+.imgOne p {
+
+  z-index: 99;
+}
+@media (max-width:640px){
+  .imgOne p ,.imgTwo p {
+    background: #7875754a;
+  }
+}
+.imgTwo {
+  background-image: url("../public/Images/about/Rectangle\ 14.jpg");
+}
+
+.rtl {
+  .imgOne p {
+    position: relative;
+    bottom: 50px;
+  }
+
+  .ContantOneSectionThree p {
+    position: absolute;
+    left: 185px;
+  }
+
+  .ContantOneSectionThree span {
+    left: unset;
+    right: 20px;
+  }
+
+  .ContantOneSectionThree .lastSpan {
+    left: unset;
+    right: 15px;
+  }
+}
+
+/*small tablet styles*/
+@media only screen and (min-width: 620px) {
+  .sectionOne {
+    margin-bottom: 203px;
+  }
+
+  .sectionTwo {
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("../public/Images/about/ivana-cajina-LlDQPnErFxo-unsplash.jpg");
+    display: flex;
+    justify-content: center;
+  }
+
+  .contantTwoTextOne p {
+    font-size: 45px;
+    font-weight: 800;
+    color: white;
+    margin-top: 111px;
+    text-align: center;
+  }
+
+  .contantTwoTextTwo p {
+    font-size: 40px;
+    line-height: 50px;
+    color: white;
+    text-align: center;
+    margin-bottom: 109px;
+  }
+
+  .sectionThree {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .ContantOneSectionThree p {
+    margin-top: 30px;
+    font-size: 40px;
+    line-height: 40px;
+    color: #3a3a3a;
+  }
+
+  .ContantOneSectionThree span {
+    position: absolute;
+    left: 170px;
+  }
+
+  .ContantOneSectionThree .lastSpan {
+    position: absolute;
+    left: 222px;
+  }
+
+  .grid {
+    display: grid;
+    gap: 10px;
+  }
+
+  .rtl {
+    .ContantOneSectionThree p {
+      position: absolute;
+      left: 395px;
+      line-height: 80px;
+    }
+
+    .ContantOneSectionThree span {
+      position: absolute;
+      left: 153px;
+    }
+
+    .ContantOneSectionThree .lastSpan {
+      position: absolute;
+      left: 138px;
+    }
+
+    .imgOne p {
+      position: relative;
+      bottom: 70px;
+    }
+  }
+}
+
+/* large tablet & laptop styles */
+@media only screen and (min-width: 960px) {
+  .sectionOne {
+    margin-bottom: 203px;
+  }
+
+  .sectionTwo {
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("../public/Images/about/ivana-cajina-LlDQPnErFxo-unsplash.jpg");
+    display: flex;
+    justify-content: center;
+  }
+
+  .contantTwoTextOne p {
+    font-size: 120px;
+    font-weight: 800;
+    color: white;
+    margin-top: 111px;
+    text-align: center;
+  }
+
+  .contantTwoTextTwo p {
+    font-size: 25px;
+    line-height: 33px;
+    color: white;
+    text-align: center;
+    margin-bottom: 109px;
+  }
+
+  .sectionThree {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .ContantOneSectionThree p {
+    font-size: 63px;
+    line-height: 80px;
+    color: #3a3a3a;
+  }
+
+  .ContantOneSectionThree span {
+    position: absolute;
+    left: 300px;
+  }
+
+  .ContantOneSectionThree .lastSpan {
+    position: absolute;
+    left: 360px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  .imgOne,
+  .imgTwo p {
+    font-size: 50px;
+  }
+
+  .rtl {
+    .ContantOneSectionThree p {
+      position: absolute;
+      left: 72px;
+    }
+
+    .ContantOneSectionThree span {
+      position: absolute;
+      left: unset;
+      right: 152px;
+    }
+
+    .ContantOneSectionThree .lastSpan {
+      position: absolute;
+      left: unset;
+      right: 139px;
+    }
+
+    .imgOne p {
+      position: relative;
+      bottom: 0px;
+    }
+  }
+}
+
+/* desktop styles */
+@media only screen and (min-width: 1200px) {
+  .sectionOne {
+    margin-bottom: 203px;
+  }
+
+  .ContantnOne {
+    font-size: 85px;
+    font-weight: 800;
+    line-height: 130px;
+    color: #3a3a3a;
+  }
+
+  .sectionTwo {
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("../public/Images/about/ivana-cajina-LlDQPnErFxo-unsplash.jpg");
+    display: flex;
+    justify-content: center;
+  }
+
+  .contantTwoTextOne p {
+    font-size: 150px;
+    font-weight: 800;
+    color: white;
+    margin-top: 111px;
+    text-align: center;
+  }
+
+  .contantTwoTextTwo p {
+    font-size: 25px;
+    line-height: 33px;
+    color: white;
+    text-align: center;
+    margin-bottom: 109px;
+  }
+
+  .sectionThree {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .ContantOneSectionThree p {
+    font-size: 63px;
+    line-height: 80px;
+    color: #3a3a3a;
+  }
+
+  .ContantOneSectionThree span {
+    position: absolute;
+    left: 940px;
+  }
+
+  .ContantOneSectionThree .lastSpan {
+    position: absolute;
+    left: 1123px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  
+}

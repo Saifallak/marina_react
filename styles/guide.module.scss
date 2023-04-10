@@ -1,0 +1,307 @@
+/*Mopile styles*/
+.Grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto;
+}
+
+.headerFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerOne {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 55px;
+}
+
+.headerTwo {
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 161px;
+}
+
+// .list {
+//   list-style-type: none;
+//   font-size: 14px;
+//   line-height: 27px;
+//   margin-bottom: 30px;
+//   color: #3a3a3a;
+// }
+
+.listTwo {
+  text-align: start;
+  list-style-type: none;
+  font-size: 16px;
+  line-height: 27px;
+  margin-bottom: 30px;
+}
+
+.contantTwoTextTwo p {
+  font-size: 40px;
+  line-height: 50px;
+  color: rgb(181, 0, 0);
+  text-align: center;
+  margin-bottom: 109px;
+}
+
+.headerThreeFlex {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.textInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 113px;
+  margin-bottom: 59px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 33px;
+}
+
+.ImgDesign {
+  width: 400px;
+  height: 350px;
+}
+
+/*small tablet styles*/
+@media only screen and (min-width: 620px) {
+  .Grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto;
+  }
+
+  .headerFlex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .headerOne {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 55px;
+  }
+
+  .headerTwo {
+    margin-top: 30px;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 161px;
+  }
+
+  .list {
+    list-style-type: none;
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 30px;
+  }
+
+  .listTwo {
+    text-align: start;
+    list-style-type: none;
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 30px;
+  }
+
+  .contantTwoTextTwo p {
+    font-size: 40px;
+    line-height: 50px;
+    color: rgb(181, 0, 0);
+    text-align: center;
+    margin-bottom: 109px;
+  }
+
+  .headerThreeFlex {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .textInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 113px;
+    margin-bottom: 59px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 33px;
+  }
+
+  .ImgDesign {
+    width: 600px;
+    height: 350px;
+  }
+}
+
+/* large tablet & laptop styles */
+
+@media only screen and (min-width: 960px) {
+  .Grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto auto;
+  }
+
+  .headerFlex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .headerOne {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 70px;
+    font-weight: 800;
+    line-height: 55px;
+  }
+
+  .headerTwo {
+    margin-top: 30px;
+    font-size: 70px;
+    font-weight: 800;
+    line-height: 161px;
+  }
+
+  .list {
+    list-style-type: none;
+    font-size: 20px;
+    line-height: 27px;
+    margin-bottom: 30px;
+  }
+
+  .listTwo {
+    text-align: start;
+    list-style-type: none;
+    font-size: 20px;
+    line-height: 27px;
+    margin-bottom: 30px;
+  }
+
+  .contantTwoTextTwo p {
+    font-size: 40px;
+    line-height: 50px;
+    color: rgb(181, 0, 0);
+    text-align: center;
+    margin-bottom: 109px;
+  }
+
+  .headerThreeFlex {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .textInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 113px;
+    margin-bottom: 59px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 33px;
+  }
+
+  .ImgDesign {
+    width: 480px;
+    height: 1200px;
+  }
+}
+
+/* desktop styles */
+@media only screen and (min-width: 1200px) {
+  .Grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto auto;
+  }
+
+  .headerFlex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .headerOne {
+    font-size: 120px;
+    font-weight: 800;
+    line-height: 161px;
+  }
+
+  .headerTwo {
+    margin-top: 138px;
+    font-size: 120px;
+    font-weight: 800;
+    line-height: 161px;
+  }
+
+  .list {
+    list-style-type: none;
+    font-size: 20px;
+    line-height: 27px;
+    margin-bottom: 30px;
+  }
+
+  .listTwo {
+    text-align: end;
+    list-style-type: none;
+    font-size: 20px;
+    line-height: 27px;
+    margin-bottom: 30px;
+  }
+
+  .contantTwoTextTwo p {
+    font-size: 40px;
+    line-height: 50px;
+    color: rgb(181, 0, 0);
+    text-align: center;
+    margin-bottom: 109px;
+  }
+
+  .headerThreeFlex {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .textInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 113px;
+    margin-bottom: 59px;
+    font-size: 20.4px;
+    font-weight: 600;
+    line-height: 33px;
+  }
+  .ImgDesign {
+    width: 480px;
+    height: 1200px;
+  }
+}

@@ -1,0 +1,166 @@
+/*Mopile styles*/
+
+.imgContainerTwo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.CardOne {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 400px;
+  @apply h-[300px] sm:h-[400px] lg:h-[840px];
+  background-image: url("../public/Images/mangment/WhatsApp\ Image\ 2021-06-23\ at\ 11.51.30\ PM.png");
+  background-position: center center;
+  background-size: cover;
+}
+
+.CardOne p {
+  color: white;
+
+  font-weight: 800;
+  margin-left: 30px;
+  margin-bottom: 21px;
+  @apply text-[26px] md:text-[30px] lg:text-[40px]
+}
+
+.CardTwo,
+.CardThree,
+.CardFour,
+.CardFive,
+.CardSex,
+.CardSeven,
+.CardEight,
+.CardNine,
+.CardTen,
+.CardEleven,
+.CardTwelve,
+.CardThirteen,
+.CardFifteen,
+.CardSixteen {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  background-position: center center;
+  background-size: cover;
+  max-width: 360px;
+  max-height: 820px;
+  @apply h-[230px] md:h-[400px] lg:h-[800px];
+}
+
+.CardTwo {
+  background-image: url("../public/Images/mangment/OÑOº\ páº\ ƒTtƒº¬\ OÑOº\ ò\ OƒTF.png");
+}
+
+.CardThree {
+  background-image: url("../public/Images/mangment/º- ½On¬ ƒT¡nƒº.png");
+}
+
+.CardFour {
+  background-image: url("../public/Images/mangment/O.\ ÑƒóO\ OÑOfº\ Ñ½d.png");
+}
+
+.CardFive {
+  background-image: url("../public/Images/mangment/Ñ½d ƒ½OƒpnT ÑTOe òOƒTF 2F.png");
+}
+
+.CardSex {
+  background-image: url("../public/Images/mangment/ƒTTfƒÿ - OÑOº ½pº ƒT¼¬ándn òOƒTF1F.png");
+}
+
+.CardSeven {
+  background-image: url("../public/Images/mangment/ƒá¬ƒ8nO ¡á¬e páº ƒTÑOnº ƒTOƒTF.png");
+}
+
+.CardEight {
+  background-image: url("../public/Images/mangment/OÑOº ƒÑOº páº ƒTsóƒÑ ƒTñOT  òOƒTF.png");
+}
+
+.CardNine {
+  background-image: url("../public/Images/mangment/½On¬ ½TnOƒd òOƒTF.png");
+}
+
+.CardTen {
+  background-image: url("../public/Images/mangment/اشرف السماليجى.png");
+}
+
+.CardEleven {
+  background-image: url("../public/Images/mangment/دكتور عبد العال الشيخ.png");
+}
+
+.CardTwelve {
+  background-image: url("../public/Images/mangment/عبد الحميد محمد ابو موسى.png");
+}
+
+.CardThirteen {
+  background-image: url("../public/Images/mangment/وليد عباس 1.png");
+}
+
+.CardFifteen {
+  background-image: url("../public/Images/mangment/احمد عبد العزيز.png");
+}
+
+.CardSixteen {
+  background-image: url("../public/Images/mangment/عبد العال علي عبد العال.png");
+}
+
+.CardTwo,
+.CardThree,
+.CardFour,
+.CardFive,
+.CardSex,
+.CardSeven,
+.CardEight,
+.CardNine,
+.CardTen,
+.CardEleven,
+.CardTwelve,
+.CardThirteen,
+.CardFifteen,
+.CardSixteen p {
+  padding-left: 15px;
+  padding-bottom: 39.5;
+  color: white;
+  font-weight: 800;
+  padding-bottom: 10px;
+  @apply text-[10px] md:text-[20px] lg:text-[25px] leading-4 md:leading-[40px] pl-[3px] pr-[2px] md:pl-[10px] lg:pl-[15px];
+ 
+}
+
+/*small tablet styles*/
+@media (min-width:620px) {
+  .CardOne p {
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+    margin-left: 30px;
+    margin-bottom: 21px;
+  }
+}
+
+/* large tablet & laptop styles */
+@media (min-width:960px) {
+  .CardOne p {
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+    margin-left: 30px;
+    margin-bottom: 21px;
+  }
+}
+
+/* desktop styles */
+@media  (min-width: 1200px) {
+  .CardOne p {
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+    margin-left: 30px;
+    margin-bottom: 21px;
+  }
+}

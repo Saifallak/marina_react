@@ -1,0 +1,70 @@
+.imgsContainer {
+  margin-top: 84px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.contantCard {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.contantCard p {
+  color: white;
+  text-align: center;
+  font-weight: 800;
+  line-height: 40px;
+  @apply text-sm lg:text-4xl;
+}
+
+.card {
+  border-radius: 18px !important;
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: flex-end;
+  @apply h-[30vh] lg:h-[60vh];
+}
+
+@media only screen and (min-width: 600px) {
+  .contantCard p {
+    font-size: 30px;
+    line-height: 70px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .contantCard p {
+    margin-left: 40px;
+    font-size: 45px;
+    text-align: start;
+    line-height: 70px;
+  }
+
+  .rtl {
+    .contantCard p {
+      margin-left: unset;
+      margin-right: 40px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .contantCard p {
+    margin-left: 40px;
+    font-size: 55px;
+    text-align: start;
+    line-height: 100px;
+  }
+
+  .rtl {
+    .contantCard p {
+      margin-left: unset;
+      margin-right: 40px;
+    }
+  }
+}

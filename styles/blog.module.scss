@@ -1,0 +1,189 @@
+.ContantnOne {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 10px;
+  color: #3a3a3a;
+  text-align: center;
+  @apply text-xl sm:text-6xl uppercase mb-3 md:mb-6 mt-6 md:mt-11;
+}
+
+.headerOne p {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 68px;
+}
+
+.text {
+  color: #3a3a3a;
+  font-weight: bold;
+  @apply text-[12px] sm:text-sm md:text-lg leading-relaxed md:leading-[30px] mb-5 md:mb-10;
+}
+
+.ViewMore {
+  display: flex;
+  justify-content: center;
+}
+
+.ViewMoreButton {
+  margin-bottom: 66px !important ;
+  text-transform: uppercase;
+  margin-top: 20px;
+  font-weight: 800;
+  color: white;
+  background-color: #07e3ff;
+  border-radius: 20px;
+  padding: 0 20px;
+  @apply h-[40px] sm:h-[60px] text-[14px] sm:text-xl px-6;
+  &:hover {
+    background-color: #07e3ff;
+  }
+}
+
+.cardBlog {
+  height: 276px;
+  background-color: #000000;
+  @apply w-[100px] md:w-[150px] lg:w-[200px]  h-[100px] md:h-[150px] lg:h-[200px];
+}
+
+@media only screen and (max-width: 600px) {
+  .imgBlog {
+    width: 310px;
+    height: 282px;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("../public/Images/blog/jamie-street-gZlQZFCA1Vc-unsplash.jpg");
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .imgBlog {
+    width: 470px;
+    height: 282px;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("../public/Images/blog/jamie-street-gZlQZFCA1Vc-unsplash.jpg");
+    display: flex;
+    justify-content: center;
+  }
+
+  .rtl {
+    .ContantnOne {
+      margin-left: unset;
+      margin-right: 15px;
+    }
+  }
+}
+.sectionOne {
+ margin-top: 30px;
+  h1{
+    font-weight: bold;
+    @apply  text-[28px]   md:text-[50px] mb-3 sm:mb-10 md:mb-20;
+  }
+  h2{
+    font-weight: 600;
+    @apply  mt-[16px]  md:mt-[20px] text-[24px]  md:text-[28px];
+  }
+  h3 {
+    @apply  text-[16px]  md:text-[22px];
+    font-weight: 300;
+}
+}
+@media only screen and (min-width: 768px) {
+  .sectionOne {
+    margin-top: 153px;
+    margin-bottom: 203px;
+  }
+
+  .sectionTwo {
+    margin-top: 110px;
+    margin-bottom: 66px;
+  }
+
+  .imgBlog {
+    width: 1232px;
+    height: 282px;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("../public/Images/blog/jamie-street-gZlQZFCA1Vc-unsplash.jpg");
+    display: flex;
+    justify-content: center;
+  }
+
+  .headerOne {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headerOne p {
+    margin-bottom: 50px;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 68px;
+  }
+  .ViewMore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  .sectionOne {
+    margin-top: 153px;
+    margin-bottom: 203px;
+    
+  }
+
+  .ContantnOne {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 161px;
+    color: #3a3a3a;
+  }
+
+  .text {
+    text-align: start;
+    font-size: 35px;
+    color: #3a3a3a;
+    line-height: 40px;
+    margin-bottom: 40px;
+  }
+
+  .sectionTwo {
+    margin-top: 110px;
+    margin-bottom: 66px;
+  }
+
+  .imgBlog {
+    width: 1996px;
+    height: 282px;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("../public/Images/blog/jamie-street-gZlQZFCA1Vc-unsplash.jpg");
+    display: flex;
+    justify-content: center;
+  }
+
+  .headerOne {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headerOne p {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 68px;
+  }
+
+  .ViewMore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

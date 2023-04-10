@@ -1,0 +1,129 @@
+.navbar {
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  position: absolute;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  padding: 50px;
+  border: none;
+  @apply p-5 sm:p-[50px];
+  .social__links {
+    display: flex;
+    list-style: none;
+    position: relative;
+    z-index: 2;
+
+    @apply text-[18px] md:text-[25px] gap-1 md:gap-[16px] lg:gap-[40px];
+  }
+
+  .social__item {
+    width: 20px;
+    cursor: pointer;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    @apply w-[120px] md:w-[350px];
+  }
+@media (max-width:768px) {
+  .logo {
+    position: relative;
+    left: 0%;
+    top: 0%;
+    transform: translate(0%, 0%);
+  }
+}
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0cceff;
+    z-index: 1;
+    transition: top 0.2s ease-out;
+    .list {
+      list-style: none;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 60px;
+      gap: 4%;
+    }
+    .item {
+      color: white;
+      font-size: 40px;
+      font-weight: 900;
+      @apply text-lg sm:text-[40px];
+    }
+  }
+}
+
+.footer {
+  background-color: #0cceff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  @apply mt-11 md:mt-[100px] lg:mt-[150px] py-11 md:py-[80px];
+  
+  .footer__cols {
+    align-items: center;
+    height: 100%;
+  }
+  .footer_links__title {
+    // font-size: 23px;
+    font-weight: 800;
+    color: white;
+    @apply text-[18px] md:text-[20px] lg:text-[40px];
+  }
+
+  .footer__container {
+    height: 100%;
+    max-width: 2000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 14px;
+  }
+
+  .footer_links {
+    color: white;
+    @apply text-[16px] md:text-xl;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      @apply text-[10px] md:text-xl;
+    }
+  }
+  h4 {
+    font-size: 40px;
+    color: white;
+    font-weight: 800;
+  }
+
+  .last__item {
+    display: flex;
+    justify-content: center;
+    & > span {
+      width: 100% !important;
+    }
+  }
+}
+
+.rtl {
+  .navbar {
+    .social__item {
+      margin-right: 0;
+      margin-left: 28px;
+      cursor: pointer;
+    }
+  }
+}

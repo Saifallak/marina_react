@@ -1,0 +1,107 @@
+.category__container {
+  justify-content: space-between;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+    gap: 66px;
+    flex-direction: row;
+  @apply mb-[50px] lg:mb-[160px] md:flex-row flex-col;
+  .ad {
+   
+    height: auto;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-top: 40px;
+    min-width: 230px;
+    @apply sm:w-[230px] w-[100%]
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid #707070;
+    position: relative;
+    width: 100%;
+    @apply mt-[30px] md:mt-[60px] p-3;
+  }
+
+  .item__title {
+    font-weight: 900;
+    padding: 15px 0 21px;
+    @apply text-[14px] md:text-[35px] pl-3;
+  }
+
+  .item__body {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    @apply ml-3 lg:ml-[39px]  mr-2 mb-3 lg:mb-[30px];
+  }
+
+  .desc {
+    align-self: center;
+    flex: 1;
+    place-self: flex-start;
+    @apply text-[14px] md:text-[16px] lg:text-[18px];
+  }
+
+  .buttons {
+    display: flex;
+    
+    margin-right: 20px;
+    @apply justify-center sm:justify-end;
+    button {
+      width: 205px;
+      height: 50px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 900;
+      border-radius: 20px;
+      text-transform: uppercase;
+      @apply w-[100px] lg:w-[180px] h-[34px] lg:h-[50px] mt-3 text-[10px] lg:text-[20px];
+    }
+    .btn1 {
+      margin-right: 41px;
+      border: 1px solid #0cceff;
+      background-color: transparent;
+      @apply text-[#09daff];
+    }
+    .btn2 {
+      @apply text-white bg-[#07e3ff];
+    }
+  }
+  .placeholder__img {
+    width: 366px;
+    height: 366px;
+    background-color: black;
+    @apply w-[60px] md:w-[120px] lg:w-[300px] h-[60px] md:h-[120px] lg:h-[300px];
+  }
+}
+
+.rtl {
+  .category__container {
+    .buttons {
+      right: unset;
+      left: 62px;
+      .btn1 {
+        margin-right: 0;
+        margin-left: 41px;
+      }
+    }
+    .item__body {
+      margin: 0;
+      margin-right: 39px;
+    }
+
+    .desc {
+      margin: 0;
+      margin-right: 31px;
+    }
+  }
+}
