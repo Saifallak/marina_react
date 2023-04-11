@@ -16,9 +16,9 @@ const btn2 = {ar:"احجز",en:"RESERVE"}
       __html: item.desc[locale],
     };
   }
-  const getBackground = (src, alt) => {
+  const getBackground = (src, alt,srcset) => {
     if (!src) return <div className={styles.placeholder__img}></div>;
-    return <Image width={366} height={366} className='max-h-[366px]  max-w-[60%]'  src={src} alt={alt}></Image>;
+    return <Image width={366} height={366} className='max-h-[366px]  max-w-[60%]' srcSet={srcset}  src={src} alt={alt}></Image>;
   };
   return (
     <Grid className={styles.items}>
@@ -30,7 +30,8 @@ const btn2 = {ar:"احجز",en:"RESERVE"}
               <div className={styles.item__body}>
                 {getBackground(
                   item.img_collection.responsive_urls[0],
-                  item.alt
+                  item.name[locale],
+                  item.img_collection.responsive_urls
                 )}
                 <div className="flex flex-col justify-between flex-1">
                   <div

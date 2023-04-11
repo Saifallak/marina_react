@@ -6,7 +6,14 @@ import axios from 'axios';
 //className={router.locale === 'ar' ? 'rtl' : 'ltr'}
 const PageComponent = (props) => {
   //const router = useRouter();
- 
+ /*<Image
+             
+              src={props.hero}
+              srcSet={`${props.srcset}`}
+              alt="sea beach"
+              width="100"
+              height="100"
+            />*/ 
   return (
     <>
       <section

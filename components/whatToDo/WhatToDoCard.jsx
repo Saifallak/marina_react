@@ -8,7 +8,7 @@ const WhatToDoCard = ({ image, titleOne,id, t }) => {
     <div
       className={styles.card}
       style={{
-        backgroundImage: `url("${image}")`
+        backgroundImage: `url(${image[0]})`
       }}
     >
       <div className={styles.contantCard}>

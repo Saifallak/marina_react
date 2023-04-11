@@ -7,6 +7,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const Index = ({data,blogs}) => {
 const {locale} =useRouter()
@@ -37,7 +38,7 @@ const {locale} =useRouter()
                     return(
                       <Link href={`/whatToDo/${item.id}`}>
                   
-                    <img className={styles.cardBlog} src={item.img_collection.responsive_urls[0]}  alt={item.title[locale]}/>
+                    <Image className={styles.cardBlog} src={item.img_collection.responsive_urls[0]} width={'100'} height={'100'} srcSet={item.img_collection.responsive_urls}  alt={item.title[locale]}/>
                   
                 </Link>
                     )
@@ -74,7 +75,7 @@ export async function getStaticPaths() {
   }))
 
   
-  return { paths, fallback: 'blocking' }
+  return { paths, fallback: false }
 }
 
 

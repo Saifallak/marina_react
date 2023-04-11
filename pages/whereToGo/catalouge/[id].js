@@ -60,63 +60,7 @@ const Product = ({ data}) => {
           <a  href={`tel:${data.phone}`} uppercase className={styles.btn}>
           {btn2[locale]}
           </a>
-          {/* <div className={styles.similar}>
-            <h2 style={{ textAlign: "center" }}>SIMILER PLACES</h2>
-            <Grid className={styles.similar__grid} justify={"space-between"}>
-              <Grid.Col span={2}>
-                <Link href={""}>
-                  <Image
-                    alt="similar"
-                    src={module.require(
-                      "/public/Images/destination/37420805_399746423765574_2114855627560845312_n.jpg"
-                    )}
-                  ></Image>
-                </Link>
-              </Grid.Col>
-              <Grid.Col span={2}>
-                <Link href={""}>
-                  <Image
-                    alt="similar"
-                    src={module.require(
-                      "/public/Images/destination/37420805_399746423765574_2114855627560845312_n.jpg"
-                    )}
-                  ></Image>
-                </Link>{" "}
-              </Grid.Col>
-              <Grid.Col span={2}>
-                <Link href={""}>
-                  <Image
-                    alt="similar"
-                    src={module.require(
-                      "/public/Images/destination/37420805_399746423765574_2114855627560845312_n.jpg"
-                    )}
-                  ></Image>
-                </Link>{" "}
-              </Grid.Col>
-              <Grid.Col span={2}>
-                <Link href={""}>
-                  <Image
-                    alt="similar"
-                    src={module.require(
-                      "/public/Images/destination/37420805_399746423765574_2114855627560845312_n.jpg"
-                    )}
-                  ></Image>
-                </Link>{" "}
-              </Grid.Col>
-            </Grid>
-
-            <div className="center">
-              <Link href={"/restaurants"}>
-                <Button
-                  style={{ marginTop: "53px" }}
-                  uppercase
-                  className={styles.btn}
-                >
-                  view more
-                </Button>
-              </Link>
-            </div>
-          </div> */}
+          
         </div>
       </div>
     </PageComponent>
@@ -138,44 +82,3 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
-
-// export async function getStaticPaths() {
-// //   const req = await fetch(`https://admin.marina.com.eg/api/data/catalogs`);
-// //   const products = await req.json();
-// //   const paths = products.map((product) => {
-// //     return {
-// //       params: { id: product.id.toString() },
-// //     };
-// //   });
-// //   return {
-// //     paths,
-// //     fallback: false,
-// //   };
-// // }
-
-// // export async function getStaticProps(context) {
-// //   const { id } = context.params;
-// //   const res = await fetch(
-// //     `https://admin.marina.com.eg/api/data/catalogs/details?id=${id}`
-// //   );
-// //   const product = await res.json();
-// //   return {
-// //     props: { product },
-// //   };
-// // }
-
-// export async function getStaticPaths() {
-//   const elements = await fetch(
-//     'https://admin.marina.com.eg/api/data/catalogs'
-//   ).then((res) => res.json());
-
-//   const paths = elements.map((element) => {
-//     return {
-//       params: { id: element.id.toString() },
-//     };
-//   });
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }

@@ -18,11 +18,11 @@ const Index = ({ blogs }) => {
       <PageComponent styles={styles} title={t('what')} hero={img.src}>
         <section className={styles.sectionOne}>
           <div className="container px-4 mx-auto sm:px-10 mt-11">
-            {blogs.slice(0, NumberSlice).map((blog, index) => (
+            {blogs.map((blog, index) => (
               <WhatToDoCard
                 key={index}
                 id={blog.id}
-                image={blog.img_collection.responsive_urls[0]}
+                image={blog.img_collection.responsive_urls}
                 titleOne={blog.title[locale]}
               t={t}
                
@@ -33,7 +33,7 @@ const Index = ({ blogs }) => {
           <Button
             variant='default'
             className='uppercase bg-black text-white border-none text-sm lg:text-xl h-[40px] lg:h-[60px] px-10 rounded-3xl bottom-1 hover:bg-black block m-auto mt-16 sm:mt-28'
-            onClick={()=> NumberSlice < blogs.length ?  setNumberSlice(NumberSlice + 3) : null }
+           
            
           >
           {t('loadMore')}
