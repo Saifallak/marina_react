@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "@/styles/layout.module.scss";
 import { Container, Grid } from "@mantine/core";
 import Image from "next/image";
-import Logo from "@/public/Images/navbar/logo.svg";
+import Logo from "../../../public/images/navbar/logo.svg";
 import Link from "next/link";
 import { AiOutlineUser } from "react-icons/ai";
 import { useRouter } from "next/router";
@@ -37,9 +37,11 @@ const headTwo = {ar:"تروح فين.",en:"WHERE TO GO?"}
 
 const Index = ({catalog}) => {
   const { data, error } = useSWR('https://admin.marina.com.eg/api/data/catalog_types', fetcher)
-  if (error) return <div>failed to load</div>
   const {locale} = useRouter();
-  return (
+  console.log(data)
+  if (error) return <div>failed to load</div>
+  
+  else  return (
     <div className={styles.footer}>
       <div className={styles.footer__container} fluid px={20}>
         <div className="flex items-center flex-wrap justify-around gap-2">
@@ -92,6 +94,7 @@ const Index = ({catalog}) => {
       </div>
     </div>
   );
+  
 };
 
 export default Index;
