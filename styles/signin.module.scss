@@ -1,0 +1,72 @@
+.sign {
+  background-color:#0CCEFF;
+    min-height: 100vh;
+    
+    h1{
+      color: white;
+
+      @apply text-[50px] font-bold text-center lg:text-start  md:font-black sm:text-[90px] xl:text-[150px]
+      
+    }
+ form{
+  flex: 1;
+  max-width: 670px;
+background-color: white;
+padding: 100px 80px 80px 54px;
+border-radius: 20px;
+@apply p-[20px] sm:pt-[100px] sm:pb-[80px] sm:pr-[80px]  sm:pl-[50px];
+
+ }
+label{
+
+
+@apply text-[20px] font-light sm:text-[30px]  
+}
+
+input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #707070;
+    @apply mb-[20px] sm:mb-[60px]
+}
+input[type="password"]{
+
+  border-bottom: none;
+}
+.pass{
+
+  border-bottom: 1px solid #707070;
+}
+  .btnSign {
+    margin: auto;
+    display: block;
+    margin-top: 68px;
+    background-color: #0CCEFF;
+    height: 80px;
+    border-radius: 20px;
+    width: 260px;
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    @apply w-[180px] sm:w-[260px] h-[58px] sm:h-[80px] text-[18px] sm:text-[30px]
+}
+
+.SignLinks{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+  a{
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+  }
+}
+  }
+  .rtl {
+    .sign {
+      
+    }
+  }
+  

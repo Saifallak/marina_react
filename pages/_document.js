@@ -2,6 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 import { useRouter } from "next/router";
 
 export default function Document(props) {
+
   const router = useRouter;
   const locale = props.__NEXT_DATA__.locale;
   const dir = locale === "ar" ? "rtl" : "ltr";

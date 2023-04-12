@@ -34,9 +34,9 @@ const {locale} =useRouter()
               </span>
               <div className="container flex-wrap mx-auto p-[10px] flex justify-center gap-2">
                 {
-                  SameType.filter(item => item.id !== data.id).map((item)=>{
+                  SameType.filter(item => item.id !== data.id).map((item,i)=>{
                     return(
-                      <Link href={`/whatToDo/${item.id}`}>
+                      <Link key={i} href={`/whatToDo/${item.id}`}>
                   
                     <Image className={styles.cardBlog} src={item.img_collection.responsive_urls[0]} width={'100'} height={'100'} srcSet={item.img_collection.responsive_urls}  alt={item.title[locale]}/>
                   
@@ -66,45 +66,24 @@ export default Index;
 
 
 
-export async function getStaticPaths() {
-  const res = await fetch('https://admin.marina.com.eg/api/data/blogs')
-  const blogs = await res.json()
-
-  const paths = blogs.map((blog) => ({
-    params: { id: `${blog.id}` },
-  }))
-
-  
-  return { paths, fallback: false }
-}
 
 
-
-export const getStaticProps = async (context) => {
-
+export async function getServerSideProps  (context)  {
   const blogs = await fetch('https://admin.marina.com.eg/api/data/blogs').then(
     (res) => res.json()
   );
-
-
   const url = new URL(
     `https://admin.marina.com.eg/api/data/blog_details?blog_id=${context.params.id}`
 );
-
-
   const data = await fetch(
     url
   ).then((res) => res.json());
-
   
-
-
-
   return {
     props: {
-      data: data,
+      data,
       blogs,
       ...(await serverSideTranslations(context.locale, ['blog', 'common'])),
-    },
+    }
   };
 };

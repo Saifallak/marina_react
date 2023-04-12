@@ -11,6 +11,7 @@ import { useTranslation } from "next-i18next";
 const Index = ({ data, CurrentCatalouge }) => {
   const { locale } = useRouter();
   const { t } = useTranslation();
+  
   return (
     <PageComponent
       styles={styles}
@@ -31,20 +32,9 @@ const Index = ({ data, CurrentCatalouge }) => {
 export default dynamic(() => Promise.resolve(Index), { ssr: false });
 
 /*====================================*/
-export async function getStaticPaths() {
-  const res = await fetch(
-    "https://admin.marina.com.eg/api/data/catalog_types?with_catalogs=1"
-  );
-  const blogs = await res.json();
 
-  const paths = blogs.map((blog) => ({
-    params: { id: `${blog.id}` },
-  }));
 
-  return { paths, fallback: false };
-}
-
-export const getStaticProps = async (context) => {
+export async function getStaticProps  (context)  {
   const Catalog_type_id = context.params.id;
   const res = await fetch(
     `https://admin.marina.com.eg/api/data/catalogs?catalog_type_id=${Catalog_type_id}`
@@ -55,7 +45,7 @@ export const getStaticProps = async (context) => {
     "https://admin.marina.com.eg/api/data/catalog_types?with_catalogs=1"
   );
   const blogs = await res2.json();
-
+  
   const CurrentCatalouge = blogs.find((item) => item.id == Catalog_type_id);
   return {
     props: {
@@ -68,3 +58,19 @@ export const getStaticProps = async (context) => {
     },
   };
 };
+export async function getStaticPaths() {
+  const res = await fetch(
+    "https://admin.marina.com.eg/api/data/catalog_types?with_catalogs=1"
+  );
+  const blogs = await res.json();
+console.log(blogs)
+  const paths = blogs.map((blog) => {
+    return{
+      params:  {id: `${blog.id}`}  
+    }
+    
+   
+});
+ 
+  return { paths, fallback: true };
+}

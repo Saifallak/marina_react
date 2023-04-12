@@ -7,7 +7,7 @@ const Index = (props) => {
  
   return (
     <div className={router.locale === 'ar' ? 'rtl' : "ltr"}>
-      <Navbar />
+      
       {props.children}
     </div>
   );

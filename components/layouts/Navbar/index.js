@@ -21,7 +21,7 @@ const navLinks = [
   { href: "/whereToGo", title: {en:"WHERE TO GO?" , ar:"تروح فين؟"} },
 ];
 
-const Index = () => {
+const Index = ({colorr ,pos}) => {
   const [isNavOpen, setIsNavOpen] = useRecoilState(navState);
 
 const {locale} = useRouter();
@@ -31,7 +31,7 @@ const {locale} = useRouter();
       mt={20}
       px={20}
       className={styles.navbar}
-      
+      style={colorr&&pos&&{backgroundColor:colorr,position:pos}}
       height={64}
     >
       <Hamburger />

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Footer from '@/components/layouts/Footer/Index';
 import ProgressiveImage from 'react-progressive-graceful-image';
 import axios from 'axios';
+import Navbar from './layouts/Navbar/index'
 //className={router.locale === 'ar' ? 'rtl' : 'ltr'}
 const PageComponent = (props) => {
   //const router = useRouter();
@@ -16,6 +17,7 @@ const PageComponent = (props) => {
             />*/ 
   return (
     <>
+    <Navbar/>
       <section
         className="page__header"
         style={{ maxHeight: '120vh', overflow: 'hidden' }}

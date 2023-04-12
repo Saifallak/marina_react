@@ -16,7 +16,7 @@ const SocialLinks = () => {
       locale: locale === 'en' ? 'ar' : 'en',
     });
   };
-
+    
   return (
     <ul className={styles.social__links}>
       <li className={styles.social__item}>
@@ -41,9 +41,9 @@ const SocialLinks = () => {
         </a>
       </li>
       <li className={styles.social__item}>
-        <a className={styles.social__link}>
+        <Link className={styles.social__link} href='/signin'>
           <FontAwesomeIcon icon={faUser} color="white" />
-        </a>
+        </Link>
       </li>
       <li className={styles.social__item}>
        
