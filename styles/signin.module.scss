@@ -1,11 +1,11 @@
 .sign {
   background-color:#0CCEFF;
     min-height: 100vh;
-    
+    padding-bottom: 40px;
     h1{
       color: white;
-
-      @apply text-[50px] font-bold text-center lg:text-start  md:font-black sm:text-[90px] xl:text-[150px]
+max-width: 586px;
+      @apply text-[50px] m-auto font-bold text-center lg:text-start  md:font-black sm:text-[90px] xl:text-[150px]
       
     }
  form{
@@ -14,9 +14,12 @@
 background-color: white;
 padding: 100px 80px 80px 54px;
 border-radius: 20px;
+width: 100%;
+margin: auto;
 @apply p-[20px] sm:pt-[100px] sm:pb-[80px] sm:pr-[80px]  sm:pl-[50px];
 
  }
+ 
 label{
 
 
@@ -27,15 +30,18 @@ input{
     background: transparent;
     border: none;
     border-bottom: 1px solid #707070;
-    @apply mb-[20px] sm:mb-[60px]
+    border-radius: 0;
+    @apply mb-[20px] sm:mb-[60px] text-[18px] sm:text-[22px];
+    
 }
 input[type="password"]{
 
   border-bottom: none;
 }
 .pass{
-
+direction: ltr;
   border-bottom: 1px solid #707070;
+  margin-bottom: 20px;
 }
   .btnSign {
     margin: auto;
@@ -63,10 +69,38 @@ input[type="password"]{
     font-weight: bold;
   }
 }
+
+.form3{
+  input{
+    @apply mb-[20px] ;
+  }
+}
+.div_img{
+  display: flex;
+  justify-content: end;
+  .img1 {
+    max-width: 70%;
+    border: 1px #707070 solid;
+    height: auto;
+    border-radius: 30px;
+    width: 156px;
+    height: 156px;
+  
+  }
+}
+.img2 {
+  max-width: 70%;
+  border: 1px #FFFFFF solid;
+  height: auto;
+  border-radius: 30px;
+  width: 300px;
+  height: 300px;
+  @apply hidden xl:block ;
+}
   }
   .rtl {
     .sign {
-      
+    
     }
   }
   

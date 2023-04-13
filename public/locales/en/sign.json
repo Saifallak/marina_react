@@ -1,0 +1,21 @@
+{
+    "signin" : "SIGN IN ",
+    "signin2" : "SIGN IN ",
+    "username" : "Username",
+    "password":"Password",
+    "signup":"SIGN UP",
+    "forget":"FORGOT YOUR PASSWORD?",
+    "unit":"unit number",
+    "phone":"phone number",
+    "otp":"OTP",
+    "confirm":"CONFIRM",
+    "email":"Email",
+    "date":"Date Of Birth",
+    "gender":"Gender",
+    "national":"National ID",
+    "full":"Full Name",
+    "update":"INFO \n UPDATE",
+    "reset":"PASS \n RESET",
+    "btnreset":"RESET"
+    
+}
