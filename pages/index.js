@@ -26,7 +26,7 @@ export default function Home({ catalog, blogs }) {
       <Navbar />
       <main>
         <section className={styles.home}>
-          <ProgressiveImage src="/Images/home/hero.jpg" placeholder="loading">
+          <ProgressiveImage src="/images/home/hero.jpg" placeholder="loading">
             {(src, loading) => (
               <img
                 className={`image${loading ? " loading" : " loaded"}`}
