@@ -2,7 +2,7 @@ import PageComponent from "@/components/PageComponent";
 import WhereToGoCard from "@/components/whereToGo/WhereToGoCard";
 import styles from "@/styles/whereToGo.module.scss";
 import { Grid } from "@mantine/core";
-import img from "../../public/Images/whereToGo/dan-gold-E6HjQaB7UEA-unsplash.jpg";
+import img from "../../public/images/whereToGo/dan-gold-E6HjQaB7UEA-unsplash.jpg";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import dynamic from "next/dynamic";

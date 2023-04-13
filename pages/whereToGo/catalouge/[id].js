@@ -1,10 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import PageComponent from '@/components/PageComponent';
-import { Button, Container, Grid } from '@mantine/core';
-import React, { useState, useContext } from 'react';
-import img from '@/public/Images/destination/119277797_1463920827128195_1627776416064335089_n.jpg';
+import React from 'react';
 import styles from '@/styles/destination.module.scss';
-import galleryImage from '@/public/Images/destination/207953735_1689188864601389_2045187446582029162_n.jpg';
 import Image from 'next/image';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';

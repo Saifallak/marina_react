@@ -1,7 +1,7 @@
 import { Button, Container, Grid } from '@mantine/core';
 import React from 'react';
 import styles from '@/styles/mangment.module.scss';
-import img from '@/public/Images/mangment/jamie-street-gZlQZFCA1Vc-unsplash.png';
+import img from '@/public/images/mangment/jamie-street-gZlQZFCA1Vc-unsplash.png';
 import PageComponent from '@/components/PageComponent';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';

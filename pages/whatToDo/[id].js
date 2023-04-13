@@ -2,7 +2,7 @@ import { Button, Container, Grid } from '@mantine/core';
 import React from 'react';
 import styles from '@/styles/blog.module.scss';
 import PageComponent from '@/components/PageComponent';
-import img from '@/public/Images/blog/frank-mckenna-eXHeq48Z-Q4-unsplash.jpg';
+import img from '@/public/images/blog/frank-mckenna-eXHeq48Z-Q4-unsplash.jpg';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';

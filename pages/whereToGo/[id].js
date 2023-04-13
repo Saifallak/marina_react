@@ -2,7 +2,7 @@ import CategoryGrid from "@/components/Categories/CategoryGrid";
 import PageComponent from "@/components/PageComponent";
 import { Container } from "@mantine/core";
 import styles from "@/styles/categories.module.scss";
-import img from "@/public/Images/categories/usman-yousaf-MP9W9DtdoBI-unsplash.jpg";
+import img from "@/public/images/categories/usman-yousaf-MP9W9DtdoBI-unsplash.jpg";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";

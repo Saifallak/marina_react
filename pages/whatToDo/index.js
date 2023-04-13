@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '@/styles/whatToDo.module.scss';
-import img from '@/public/Images/whatToDo/daan-evers-tKN1WXrzQ3s-unsplash.jpg';
+import img from '@/public/images/whatToDo/daan-evers-tKN1WXrzQ3s-unsplash.jpg';
 import PageComponent from '@/components/PageComponent';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
