@@ -58,19 +58,22 @@ export async function getStaticProps  (context)  {
     },
   };
 };
-export async function getStaticPaths() {
+export async function getStaticPaths({locales}) {
   const res = await fetch(
     "https://admin.marina.com.eg/api/data/catalog_types?with_catalogs=1"
   );
   const blogs = await res.json();
-console.log(blogs)
-  const paths = blogs.map((blog) => {
-    return{
-      params:  {id: `${blog.id}`}  
-    }
-    
-   
-});
- 
-  return { paths, fallback: true };
+
+  const paths = []
+  blogs.map((element) => {
+    return locales.map((locale) => {
+      return paths.push({
+        params: { id: `${element.id}` },
+        locale,
+      })
+    })
+  })
+  return { paths, fallback: false };
 }
+
+
