@@ -9,20 +9,6 @@ import img from '../../public/images/about/pawel-nolbert-xe-ss5Tg2mo-unsplash.jp
 const Index = () => {
   const { t } = useTranslation('about');
 
-  {
-    /*
-    const { t } = useTranslation('about');
-  const [posts, setPosts] = useState([]);
-  const apiEndPoint = 'https://admin.marina.com.eg/api/data/blogs';
-  useEffect(() => {
-    const getPosts = async () => {
-      const { data: res } = await axios.get(apiEndPoint);
-      setPosts(res);
-    };
-    getPosts();
-  }, []);
-    */ 
-  }
 
   return (
     <>

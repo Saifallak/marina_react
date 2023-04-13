@@ -34,7 +34,7 @@ export default dynamic(() => Promise.resolve(Index), { ssr: false });
 /*====================================*/
 
 
-export async function getStaticProps  (context)  {
+export async function getServerSideProps (context)  {
   const Catalog_type_id = context.params.id;
   const res = await fetch(
     `https://admin.marina.com.eg/api/data/catalogs?catalog_type_id=${Catalog_type_id}`
@@ -58,22 +58,6 @@ export async function getStaticProps  (context)  {
     },
   };
 };
-export async function getStaticPaths({locales}) {
-  const res = await fetch(
-    "https://admin.marina.com.eg/api/data/catalog_types?with_catalogs=1"
-  );
-  const blogs = await res.json();
 
-  const paths = []
-  blogs.map((element) => {
-    return locales.map((locale) => {
-      return paths.push({
-        params: { id: `${element.id}` },
-        locale,
-      })
-    })
-  })
-  return { paths, fallback: false };
-}
 
 

@@ -133,7 +133,7 @@ export default function Home({ catalog, blogs }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps  (context) {
   const blogs = await fetch(
     "https://admin.marina.com.eg/api/data/blogs?id=2"
   ).then((res) => res.json());

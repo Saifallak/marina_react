@@ -63,30 +63,7 @@ const {locale} =useRouter()
 };
 
 export default Index;
-
-
-export async function getStaticPaths({locales}) {
-  const res = await fetch('https://admin.marina.com.eg/api/data/blogs')
-  const blogs = await res.json()
-
-
-
-  const paths = []
-  blogs.map((element) => {
-    return locales.map((locale) => {
-      return paths.push({
-        params: { id: `${element.id}` },
-        locale,
-      })
-    })
-  })
-  return { paths, fallback: false };
-}
-
-
-
-
-export async function getStaticProps   (context)  {
+export async function getServerSideProps     (context)  {
   const blogs = await fetch('https://admin.marina.com.eg/api/data/blogs').then(
     (res) => res.json()
   );
