@@ -86,7 +86,7 @@ export async function getStaticPaths({locales}) {
 
 
 
-export async function getStaticProps   (context)  {
+export async function getServerSideProps   (context)  {
   const blogs = await fetch('https://admin.marina.com.eg/api/data/blogs').then(
     (res) => res.json()
   );

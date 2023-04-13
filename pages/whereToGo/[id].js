@@ -34,7 +34,7 @@ export default dynamic(() => Promise.resolve(Index), { ssr: false });
 /*====================================*/
 
 
-export async function getStaticProps  (context)  {
+export async function getServerSideProps  (context)  {
   const Catalog_type_id = context.params.id;
   const res = await fetch(
     `https://admin.marina.com.eg/api/data/catalogs?catalog_type_id=${Catalog_type_id}`
