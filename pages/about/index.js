@@ -5,7 +5,7 @@ import PageComponent from '@/components/PageComponent';
 import { t } from 'i18next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import img from '../../public/Images/about/pawel-nolbert-xe-ss5Tg2mo-unsplash.jpg';
+import img from '../../public/images/about/pawel-nolbert-xe-ss5Tg2mo-unsplash.jpg';
 const Index = () => {
   const { t } = useTranslation('about');
 
