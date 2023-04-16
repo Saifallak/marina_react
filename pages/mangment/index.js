@@ -1,23 +1,22 @@
-import { Button, Container, Grid } from '@mantine/core';
-import React from 'react';
-import styles from '@/styles/mangment.module.scss';
-import img from '@/public/images/mangment/jamie-street-gZlQZFCA1Vc-unsplash.png';
-import PageComponent from '@/components/PageComponent';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
+import React from "react";
+import styles from "@/styles/mangment.module.scss";
+import img from "@/public/images/mangment/jamie-street-gZlQZFCA1Vc-unsplash.png";
+import PageComponent from "@/components/PageComponent";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const Index = () => {
- const { t } = useTranslation('mangment');
+  const { t } = useTranslation("mangment");
   return (
     <>
-      <PageComponent styles={styles} title={t('mangment')} hero={img.src}>
+      <PageComponent styles={styles} title={t("mangment")} hero={img.src}>
         <span className="text-2xl sm:text-4xl md:text-8xl text-[#3a3a3a] font-extrabold text-center">
-          <p className="mt-6 md:mt-[100px]  mb-11">{t('border')}</p>
+          <p className="mt-6 md:mt-[100px]  mb-11">{t("border")}</p>
         </span>
         <div className="container mx-auto">
           <div className={styles.CardOne}>
             <p>
-              SAFWA <br></br>EL NAHAS{' '}
+              SAFWA <br></br>EL NAHAS{" "}
             </p>
           </div>
           <div className={styles.imgContainerTwo}>
@@ -43,7 +42,7 @@ const Index = () => {
                 </p>
               </div>
               <div className={styles.CardFour}>
-                {' '}
+                {" "}
                 <p>
                   HATEM <br />
                   MAHMOUD
@@ -174,11 +173,10 @@ const Index = () => {
 
 export default Index;
 
-
 export const getServerSideProps = async (context) => {
   return {
     props: {
-      ...(await serverSideTranslations(context.locale, ['mangment', 'common'])),
+      ...(await serverSideTranslations(context.locale, ["mangment", "common"])),
     },
   };
 };

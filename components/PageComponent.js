@@ -1,32 +1,20 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import Footer from '@/components/layouts/Footer/Index';
-import ProgressiveImage from 'react-progressive-graceful-image';
-import axios from 'axios';
-import Navbar from './layouts/Navbar/index'
-//className={router.locale === 'ar' ? 'rtl' : 'ltr'}
+import React from "react";
+import Footer from "@/components/layouts/Footer/Index";
+import ProgressiveImage from "react-progressive-graceful-image";
+import Navbar from "./layouts/Navbar/index";
+
 const PageComponent = (props) => {
-  //const router = useRouter();
- /*<Image
-             
-              src={props.hero}
-              srcSet={`${props.srcset}`}
-              alt="sea beach"
-              width="100"
-              height="100"
-            />*/ 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <section
         className="page__header"
-        style={{ maxHeight: '120vh', overflow: 'hidden' }}
+        style={{ maxHeight: "120vh", overflow: "hidden" }}
       >
-        {/* <img src= alt='' /> */}
         <ProgressiveImage src={props.hero} placeholder="loading">
           {(src, loading) => (
             <img
-              className={`image${loading ? ' loading' : ' loaded'}`}
+              className={`image${loading ? " loading" : " loaded"}`}
               src={src}
               alt="sea beach"
               width="100%"
@@ -50,14 +38,12 @@ const PageComponent = (props) => {
           )}
         </div>
       </section>
-      <div >
+      <div>
         {props.children}
-        <Footer ></Footer>
+        <Footer></Footer>
       </div>
     </>
   );
 };
 
 export default PageComponent;
-
-

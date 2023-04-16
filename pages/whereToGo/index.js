@@ -10,28 +10,24 @@ import { useRouter } from "next/router";
 const { Col } = Grid;
 
 const Index = ({ Catalog }) => {
-const {locale} =useRouter()
-  
-  
+  const { locale } = useRouter();
 
-  
- const { t } = useTranslation("whereToGo");
+  const { t } = useTranslation("whereToGo");
   return (
     <PageComponent styles={styles} title={t("whereToGo")} hero={img.src}>
       <div className="container mx-auto px-4 sm:px-10 mt-[100px]">
         {Catalog.map((row, i) => {
-          return (
-            row.catalogs.length ? 
+          return row.catalogs.length ? (
             <div key={i} className="flex flex-col mb-[100px]">
-            <h2
-              key={i}
-              className="mb-2 text-2xl font-extrabold md:text-7xl md:mb-10"
-            >
-              {row.name[locale]}
-            </h2>
-            
-            <div className="flex flex-wrap gap-3 md:gap-6">
-              {row.catalogs.slice(0, 3).map((item, i) => {
+              <h2
+                key={i}
+                className="mb-2 text-2xl font-extrabold md:text-7xl md:mb-10"
+              >
+                {row.name[locale]}
+              </h2>
+
+              <div className="flex flex-wrap gap-3 md:gap-6">
+                {row.catalogs.slice(0, 3).map((item, i) => {
                   return (
                     <WhereToGoCard
                       key={i}
@@ -41,23 +37,11 @@ const {locale} =useRouter()
                     />
                   );
                 })}
-              {/* <WhereToGoCard
-               
-                image="/images/whereToGo/dan-gold-E6HjQaB7UEA-unsplash.jpg"
-              />
-              <WhereToGoCard
-                link="/catalouge"
-                image="/images/whereToGo/dan-gold-E6HjQaB7UEA-unsplash.jpg"
-              />
-              <WhereToGoCard
-                link="/catalouge"
-                image="/images/whereToGo/dan-gold-E6HjQaB7UEA-unsplash.jpg"
-              /> */}
-              <WhereToGoCard link={`/whereToGo/${row.id}`} image="" />
+
+                <WhereToGoCard link={`/whereToGo/${row.id}`} image="" />
+              </div>
             </div>
-          </div> :null
-            
-          );
+          ) : null;
         })}
       </div>
     </PageComponent>
@@ -73,7 +57,10 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       Catalog,
-      ...(await serverSideTranslations(context.locale, ['whereToGo', 'common'])),
+      ...(await serverSideTranslations(context.locale, [
+        "whereToGo",
+        "common",
+      ])),
     },
   };
 };

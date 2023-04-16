@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import HomeCard from "@/components/home/HomeCard";
 import styles from "@/styles/Home.module.scss";
 import Logo from ".././public/images/navbar/logo.svg";
@@ -10,7 +9,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import ProgressiveImage from "react-progressive-graceful-image";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Navbar from '../components/layouts/Navbar/index'
+import Navbar from "../components/layouts/Navbar/index";
 const { Col } = Grid;
 export default function Home({ catalog, blogs }) {
   const { t } = useTranslation("home");
@@ -133,7 +132,7 @@ export default function Home({ catalog, blogs }) {
   );
 }
 
-export async function getServerSideProps  (context) {
+export async function getServerSideProps(context) {
   const blogs = await fetch(
     "https://admin.marina.com.eg/api/data/blogs?id=2"
   ).then((res) => res.json());

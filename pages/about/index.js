@@ -1,25 +1,24 @@
-import { Container, Grid } from '@mantine/core';
-import React, { useEffect, useState } from 'react';
-import styles from '@/styles/about.module.scss';
-import PageComponent from '@/components/PageComponent';
-import { t } from 'i18next';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import img from '../../public/images/about/pawel-nolbert-xe-ss5Tg2mo-unsplash.jpg';
-const Index = () => {
-  const { t } = useTranslation('about');
+import { Container } from "@mantine/core";
+import React from "react";
+import styles from "@/styles/about.module.scss";
+import PageComponent from "@/components/PageComponent";
 
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import img from "../../public/images/about/pawel-nolbert-xe-ss5Tg2mo-unsplash.jpg";
+const Index = () => {
+  const { t } = useTranslation("about");
 
   return (
     <>
-      <PageComponent styles={styles} title={t('about')} hero={img.src}>
+      <PageComponent styles={styles} title={t("about")} hero={img.src}>
         <div className="container mx-auto sm:px-10">
           <section className={styles.sectionOne}>
             <div>
               <span className="font-extrabold text-4xl md:text-6xl lg:text-8xl text-[#3a3a3a] leading-tight">
-              {t('how')}
- <br></br>
- {t('all')}
+                {t("how")}
+                <br></br>
+                {t("all")}
               </span>
 
               <p className=" text-xl sm:pr-4 text-[#3a3a3a] leading-relaxed mt-6 sm:mt-11">
@@ -51,10 +50,10 @@ const Index = () => {
             <Container fluid px={20}>
               <span className="block text-white text-center text-3xl md:text-6xl lg:text-8xl font-bold leading-tight mb-6 md:mb-[60px]">
                 <p className="">
-                  {' '}
-                  {t('marina')}
- <br></br>
- {t('tourism')}
+                  {" "}
+                  {t("marina")}
+                  <br></br>
+                  {t("tourism")}
                 </p>
               </span>
             </Container>
@@ -97,11 +96,10 @@ const Index = () => {
           <div className="mt-[100px]">
             <div className="text-2xl md:text-6xl lg:text-7xl text-[#3a3a3a] mt-6 mb-11 font-extrabold leading-tight">
               <p>
-               {t('textOne')}
+                {t("textOne")}
 
-
-                <span>  {t('textTwo')} </span>
-                <span className={styles.lastSpan}> {t('textThree')}</span>
+                <span> {t("textTwo")} </span>
+                <span className={styles.lastSpan}> {t("textThree")}</span>
               </p>
             </div>
           </div>
@@ -109,10 +107,10 @@ const Index = () => {
           <div>
             <div className="flex ">
               <div className={styles.imgOne}>
-                <p className="text-xl sm:text-6xl mb-24">{t('marqiaImg')}</p>
+                <p className="text-xl sm:text-6xl mb-24">{t("marqiaImg")}</p>
               </div>
               <div className={styles.imgTwo}>
-                <p className="text-xl sm:text-6xl mb-24">{t('marinaImg')}</p>
+                <p className="text-xl sm:text-6xl mb-24">{t("marinaImg")}</p>
               </div>
             </div>
           </div>
@@ -127,7 +125,7 @@ export default Index;
 export const getServerSideProps = async (context) => {
   return {
     props: {
-      ...(await serverSideTranslations(context.locale, ['about', 'common'])),
+      ...(await serverSideTranslations(context.locale, ["about", "common"])),
     },
   };
 };

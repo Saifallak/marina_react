@@ -1,7 +1,7 @@
 import PageUser from "@/components/PageUser";
 import React from "react";
 import styles from "@/styles/signin.module.scss";
-import { Container, PasswordInput, TextInput } from "@mantine/core";
+import { PasswordInput, TextInput } from "@mantine/core";
 import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -30,7 +30,7 @@ function index() {
             </div>
 
             <button type="submit" className={styles.btnSign}>
-            {t("signin")}
+              {t("signin")}
             </button>
             <div className={styles.SignLinks}>
               <Link href={"/signup"}>{t("signup")}</Link>

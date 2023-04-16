@@ -4,7 +4,7 @@ import styles from "@/styles/signin.module.scss";
 import { NumberInput, PasswordInput, TextInput } from "@mantine/core";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import img from '@/public/images/navbar/persone.png'
+import img from "@/public/images/navbar/persone.png";
 function index() {
   const { t } = useTranslation("sign");
   return (
@@ -14,7 +14,7 @@ function index() {
           <h1>{t("signup")}</h1>
           <form className={styles.form3}>
             <div className={styles.div_img}>
-                <img src={img.src} className={styles.img1} alt="persone"/>
+              <img src={img.src} className={styles.img1} alt="persone" />
             </div>
             <div className="mt-2">
               <TextInput label={t("username")} radius="xs" />
@@ -36,7 +36,7 @@ function index() {
             </div>
 
             <div className="mt-2">
-            <TextInput label={t("gender")} radius="xs" />
+              <TextInput label={t("gender")} radius="xs" />
             </div>
 
             <div className="mt-2 ">

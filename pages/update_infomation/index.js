@@ -1,10 +1,10 @@
 import PageUser from "@/components/PageUser";
 import React from "react";
 import styles from "@/styles/signin.module.scss";
-import { NumberInput, PasswordInput, TextInput } from "@mantine/core";
+import { NumberInput, TextInput } from "@mantine/core";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import img from '@/public/images/navbar/persone.png'
+import img from "@/public/images/navbar/persone.png";
 function index() {
   const { t } = useTranslation("sign");
   return (
@@ -12,14 +12,13 @@ function index() {
       <PageUser>
         <div className=" container mt-[24px] md:mt-[100px] gap-[30px]  mx-auto flex justify-between items-stretch lg:items-center flex-col   xl:flex-row-reverse	">
           <div className="flex flex-col gap-[30px]">
-          <div className="">
-                <img src={img.src} className={styles.img2} alt="persone"/>
+            <div className="">
+              <img src={img.src} className={styles.img2} alt="persone" />
             </div>
             <h1>{t("update")}</h1>
           </div>
-          
+
           <form className={styles.form3}>
-            
             <div className="mt-2">
               <TextInput label={t("username")} radius="xs" />
             </div>
@@ -37,7 +36,7 @@ function index() {
             </div>
 
             <div className="mt-2">
-            <TextInput label={t("gender")} radius="xs" />
+              <TextInput label={t("gender")} radius="xs" />
             </div>
 
             <div className="mt-2 ">

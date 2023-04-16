@@ -2,10 +2,8 @@ import PageUser from "@/components/PageUser";
 import React from "react";
 import styles from "@/styles/signin.module.scss";
 import { NumberInput, TextInput } from "@mantine/core";
-
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-
 
 function index() {
   const { t } = useTranslation("sign");
@@ -17,11 +15,10 @@ function index() {
           <form>
             <div>
               <div className="mt-2 ">
-              <TextInput label={t("email")} radius="xs" />
+                <TextInput label={t("email")} radius="xs" />
               </div>
               <div className="mt-2 ">
-              <NumberInput label={t("unit")} radius="xs" hideControls />
-
+                <NumberInput label={t("unit")} radius="xs" hideControls />
               </div>
             </div>
 

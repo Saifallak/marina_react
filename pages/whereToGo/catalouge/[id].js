@@ -1,27 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
-import PageComponent from '@/components/PageComponent';
-import React from 'react';
-import styles from '@/styles/destination.module.scss';
-import Image from 'next/image';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
+import PageComponent from "@/components/PageComponent";
+import React from "react";
+import styles from "@/styles/destination.module.scss";
+import Image from "next/image";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 
-const Product = ({ data}) => {
-  const btn2 = {ar:"احجز",en:"RESERVE"}
+const Product = ({ data }) => {
+  const btn2 = { ar: "احجز", en: "RESERVE" };
 
-  const {locale} = useRouter()
+  const { locale } = useRouter();
   function createMarkup(item) {
     return {
-      __html: locale === 'en' ? item.desc.en : item.desc.ar,
+      __html: locale === "en" ? item.desc.en : item.desc.ar,
     };
   }
 
   return (
     <PageComponent
       styles={styles}
-      title={locale === 'en' ? data.name.en : data.name.ar}
+      title={locale === "en" ? data.name.en : data.name.ar}
       hero={data.cover_collection.responsive_urls[0]}
     >
       <div className="container px-4 mx-auto sm:px-10 mt-11">
@@ -53,11 +53,10 @@ const Product = ({ data}) => {
             </ul>
           </div>
           <p dangerouslySetInnerHTML={createMarkup(data)} />
-         
-          <a  href={`tel:${data.phone}`} uppercase className={styles.btn}>
-          {btn2[locale]}
+
+          <a href={`tel:${data.phone}`} uppercase className={styles.btn}>
+            {btn2[locale]}
           </a>
-          
         </div>
       </div>
     </PageComponent>
@@ -74,7 +73,6 @@ export const getServerSideProps = async (context) => {
   const data = await res.json();
   return {
     props: {
-      
       data,
     },
   };
