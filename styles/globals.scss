@@ -23,7 +23,9 @@ a {
   box-sizing: border-box;
   margin: 0;
 }
-
+span.mantine-1rxml5w.mantine-Accordion-chevron {
+  display: none;
+}
 .rtl {
   direction: rtl;
   * {
@@ -97,4 +99,9 @@ a {
   &.loaded {
     height: 100%;
   }
+}
+.mantine-DatePickerInput-input{
+  border: 2px solid #0CCEFF;
+  border-radius: 20px;
+  padding: 0px 30px;
 }

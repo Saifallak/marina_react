@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/layout.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket, faPhone, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Cookies from "js-cookie";
 
 const SocialLinks = () => {
   const router = useRouter();
@@ -14,7 +15,8 @@ const SocialLinks = () => {
       locale: locale === "en" ? "ar" : "en",
     });
   };
-
+  const opened = Cookies.get("access_token")?true:false;
+ 
   return (
     <ul className={styles.social__links}>
       <li className={styles.social__item}>
@@ -40,7 +42,10 @@ const SocialLinks = () => {
       </li>
       <li className={styles.social__item}>
         <Link className={styles.social__link} href="/signin">
-          <FontAwesomeIcon icon={faUser} color="white" />
+          {
+          
+          opened ? <FontAwesomeIcon icon={faArrowRightFromBracket} color="white"/> :<FontAwesomeIcon icon={faUser} color="white" />
+          }
         </Link>
       </li>
       <li className={styles.social__item}>

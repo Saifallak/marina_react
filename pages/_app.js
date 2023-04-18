@@ -1,10 +1,12 @@
 
 import '../styles/globals.scss';
 import Layout from '@/components/layouts/index';
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot} from 'recoil';
 import { appWithTranslation } from 'next-i18next';
 function App({ Component, pageProps }) {
 
+  
+  
   return (
     <RecoilRoot>
     <Layout>

@@ -10,10 +10,13 @@ import { useRouter } from "next/router";
 import ProgressiveImage from "react-progressive-graceful-image";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Navbar from "../components/layouts/Navbar/index";
+
 const { Col } = Grid;
 export default function Home({ catalog, blogs }) {
   const { t } = useTranslation("home");
   const { locale } = useRouter();
+
+ 
   return (
     <>
       <Head>
@@ -21,6 +24,8 @@ export default function Home({ catalog, blogs }) {
         <meta name="description" content="Marina" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
+        <script src="/prebid7.45.0.js"></script>
       </Head>
       <Navbar />
       <main>
@@ -126,6 +131,7 @@ export default function Home({ catalog, blogs }) {
           <a className={styles.footer_logo}>
             <Image src={Logo} alt="logo"></Image>
           </a>
+       
         </section>
       </main>
     </>

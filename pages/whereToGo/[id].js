@@ -6,11 +6,15 @@ import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
+
 const Index = ({ data, CurrentCatalouge }) => {
   const { locale } = useRouter();
   const { t } = useTranslation();
+ 
+  return ( 
+    <>
 
-  return (
+    
     <PageComponent
       styles={styles}
       title={CurrentCatalouge.name[locale]}
@@ -21,9 +25,15 @@ const Index = ({ data, CurrentCatalouge }) => {
         className={`${styles.category__container} container mx-auto  px-4 sm:px-10 mt-11 flex flex-col`}
       >
         <CategoryGrid items={data} t={t}></CategoryGrid>
-        <div className={styles.ad}>AD AREA</div>
+        <div className={styles.ad}>
+        <div id='div-1'>
+            
+        </div>
+
+        </div>
       </div>
     </PageComponent>
+    </>
   );
 };
 
