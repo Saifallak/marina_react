@@ -24,8 +24,7 @@ export default function Home({ catalog, blogs }) {
         <meta name="description" content="Marina" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
-        <script src="/prebid7.45.0.js"></script>
+       
       </Head>
       <Navbar />
       <main>

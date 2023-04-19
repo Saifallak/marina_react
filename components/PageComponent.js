@@ -22,7 +22,7 @@ const PageComponent = (props) => {
             />
           )}
         </ProgressiveImage>
-        <div className="page__overlay"></div>
+       { props.over ? null: <div className="page__overlay"></div>}
         <div className="flex-col page__hero__content">
           <h1 className="page__title">{props.title}</h1>
           {props.button && (

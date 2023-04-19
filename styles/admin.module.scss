@@ -1,0 +1,65 @@
+.admin{
+    margin-top: 70px;
+    .addnew{
+
+
+        h2{
+            width: 100%;
+            border-radius: 20px;
+            background-color: #0CCEFF;
+            color: white;
+            margin-bottom: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @apply text-[26px] h-[100px] lg:h-[208px] lg:text-[50px] font-black ;
+        }
+        .carts{
+display: flex;
+flex-direction: column;
+gap: 26px;
+margin-bottom: 60px;
+            .cart{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                
+                gap: 16px;
+border: 10px solid #0CCEFF;
+border-radius: 20px;
+padding: 10px 40px;
+@apply py-[6px] md:py-[10px]  px-[16px] lg:px-[50px] ;
+span{
+    display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #707070;
+            
+    height: 160px;
+    width: 160px;
+    color: #0CCEFF;
+    @apply text-[30px] px-[2px]  lg:text-[54px] font-black;
+}
+h3{
+    align-self: center;
+      color: #0CCEFF;
+    @apply text-[20px]  lg:text-[40px] font-black;
+}
+h4{
+    align-self: center;
+      color: #0CCEFF;
+    @apply text-[20px]  lg:text-[40px] font-light;
+}
+button{
+    background-color: #0CCEFF;
+    color: white;
+    border-radius: 20px;
+    align-self: center;
+    max-height: 120px;
+    @apply w-[100px] lg:w-[184px] min-h-[60px] lg:min-h-[120px] text-[20px]  lg:text-[40px];
+}
+
+            }
+        }
+    }
+}

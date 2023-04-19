@@ -7,6 +7,7 @@ import { useTranslation } from "next-i18next";
 
 function index() {
   const { t } = useTranslation("sign");
+
   return (
     <section className={styles.sign}>
       <PageUser>

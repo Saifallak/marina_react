@@ -5,53 +5,59 @@ import styles from '@/styles/services.module.scss'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Accordion } from '@mantine/core'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
 function index({userDate,userAuth}) {
     const {locale} = useRouter()
     const stringToArray = str => str.split(" ");
+    const { t } = useTranslation("services");
+console.log(userDate)
   return (
     <div className={styles.services}>
         <PageUser>
-        <h1>WELCOME {userAuth.name}</h1>
+        <h1>{ t("welcome") + " "+ userAuth.name }</h1>
 <div className='container mx-auto'>
 <div className={styles.boxs}>
     <div className={styles.box2}>
         <h2>
-        Hello!<br/>How can we serve<br/>you?<br/>{stringToArray(userAuth.name)[0]}
+        {t("hello")}<br/>{t("pleasure")}<br/>{stringToArray(userAuth.name)[0]}
 
         </h2>
     </div>
     <div className={styles.box}>
         <h3>EGP10,000</h3>
-        <p>Amount Due</p>
-        <Link href="/">Pay Now</Link>
+        <p> {t("amount")}</p>
+        <Link href="/">{t("payNow")}</Link>
     </div>
     <div className={styles.box}>
         <h3>3</h3>
-        <p>Invoices Paid</p>
-        <Link href="/">View Details</Link>
+        <p>{t("progress")}</p>
+        <Link href="/">{t("view")}</Link>
     </div >
 </div>
 
-
-<div className={styles.pastreq}>
-    <h2>Past Service Requests</h2>
+{
+  userDate.length ? <div className={styles.pastreq}>
+  <h2>{t("Past")}</h2>
 <div className={styles.requests}>
 {
-        userDate.map((item,i)=>(
-      
-          <div value="customization" className={styles.alldata} key={i}>   
+      userDate.map((item,i)=>(
+    
+        <div value="customization" className={styles.alldata} key={i}>   
 <div className={styles.req} >
-    <p>{item.client_id}</p>
-    <p>{item.desc[locale]}</p>
-    <p>{item.status == 1?"SUBMITTED " :item.status  == 2? "ACCEPTED" : item.status  == 3?"IN_PROGRESS" :item.status  == 4?"CANCELED" :"COMPLETED"}</p>
-    <p>{new Date(item.updated_at).toLocaleDateString()}</p>
+  <p>{item.client_id}</p>
+  <p>{item.desc[locale]}</p>
+  <p>{item.status == 1?"SUBMITTED " :item.status  == 2? "ACCEPTED" : item.status  == 3?"IN_PROGRESS" :item.status  == 4?"CANCELED" :"COMPLETED"}</p>
+  <p>{new Date(item.updated_at).toLocaleDateString()}</p>
 
 </div>
 </div>
-        ))
-    }
+      ))
+  }
 </div>
-</div>
+</div>: <NewService/>
+}
+
 
 </div>         
         </PageUser>
@@ -60,7 +66,7 @@ function index({userDate,userAuth}) {
 }
 
 export default index
-export async function getServerSideProps({req}) {
+export async function getServerSideProps({req,locale}) {
    
     
    
@@ -97,7 +103,8 @@ export async function getServerSideProps({req}) {
     return {
       props: {
         userDate,
-        userAuth
+        userAuth,
+        ...(await serverSideTranslations(locale, ["services", "common"])),
       },
     };
   }

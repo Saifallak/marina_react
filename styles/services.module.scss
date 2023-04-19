@@ -136,6 +136,7 @@ color: #0cceff;
         }
         p{
             color: #0cceff;
+            text-align: center;
             @apply    text-[20px] font-black   lg:text-[36px];
         }
     }
@@ -169,9 +170,17 @@ color: #0cceff;
         background-color: white;
         @apply min-w-[100%] p-[16px]  md:min-w-[400px] md:p-[40px]  ;
         input ,textarea{
+          &::placeholder{
+            color: #0CCEFF;
+            @apply text-[16px] font-normal md:text-[20px]
+          }
+          text-align: start;
           border: 2px solid #0CCEFF;
           border-radius: 20px;
-          padding: 0px 30px;
+          
+          @apply px-[10px] sm:px-[30px];
+        
+          
         }
         textarea{
           min-height: 420px;
@@ -187,6 +196,54 @@ color: #0cceff;
          display: block;
           margin: 30px auto 0px;
           @apply font-bold text-[18px] w-[180px] h-[42px] md:text-[30px] md:w-[260px] md:h-[55px] 	;
+        }
+        .twoInput{
+          display: flex;
+          flex-wrap: wrap;
+          
+        gap: 8px;
+          div{
+            flex: 1;
+         min-width: 150px;
+          }
+          .cc{
+            max-width: 300px;
+            flex-grow: 1;
+            input{
+              width: 100%;
+            }
+          }
+          
+
+        }
+        .info{
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          flex-wrap: wrap;
+          align-items: center;
+          border: 2px solid #0CCEFF;
+          border-radius: 20px;
+          min-height: 44px;
+          @apply px-[10px] mt-2 sm:px-[30px];
+           p{
+            color: #0CCEFF;
+            @apply text-[16px] font-normal xl:text-[20px];
+           }
+        }
+        .total{
+          background-color: #0CCEFF;
+          min-height: 44px;
+          display: flex;
+          border-radius: 20px;
+          justify-content: center;
+          align-items: center;
+          @apply px-[10px] mt-2  sm:px-[30px];
+          h3{
+            margin: 0;
+            color: white;
+            @apply font-semibold text-[18px]  xl:text-[26px];
+          }
         }
       }
 }

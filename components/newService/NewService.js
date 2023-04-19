@@ -2,12 +2,12 @@ import React from 'react'
 import styles from '@/styles/services.module.scss'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-function NewService({data}) {
+function NewService({data ,t}) {
     const {locale} = useRouter()
   return (
     <div className={styles.new}>
         <h2>
-        New Service Request
+        {t("new")}
         </h2>
         <div className={styles.allser}>
             {

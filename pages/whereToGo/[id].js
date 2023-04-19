@@ -5,15 +5,22 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import Script from "next/script";
+import Head from "next/head";
 
 
 const Index = ({ data, CurrentCatalouge }) => {
   const { locale } = useRouter();
   const { t } = useTranslation();
- 
+
   return ( 
     <>
+<Head>
+<script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
+<script async  src="/prebid7.45.0.js" > </script>
+<script async  src="/preb.js" > </script>
 
+</Head>
     
     <PageComponent
       styles={styles}
@@ -26,12 +33,21 @@ const Index = ({ data, CurrentCatalouge }) => {
       >
         <CategoryGrid items={data} t={t}></CategoryGrid>
         <div className={styles.ad}>
-        <div id='div-1'>
-            
-        </div>
+
+      <div id="div-1">
+      <script src="/one.js" ></script>
+
+      </div>
+      <div id="div-2">
+      <script src="/two.js" ></script>
+      </div>
+
+     
+    </div>
+
 
         </div>
-      </div>
+     
     </PageComponent>
     </>
   );

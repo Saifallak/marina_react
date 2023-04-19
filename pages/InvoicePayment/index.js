@@ -1,28 +1,22 @@
 import React, { useState } from 'react'
 import styles from '@/styles/services.module.scss'
 import PageUser from '@/components/PageUser'
-import { NumberInput, Select, Textarea } from '@mantine/core'
-import { DatePickerInput } from '@mantine/dates';
-import Link from 'next/link';
+import { NumberInput, TextInput } from '@mantine/core';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
-function index({data}) {
-  const { t } = useTranslation("services");
+function index() {
     const {locale ,query} = useRouter()
     const [value, setValue] = useState(new Date());
     const [valueSelect, setValueSelect] = useState(+query.id);
     const [message, setMessage] = useState("");
     const [urgency, setUrgency] = useState("low");
-    const ArraySelect =[]
-    data.map((item)=> ArraySelect.push({value: item.id, label: item.name[locale]}))
-   
+    const { t } = useTranslation("services");
+
     const handellogin = () => {
-      
-    
         const po = axios
           .post(
             "https://admin.marina.com.eg/api/service/request",
@@ -61,53 +55,39 @@ function index({data}) {
 <div className={styles.addservices_flex}>
 
 
-    <h2>{t("new")}</h2>
+    <h2>{t("pay")}</h2>
 <form>
             <div>
               <div className="mt-2">
-              <Select
-  data={ArraySelect}
-  value={valueSelect}
-  onChange={setValueSelect}
-  placeholder={t("type")}
-  variant="unstyled"
-  radius="xs"
-/>
+              <TextInput placeholder={t("name")} radius="xs"  />
               </div>
 
               <div className="mt-2 ">
-              <Select
-  data={[
-    { value: 'low', label: 'low' },
-    { value: 'medium', label: 'medium' },
-    { value: 'High', label: 'High' },
-  ]}
-  onChange={setUrgency}
-  placeholder={t("urgency")}
-  variant="unstyled"
-  radius="xs"
-/>
+              <NumberInput placeholder={t("number")} radius="xs" hideControls />
               </div>
               <div className="mt-2 ">
-              <DatePickerInput
-              clearable
-      defaultValue={value}
-      placeholder={t("date")}
-     
-      onChange={setValue}
-      mx="auto"
-      maw={"100%"}
-    />
+             <div className={styles.twoInput}>
+             <NumberInput placeholder={t("expiry")} width={"500px"} radius="xs" hideControls />
+              <NumberInput placeholder={t("ccv")} className={styles.cc} radius="xs" hideControls />
+             </div>
               </div>
-              <div className="mt-2 ">
-                <Textarea  placeholder={t("description")} onChange={(e)=>setMessage(e.target.value)} radius="xs" hideControls />
+              
+              <div className={styles.info}>
+                <p>{t("inNumber")} 12892</p> 
+                <p>{t("inDate")} 25/6/2021</p>
+              </div>
+              <div className={styles.total}>
+             <h3> {t("total")} 10,000</h3>
               </div>
             </div>
 
             <button type="submit" className={styles.btn} onClick={(e)=>{e.preventDefault() , handellogin()}}>
-          {t("sub")}
+            {t("sub2")}
             </button>
           </form>
+          </div>
+          <div className='ads'>
+            <h5>Ad Placement</h5>
           </div>
     </div>
 

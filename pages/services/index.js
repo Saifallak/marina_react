@@ -5,39 +5,40 @@ import styles from '@/styles/services.module.scss'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Accordion } from '@mantine/core'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next';
+
 function index({data,userDate,userAuth}) {
     const {locale} = useRouter()
     const stringToArray = str => str.split(" ");
-    
+    const { t } = useTranslation("services");
   return (
     <div className={styles.services}>
         <PageUser>
-        <h1>{userAuth.name} SERVICES</h1>
+        <h1>{t("services")+ " "+ userAuth.name }   </h1>
 <div className='container mx-auto'>
 <div className={styles.boxs}>
     <div className={styles.box2}>
         <h2>
-        Hello!<br/>How can we serve<br/>you?<br/>{stringToArray(userAuth.name)[0]}
+       {t("hello")}<br/>{t("serve")}<br/>{stringToArray(userAuth.name)[0]}
 
         </h2>
     </div>
     <div className={styles.box}>
         <h3>10</h3>
-        <p>Completed Service
-Requests</p>
-        <Link href="/">View Details</Link>
+        <p> {t("completed")}</p>
+        <Link href="/">{t("view")}</Link>
     </div>
     <div className={styles.box}>
         <h3>3</h3>
-        <p>Services Requests
-in progress</p>
-        <Link href="/">View Details</Link>
+        <p>{t("progress")}</p>
+        <Link href="/">{t("view")}</Link>
     </div >
 </div>
 
 
 <div className={styles.pastreq}>
-    <h2>Past Service Requests</h2>
+    <h2>{t("Past")}</h2>
 <div className={styles.requests}>
 {
         userDate.map((item,i)=>(
@@ -78,7 +79,7 @@ in progress</p>
     }
 </div>
 </div>
-<NewService  data={data}/>
+<NewService t={t}  data={data}/>
 </div>         
         </PageUser>
     </div>
@@ -86,7 +87,7 @@ in progress</p>
 }
 
 export default index
-export async function getServerSideProps({req}) {
+export async function getServerSideProps({req,locale}) {
    
     
     const res = await fetch(
@@ -127,7 +128,8 @@ export async function getServerSideProps({req}) {
       props: {
         data,
         userDate,
-        userAuth
+        userAuth,
+        ...(await serverSideTranslations(locale, ["services", "common"])),
       },
     };
   }

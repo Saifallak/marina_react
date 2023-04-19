@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/layout.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket, faPhone, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -15,8 +15,13 @@ const SocialLinks = () => {
       locale: locale === "en" ? "ar" : "en",
     });
   };
-  const opened = Cookies.get("access_token")?true:false;
- 
+  const [opened,setopened] = useState(false)
+
+  useEffect(()=>{
+    
+    setopened(Cookies.get("access_token") ? true:false)
+  },[opened])
+ console.log(Cookies.get("access_token")?true:false)
   return (
     <ul className={styles.social__links}>
       <li className={styles.social__item}>
