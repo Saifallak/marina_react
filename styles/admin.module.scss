@@ -29,6 +29,11 @@ border: 10px solid #0CCEFF;
 border-radius: 20px;
 padding: 10px 40px;
 @apply py-[6px] md:py-[10px]  px-[16px] lg:px-[50px] ;
+p{
+    align-self: center;
+    color: #0CCEFF;
+    @apply text-[26px]   lg:text-[40px] font-light;
+}
 span{
     display: flex;
             align-items: center;
@@ -60,6 +65,184 @@ button{
 }
 
             }
+        }
+    }
+    .edit_list{
+        form{
+            display: flex;
+            gap: 100px;
+            justify-content: space-between;
+         
+            @apply xl:flex-row gap-[40px] xl:gap-[100px] flex-col;
+            .part1{
+                flex: 1;
+                max-width: 1088px;
+                input ,textarea {
+                    border: 8px solid #0CCEFF;
+                    border-radius: 20px;
+                    padding: 15px;
+                    @apply  border-[4px] md:border-[10px];
+                    &::placeholder{
+                      
+                        color: black;
+                        @apply font-normal lg:font-black text-[18px]  lg:text-[30px]
+                    }
+                    
+                }
+                input{
+                    @apply min-h-[50px] lg:min-h-[80px];
+                }
+
+                textarea{
+                    resize: vertical; 
+                    width: 100% !important;
+                    @apply lg:mt-[30px] min-h-[400px] lg:min-h-[740px]  mt-[16px];
+                }
+                .parts{
+                  
+display: flex;
+
+gap: 2px;
+flex-wrap: wrap;
+ @apply md:flex-row flex-col;
+input{
+    min-width: 400px;
+    flex: 1;
+    @apply lg:min-w-[400px] mb-[16px] min-w-[100%];
+}
+
+                    .part{
+                        width: 100%;
+                        flex: 1;
+display: flex;
+flex-direction: column;
+
+                    }
+                }
+.phone_google{
+display: flex;
+
+justify-content: space-between;
+
+@apply gap-[16px] lg:gap-[50px] lg:mt-[70px] mt-[16px] lg:flex-row flex-col;
+input{
+    @apply min-w-[100%] lg:min-w-[400px]  w-[100%] ;
+}
+}
+            }
+            .part2{
+                .radios{
+                    div[data-checked="true"]{
+                        
+                        input[type="radio"]{
+                            background: #0CCEFF;
+                            border-color: #0CCEFF;
+                        }
+                    }
+                    input[type="radio"]{
+                    border: 2px solid #0CCEFF;
+                  }
+                    label{
+                        color: #0CCEFF;
+                        line-height: 28px;
+                        @apply  lg:font-black text-[18px]  lg:text-[30px]
+                    }
+                }
+            }
+            .btn{
+                margin-top: 30px;
+                display: flex;
+    align-items: center;
+                button[type="submit"]{
+                    background-color: #0CCEFF;
+                    width: 290px;
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 20px;
+                    border: none;
+                    color: white;
+                    @apply  font-black text-[18px] w-[200px] h-[60px] sm:h-[80px] sm:w-[290px]  lg:text-[30px]
+                }
+                button{
+    
+                     img{
+    max-width: 100%;
+    @apply h-[56px] sm:h-auto
+                     }
+                }
+            }
+          
+            
+        }
+        .allFile{
+display: flex;
+flex-wrap: wrap;
+gap: 22px;
+
+@apply justify-around xl:justify-start
+        }
+        .file{
+            width: 100%;
+            max-width: 400px;
+            height:350px;
+            overflow: hidden;
+            border: 10px solid #0CCEFF;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+   
+            @apply  border-[4px] md:border-[10px];
+            position: relative;
+            .file_input_label{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 60px;
+                max-width: 50%;
+                width: 150px;
+          background-color: #0CCEFF;
+          color: #fff;
+          border-radius: 20px;
+          @apply  font-black text-[18px]  lg:text-[30px];
+          cursor: pointer; 
+            }
+            .file_input{
+                display: none;
+            }
+            div{
+                width: 100%;
+                height: 100%;
+                display: flex;
+    align-items: center;
+    justify-content: center;
+            }
+            p{
+                color: #0CCEFF;
+                @apply  font-black text-[18px]  lg:text-[30px]
+            }
+img{
+    max-width: 100%;
+    height: inherit;
+object-fit: contain;
+}
+button{
+position: absolute;
+top: 20px;
+right: 20px;
+z-index: 50000;
+font-size: 40px;
+color: #ff002f;
+    line-height: 0;
+    font-family: cursive;
+    font-weight: 500;
+@apply  font-medium;
+}
         }
     }
 }

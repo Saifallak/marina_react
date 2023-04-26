@@ -34,7 +34,7 @@ const Index = ({ data, CurrentCatalouge }) => {
         <CategoryGrid items={data} t={t}></CategoryGrid>
         <div className={styles.ad}>
 
-      <div id="div-1">
+        <div id="div-1">
       <script src="/one.js" ></script>
 
       </div>

@@ -1,7 +1,7 @@
 import PageUser from "@/components/PageUser";
 import React, { useState } from "react";
 import styles from "@/styles/signin.module.scss";
-import { PasswordInput, TextInput } from "@mantine/core";
+import { Loader, PasswordInput, TextInput } from "@mantine/core";
 import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -12,13 +12,16 @@ import Cookies from "js-cookie";
 function index() {
   const { t } = useTranslation("sign");
 const {locale ,push} = useRouter();
-const [email, setemail] = useState("saifallax@yahoo.com");
-  const [password, setpassword] = useState("password");
+const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [Erroremail, setErroremail] = useState("");
+  const [Errorpassword, setErrorpassword] = useState("");
+  const [Loading, setLoading] = useState(false);
 
   
   const handellogin = () => {
-    console.warn(email, password);
-
+    
+    setLoading(true);
     const po = axios
       .post(
         "https://admin.marina.com.eg/api/auth/login",
@@ -35,20 +38,20 @@ const [email, setemail] = useState("saifallax@yahoo.com");
         }
       )
       .then((res) => {
-        console.log(res);
-
+        setLoading(false);
         if (res.status === 200) {
          push("/")
          Cookies.set("access_token",res.data.access_token);
 
         }
       })
-      .catch((error) => {
-        console.log(error);
-        alert(error);
+      .catch((res) => {
+        setLoading(false);
+        res.response.data.email ? setErroremail( res.response.data.email[0]) : setErroremail("");
+        res.response.data.password ? setErrorpassword(res.response.data.password[0]) : setErrorpassword("");
+       
+       
       });
-
-    console.log(po);
   };
 
 
@@ -60,7 +63,7 @@ const [email, setemail] = useState("saifallax@yahoo.com");
           <form>
             <div>
               <div className="mt-2">
-                <TextInput label={t("username")} radius="xs"   onChange={(e) => setemail(e.target.value)} />
+                <TextInput label={t("username")} radius="xs" error={Erroremail}   onChange={(e) => setemail(e.target.value)} />
               </div>
 
               <div className={styles.pass}>
@@ -70,17 +73,20 @@ const [email, setemail] = useState("saifallax@yahoo.com");
                     radius="xs"
                     variant="unstyled"
                     onChange={(e) => setpassword(e.target.value)}
+                    error={Errorpassword}
                   />
                 </div>
               </div>
             </div>
-
-            <button type="submit" className={styles.btnSign}  onClick={(e) => {
-                  e.preventDefault();
-                  handellogin();
-                }}>
-              {t("signin")}
-            </button>
+            {
+  Loading ?  <Loader size="sm" style={{margin:"70px auto"}} variant="dots" /> : <button type="submit" className={styles.btnSign}  onClick={(e) => {
+    e.preventDefault();
+    handellogin();
+  }}>
+{t("signin")}
+</button>
+}
+           
             <div className={styles.SignLinks}>
               <Link href={"/signup"}>{t("signup")}</Link>
               <Link href={"/pass_reset"}>{t("forget")}</Link>

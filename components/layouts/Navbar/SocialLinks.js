@@ -21,7 +21,7 @@ const SocialLinks = () => {
     
     setopened(Cookies.get("access_token") ? true:false)
   },[opened])
- console.log(Cookies.get("access_token")?true:false)
+
   return (
     <ul className={styles.social__links}>
       <li className={styles.social__item}>

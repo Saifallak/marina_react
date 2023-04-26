@@ -9,6 +9,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next';
 
 function index({data,userDate,userAuth}) {
+ 
+  const Number_InPROGRESS = userDate.filter(item => item.status === 3)
+  const Number_Completed = userDate.filter(item => item.status === 5)
     const {locale} = useRouter()
     const stringToArray = str => str.split(" ");
     const { t } = useTranslation("services");
@@ -25,12 +28,12 @@ function index({data,userDate,userAuth}) {
         </h2>
     </div>
     <div className={styles.box}>
-        <h3>10</h3>
+        <h3>{Number_Completed.length}</h3>
         <p> {t("completed")}</p>
         <Link href="/">{t("view")}</Link>
     </div>
     <div className={styles.box}>
-        <h3>3</h3>
+        <h3>{Number_InPROGRESS.length}</h3>
         <p>{t("progress")}</p>
         <Link href="/">{t("view")}</Link>
     </div >
@@ -42,8 +45,8 @@ function index({data,userDate,userAuth}) {
 <div className={styles.requests}>
 {
         userDate.map((item,i)=>(
-          <Accordion vvariant="filled" radius="xs"  >
-          <Accordion.Item value="customization" className={styles.alldata} key={i}>   
+          <Accordion vvariant="filled" radius="xs" key={i} >
+          <Accordion.Item value="customization" className={styles.alldata} >   
 
 
 <Accordion.Control >

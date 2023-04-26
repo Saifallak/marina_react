@@ -80,11 +80,13 @@
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
-                 
-                    flex-wrap: wrap;
-                    @apply  gap-[10px] md:gap-[30px]  ;
+                    align-items: center;
+                    padding: 8px;
+                    @apply  gap-[10px]  ;
                     p{
-                        @apply text-[14px] sm:text-[20px] md:text-[30px] font-light	;
+                      width: 25%;
+                      text-align: center;
+                        @apply text-[14px] truncate  sm:text-[20px] md:text-[30px] font-light	;
                     }
                 }
                 
@@ -170,6 +172,7 @@ color: #0cceff;
         background-color: white;
         @apply min-w-[100%] p-[16px]  md:min-w-[400px] md:p-[40px]  ;
         input ,textarea{
+          color: black;
           &::placeholder{
             color: #0CCEFF;
             @apply text-[16px] font-normal md:text-[20px]
@@ -183,6 +186,7 @@ color: #0cceff;
           
         }
         textarea{
+          color: black;
           min-height: 420px;
           padding: 6px 30px 0px ;
         }

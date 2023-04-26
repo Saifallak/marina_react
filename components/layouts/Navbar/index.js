@@ -1,5 +1,5 @@
 import { Navbar } from "@mantine/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/layout.module.scss";
 import Hamburger from "./Hamburger";
 import SocialLinks from "./SocialLinks";
@@ -9,27 +9,37 @@ import { useRecoilState } from "recoil";
 import { navState } from "@/atoms";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-const navLinks = [
-  { href: "/", title: { en: "HOME", ar: "الصفحة الرئيسية" } },
-  { href: "/about", title: { en: "ABOUT MARINA", ar: " عن مرينا" } },
-  { href: "/mangment", title: { en: "THE BOARD", ar: "مجلس الأدارة" } },
-  { href: "/guide", title: { en: "OWNERS GUIDE", ar: "دليل الملاك" } },
-  {
-    href: "/whatToDo",
-    title: { en: "WHAT TO DO?", ar: "تعمل أيه في مارينا؟" },
-  },
-  {
-    href: "/whats_happening",
-    title: { en: "WHAT'S HAPPENING?", ar: "ايه اللي بيحصل؟" },
-  },
-  { href: "/whereToGo", title: { en: "WHERE TO GO?", ar: "تروح فين؟" } },
-];
+import Cookies from "js-cookie";
 
 const Index = ({ colorr, pos }) => {
   const [isNavOpen, setIsNavOpen] = useRecoilState(navState);
 
   const { locale } = useRouter();
+  const UserLinks = [
+    { href: "/Invoices", title: { en: "DASHBOARD", ar: " عن مرينا" } },
+    { href: "/services", title: { en: "SERVICES", ar: "مجلس الأدارة" } },
+    { href: "/Invoices", title: { en: "INVOICES", ar: "دليل الملاك" } },
+  ];
+
+  const navLinks=[
+    { href: "/", title: { en: "HOME", ar: "الصفحة الرئيسية" } },
+    { href: "/about", title: { en: "ABOUT MARINA", ar: " عن مرينا" } },
+    { href: "/mangment", title: { en: "THE BOARD", ar: "مجلس الأدارة" } },
+    { href: "/guide", title: { en: "OWNERS GUIDE", ar: "دليل الملاك" } },
+    {
+      href: "/whatToDo",
+      title: { en: "WHAT TO DO?", ar: "تعمل أيه في مارينا؟" },
+    },
+    {
+      href: "/whats_happening",
+      title: { en: "WHAT'S HAPPENING?", ar: "ايه اللي بيحصل؟" },
+    },
+    { href: "/whereToGo", title: { en: "WHERE TO GO?", ar: "تروح فين؟" } },
+  ];
+
+  const [stateUser, setstateUser] = useState(
+    Cookies.get("access_token") ? true : false
+  );
 
   return (
     <Navbar
@@ -62,6 +72,7 @@ const Index = ({ colorr, pos }) => {
               </li>
             );
           })}
+         
         </ul>
       </div>
     </Navbar>

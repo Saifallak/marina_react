@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '@/styles/services.module.scss'
 import PageUser from '@/components/PageUser'
-import { NumberInput, Select, Textarea } from '@mantine/core'
+import { Loader, NumberInput, Select, Textarea } from '@mantine/core'
 import { DatePickerInput } from '@mantine/dates';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -16,13 +16,19 @@ function index({data}) {
     const [value, setValue] = useState(new Date());
     const [valueSelect, setValueSelect] = useState(+query.id);
     const [message, setMessage] = useState("");
-    const [urgency, setUrgency] = useState("low");
+    const [Errormessage, setErrorMessage] = useState("");
+    const [ErrorDate, setErrorDate] = useState("");
+
+    const [urgency, setUrgency] = useState("");
+    const [ErrorUrgency, setErrorUrgency] = useState("");
+    const [Errorservice, setErrorservice] = useState("");
+    const [Loading, setLoading] = useState(false);
     const ArraySelect =[]
     data.map((item)=> ArraySelect.push({value: item.id, label: item.name[locale]}))
    
     const handellogin = () => {
       
-    
+    setLoading(true);
         const po = axios
           .post(
             "https://admin.marina.com.eg/api/service/request",
@@ -43,10 +49,16 @@ function index({data}) {
           )
           .then((res) => {
             console.log(res);
+             setLoading(false);
           })
-          .catch((error) => {
-            console.log(error);
-            alert(error);
+          .catch((res) => {
+             setLoading(false);
+            console.log(res);
+            res.response.data.errors.message ? setErrorMessage(res.response.data.errors.message[0]) : setErrorMessage("");
+            res.response.data.errors.available_date ? setErrorDate(res.response.data.errors.available_date[0]) : setErrorDate("");
+            res.response.data.errors.urgency ? setErrorUrgency(res.response.data.errors.urgency[0]) : setErrorUrgency("");
+            res.response.data.errors.service_id ? setErrorservice(res.response.data.errors.service_id[0]) : setErrorservice("");
+            
           });
     
         console.log(po);
@@ -72,6 +84,7 @@ function index({data}) {
   placeholder={t("type")}
   variant="unstyled"
   radius="xs"
+  error={Errorservice}
 />
               </div>
 
@@ -86,6 +99,7 @@ function index({data}) {
   placeholder={t("urgency")}
   variant="unstyled"
   radius="xs"
+error={ErrorUrgency}
 />
               </div>
               <div className="mt-2 ">
@@ -93,20 +107,23 @@ function index({data}) {
               clearable
       defaultValue={value}
       placeholder={t("date")}
-     
+      error={ErrorDate}
       onChange={setValue}
       mx="auto"
       maw={"100%"}
     />
               </div>
               <div className="mt-2 ">
-                <Textarea  placeholder={t("description")} onChange={(e)=>setMessage(e.target.value)} radius="xs" hideControls />
+                <Textarea  placeholder={t("description")}    error={Errormessage} onChange={(e)=>setMessage(e.target.value)} radius="xs"  />
               </div>
             </div>
-
-            <button type="submit" className={styles.btn} onClick={(e)=>{e.preventDefault() , handellogin()}}>
-          {t("sub")}
-            </button>
+{
+  Loading ?  <Loader size="sm" style={{margin:"36px auto"}} variant="dots" /> :<button type="submit" className={styles.btn} onClick={(e)=>{e.preventDefault() , handellogin()}}>
+  {t("sub")}
+    </button>
+}
+            
+           
           </form>
           </div>
     </div>
