@@ -96,7 +96,7 @@ export async function getServerSideProps({ req, locale }) {
     Authorization: `Bearer ${req.cookies.access_token} `,
     "Content-Type": "application/json",
     Accept: "application/json",
-    "Accept-Language": "en",
+    "Accept-Language": `${locale}`,
   };
 
   const url = new URL("https://admin.marina.com.eg/api/auth/bills");

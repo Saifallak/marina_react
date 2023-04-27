@@ -147,7 +147,7 @@ export async function getServerSideProps(context) {
   let headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
-    "Accept-Language": "en",
+    "Accept-Language": `${context.locale}`,
   };
   const res = await fetch(url, {
     method: "GET",

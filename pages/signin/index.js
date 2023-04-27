@@ -16,6 +16,7 @@ const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [Erroremail, setErroremail] = useState("");
   const [Errorpassword, setErrorpassword] = useState("");
+  const [Error, setError] = useState("");
   const [Loading, setLoading] = useState(false);
 
   
@@ -47,8 +48,10 @@ const [email, setemail] = useState("");
       })
       .catch((res) => {
         setLoading(false);
+        console.log(res)
         res.response.data.email ? setErroremail( res.response.data.email[0]) : setErroremail("");
         res.response.data.password ? setErrorpassword(res.response.data.password[0]) : setErrorpassword("");
+        res.response.data.error ? setError( res.response.data.error) : setError("");
        
        
       });
@@ -86,9 +89,8 @@ const [email, setemail] = useState("");
 {t("signin")}
 </button>
 }
-           
+         { Error&&<p style={{color:"red",textAlign:"center"}}>{Error}</p>}   
             <div className={styles.SignLinks}>
-              <Link href={"/signup"}>{t("signup")}</Link>
               <Link href={"/pass_reset"}>{t("forget")}</Link>
             </div>
           </form>
