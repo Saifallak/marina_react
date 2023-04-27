@@ -71,6 +71,7 @@ direction: ltr;
 }
 
 .form3{
+ 
   input{
     @apply mb-[20px] ;
   }
@@ -89,13 +90,10 @@ direction: ltr;
   }
 }
 .img2 {
-  max-width: 70%;
-  border: 1px #FFFFFF solid;
-  height: auto;
-  border-radius: 30px;
-  width: 300px;
-  height: 300px;
-  @apply hidden xl:block ;
+  max-width: fit-content;
+height: auto;
+object-fit: cover;
+  @apply block ;
 }
   }
   .rtl {
@@ -103,4 +101,59 @@ direction: ltr;
     
     }
   }
-  
+  .file {
+    overflow: hidden;
+    border: none;
+   
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+    max-height:fit-content;
+    max-width: 80%;
+    @apply border-[4px] sm:h-[300px] h-[200px] m-auto md:m-0 md:border-[10px];
+    position: relative;
+    .file_input_label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      max-width: 100%;
+      width: 100%;
+      
+      color: #fff;
+      border-radius: 20px;
+      @apply font-black text-[18px]  lg:text-[30px];
+      cursor: pointer;
+    }
+    .file_input {
+      display: none;
+    }
+    div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    p {
+      color: #0cceff;
+      @apply font-black text-[18px]  lg:text-[30px];
+    }
+    img {
+      max-width: 100%;
+      height: inherit;
+      object-fit: contain;
+    }
+    button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 50000;
+      font-size: 40px;
+      color: #ff002f;
+      line-height: 0;
+      font-family: cursive;
+      font-weight: 500;
+      @apply font-medium;
+    }
+  }

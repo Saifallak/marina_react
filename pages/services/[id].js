@@ -60,8 +60,7 @@ function index({data}) {
             res.response.data.errors.service_id ? setErrorservice(res.response.data.errors.service_id[0]) : setErrorservice("");
             
           });
-    
-        console.log(po);
+  
       };
 
 

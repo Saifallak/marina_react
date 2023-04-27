@@ -16,6 +16,9 @@
     "full":"Full Name",
     "update":"INFO \n UPDATE",
     "reset":"PASS \n RESET",
-    "btnreset":"RESET"
-    
+    "btnreset":"RESET",
+    "address":"Address",
+    "profession":"Profession",
+    "state":"Social State",
+    "nationality":"Nationality"
 }
