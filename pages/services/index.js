@@ -15,7 +15,7 @@ function index({ data, userDate, userAuth }) {
   const { locale } = useRouter();
   const stringToArray = (str) => str.split(" ");
   const { t } = useTranslation("services");
-  console.log(userAuth);
+  console.log(userDate);
   return (
     <div className={styles.services}>
       <PageUser>
@@ -54,7 +54,7 @@ function index({ data, userDate, userAuth }) {
                   >
                     <Accordion.Control>
                       <div className={styles.req}>
-                        <p>{item.client_id}</p>
+                        <p>{item.id}</p>
                         <p>{item.service.name[locale]}</p>
                         <p>
                           {item.status == 1
@@ -75,7 +75,7 @@ function index({ data, userDate, userAuth }) {
                         {item.histories.length
                           ? item.histories.map((history, i) => (
                               <div className={styles.req} key={i}>
-                                <p>{item.client_id}</p>
+                                <p>{history.id}</p>
                                 <p>{item.service.name[locale]}</p>
                                 <p>
                                   {history.status == 1

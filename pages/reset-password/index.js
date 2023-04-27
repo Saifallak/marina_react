@@ -57,10 +57,10 @@ function index() {
           <h1 className="!max-w-[850px]">{t("reset")}</h1>
           <form>
             <div>
-              <div className="mt-2 ">
+              <div className="mt-6 ">
                 <PasswordInput label="New Password" onChange={(e)=>setPassword(e.target.value)} radius="xs" />
               </div>
-              <div className="mt-2 ">
+              <div className="mt-6 ">
                 <PasswordInput label="Confirm New Password" onChange={(e)=>setConfirmPassword(e.target.value)} radius="xs" />
               </div>
             </div>

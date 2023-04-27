@@ -4,9 +4,76 @@ import img from "@/public/images/mangment/jamie-street-gZlQZFCA1Vc-unsplash.png"
 import PageComponent from "@/components/PageComponent";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 const Index = () => {
   const { t } = useTranslation("mangment");
+  const {locale}= useRouter()
+const mangment = [
+  {
+    en:" SAFWA \n EL NAHAS",
+    ar:"صفوة\n النحاس"
+  },
+  {
+    en:"MOHAMED \nABDELKADER\n SALEM \n(Board  member)",
+    ar:"محمد عبد القادر سالم (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"SAMIR \n YOUSSEF \n EL SAIAD (Board  member)",
+    ar:"سمير يوسف الصياد (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"HATEM \n  MAHMOUD \n HASSAN (Board  member)",
+    ar:"حاتم محمود حسن (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"HASSAN\n  ISAMIL\n  GHANEM (Board  member)",
+    ar:"حسن إسماعيل غانم (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"MOHAMED\n  SAAD\n  EL SHERBINI (Board  member)",
+    ar:"محمد سعد الشربيني (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"IBRAHIM \n SABRY\n  ABDELHAMID (Board  member)",
+    ar:"إبراهيم صبري عبد الحميد (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"HASSAN\n  ISAMIL\n  GHANEM (Board  member)",
+    ar:"حسن إسماعيل غانم (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"MOHAMED \n ABDELFATAH\n  EL GAMAL (Board  member)",
+    ar:"محمد عبد الفتاح الجمل (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"ASHRAF\n  EL SAMALIGI (Board  member)",
+    ar:"أشرف السمالجي (عضو  \n مجلس الإدارة)" 
+  },
+  {
+    en:"ABDELAAL \n EL SHEIKH (Board  member)",
+    ar:"عبد العال الشيخ (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"ABDELHAMID \n MOHAMED (Board  member)",
+    ar:"عبد الحميد محمد (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"WALID \n ABBAS (Board  member)",
+    ar:"وليد عباس (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"AHMED \n ABDELAZIZ (Board  member)",
+    ar:"أحمد عبد العزيز (عضو  \n مجلس الإدارة)"
+  },
+  {
+    en:"AbdelAl \n Ali \n AbdelAl (Board  member)",
+    ar:"عبد العال عبد العال (عضو  \n مجلس الإدارة)"
+  },
+  
+]
+
+
   return (
     <>
       <PageComponent styles={styles} title={t("mangment")} hero={img.src}>
@@ -16,151 +83,88 @@ const Index = () => {
         <div className="container mx-auto">
           <div className={styles.CardOne}>
             <p>
-              SAFWA <br></br>EL NAHAS{" "}
+            {mangment[0][locale]}
             </p>
           </div>
           <div className={styles.imgContainerTwo}>
             <div className="flex w-full gap-3 md:gap-5">
               <div className={styles.CardTwo}>
                 <p>
-                  MOHAMED
-                  <br />
-                  ABDELKADER
-                  <br />
-                  SALEM
-                  <br />
-                  (Board member)
-                </p>
+            {mangment[1][locale]}
+            </p>
               </div>
               <div className={styles.CardThree}>
                 <p>
-                  SAMIR <br />
-                  YOUSSEF <br />
-                  EL SAIAD
-                  <br />
-                  (Board member)
-                </p>
+            {mangment[2][locale]}
+            </p>
               </div>
               <div className={styles.CardFour}>
                 {" "}
-                <p>
-                  HATEM <br />
-                  MAHMOUD
-                  <br />
-                  HASSAN
-                  <br />
-                  (Board member)
-                </p>
+               <p>
+            {mangment[3][locale]}
+            </p>
               </div>
               <div className={styles.CardFive}>
-                <p>
-                  HASSAN <br></br>
-                  ISAMIL
-                  <br></br>
-                  GHANEM
-                  <br />
-                  (Board member)
-                </p>
+               <p>
+            {mangment[4][locale]}
+            </p>
               </div>
             </div>
             <div className="flex w-full gap-3">
               <div className={styles.CardSex}>
                 <p>
-                  MOHAMED
-                  <br></br>
-                  SAAD
-                  <br></br>
-                  EL SHERBINI
-                  <br />
-                  (Board member)
-                </p>
+            {mangment[5][locale]}
+            </p>
               </div>
               <div className={styles.CardSeven}>
                 <p>
-                  IBRAHIM <br></br>
-                  SABRY
-                  <br></br>
-                  ABDELHAMID
-                  <br />
-                  (Board member)
-                </p>
+            {mangment[6][locale]}
+            </p>
               </div>
               <div className={styles.CardEight}>
-                <p>
-                  HASSAN <br></br>
-                  ISAMIL
-                  <br></br>
-                  GHANEM
-                  <br />
-                  (Board member)
-                </p>
+               <p>
+            {mangment[7][locale]}
+            </p>
               </div>
               <div className={styles.CardNine}>
-                <p>
-                  MOHAMED
-                  <br></br>
-                  ABDELFATAH
-                  <br></br>
-                  EL GAMAL
-                  <br />
-                  (Board member)
-                </p>
+               <p>
+            {mangment[8][locale]}
+            </p>
               </div>
             </div>
             <div className="flex w-full gap-3">
               <div className={styles.CardTen}>
                 <p>
-                  ASHRAF
-                  <br></br>
-                  EL SAMALIGI
-                  <br />
-                  (Board member)
-                </p>
+            {mangment[9][locale]}
+            </p>
               </div>
               <div className={styles.CardEleven}>
                 <p>
-                  ABDELAAL <br></br>
-                  EL SHEIKH
-                  <br />
-                  (Board member)
-                </p>
+            {mangment[10][locale]}
+            </p>
               </div>
               <div className={styles.CardTwelve}>
                 <p>
-                  ABDELHAMID
-                  <br></br>
-                  MOHAMED
-                  <br />
-                  (Board member)
-                </p>
+            {mangment[11][locale]}
+            </p>
               </div>
               <div className={styles.CardThirteen}>
-                <p>
-                  WALID <br></br>
-                  ABBAS
-                  <br />
-                  (Board member)
-                </p>
+               <p>
+            {mangment[12][locale]}
+            </p>
               </div>
             </div>
             <div className="flex gap-3 w-[52%]">
               <div className={styles.CardFourteen}></div>
               <div className={styles.CardFifteen}>
                 <p>
-                  AHMED <br></br>
-                  ABDELAZIZ
-                  <br />
-                  (Board member)
-                </p>
+            {mangment[13][locale]}
+            </p>
               </div>
               <div className={styles.CardSixteen}>
                 <p>
-                  AbdelAl
-                  <br></br>
-                  Ali AbdelAl
-                  <br />
-                  (Board member)
-                </p>
+            {mangment[14][locale]}
+            </p>
               </div>
               <div className={styles.CardSeventeen}></div>
             </div>

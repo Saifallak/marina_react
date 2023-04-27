@@ -90,9 +90,9 @@ function index({data}) {
               <div className="mt-2 ">
               <Select
   data={[
-    { value: 'low', label: 'low' },
-    { value: 'medium', label: 'medium' },
-    { value: 'High', label: 'High' },
+    { value: 'low', label: locale==="ar"? "منخفض": 'low' },
+    { value: 'medium', label:locale==="ar"? "متوسط":  'medium' },
+    { value: 'High', label: locale==="ar"? "مرتفع": 'High' },
   ]}
   onChange={setUrgency}
   placeholder={t("urgency")}

@@ -128,6 +128,7 @@
   color: white;
   font-weight: 800;
   padding-bottom: 10px;
+  white-space: pre-line;
   @apply text-[10px] md:text-[20px] lg:text-[25px] leading-4 md:leading-[40px] pl-[3px] pr-[2px] md:pl-[10px] lg:pl-[15px];
  
 }
@@ -162,5 +163,6 @@
     font-weight: 800;
     margin-left: 30px;
     margin-bottom: 21px;
+    white-space: pre-line;
   }
 }
