@@ -1,7 +1,7 @@
 import PageUser from "@/components/PageUser";
 import React, { useState } from "react";
 import styles from "@/styles/signin.module.scss";
-import { NumberInput, TextInput } from "@mantine/core";
+import { NumberInput, PasswordInput, TextInput } from "@mantine/core";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Cookies from "js-cookie";
@@ -10,22 +10,29 @@ import { useRouter } from "next/router";
 
 function index() {
   const { t } = useTranslation("sign");
-  const [Erroremail, setErroremail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [ConfirmPassword, setConfirmPassword] = useState("");
+  const [ErrorPassword, setErrorPassword] = useState("");
+  const [ErrorConfirmPassword, setErrorConfirmPassword] = useState("");
   const { locale } = useRouter();
   const router = useRouter();
+  const { token, email } = router.query;
   
   const handellogin = () => {
     const po = axios
       .post(
-        "https://admin.marina.com.eg/api/auth/reset",
+        "https://admin.marina.com.eg/api/auth/reset-password",
         {
-          email: email,
+            email: email,
+            password: Password,
+            password_confirmation: ConfirmPassword,
+            token: token
         },
         {
           headers: {
             "Authorization": `Bearer ${Cookies.get("access_token")}`,
             "Content-Type": "application/json",
-            Accept: " application/json",
+            "Accept": " application/json",
             "Accept-Language": `${locale}`,
           },
         }
@@ -51,7 +58,10 @@ function index() {
           <form>
             <div>
               <div className="mt-2 ">
-                <TextInput label={t("email")} onChange={(e)=>setemail(e.target.value)} radius="xs" />
+                <PasswordInput label="New Password" onChange={(e)=>setPassword(e.target.value)} radius="xs" />
+              </div>
+              <div className="mt-2 ">
+                <PasswordInput label="Confirm New Password" onChange={(e)=>setConfirmPassword(e.target.value)} radius="xs" />
               </div>
             </div>
 
