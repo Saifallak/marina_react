@@ -47,28 +47,10 @@
   @apply w-[100px] md:w-[150px] lg:w-[200px]  h-[100px] md:h-[150px] lg:h-[200px];
 }
 
-@media only screen and (max-width: 600px) {
-  .imgBlog {
-    width: 310px;
-    height: 282px;
-    background-position: center center;
-    background-size: cover;
-    background-image: url("../public/images/blog/jamie-street-gZlQZFCA1Vc-unsplash.jpg");
-    display: flex;
-    justify-content: center;
-  }
-}
+
 
 @media only screen and (min-width: 600px) {
-  .imgBlog {
-    width: 470px;
-    height: 282px;
-    background-position: center center;
-    background-size: cover;
-    background-image: url("../public/images/blog/jamie-street-gZlQZFCA1Vc-unsplash.jpg");
-    display: flex;
-    justify-content: center;
-  }
+  
 
   .rtl {
     .ContantnOne {
@@ -101,16 +83,6 @@
   .sectionTwo {
     margin-top: 110px;
     margin-bottom: 66px;
-  }
-
-  .imgBlog {
-    width: 1232px;
-    height: 282px;
-    background-position: center center;
-    background-size: cover;
-    background-image: url("../public/images/blog/jamie-street-gZlQZFCA1Vc-unsplash.jpg");
-    display: flex;
-    justify-content: center;
   }
 
   .headerOne {
@@ -159,15 +131,6 @@
     margin-bottom: 66px;
   }
 
-  .imgBlog {
-    width: 1996px;
-    height: 282px;
-    background-position: center center;
-    background-size: cover;
-    background-image: url("../public/images/blog/jamie-street-gZlQZFCA1Vc-unsplash.jpg");
-    display: flex;
-    justify-content: center;
-  }
 
   .headerOne {
     display: flex;

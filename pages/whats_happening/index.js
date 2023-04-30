@@ -4,7 +4,7 @@ import styles from "@/styles/whatHappening.module.scss";
 import PageComponent from "@/components/PageComponent";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import img from "@/public/images/whatsHappening/linus-nylund-UCIZh0-OYPw-unsplash.jpg";
+import img from "@/public/images/whatsHappening/linus-nylund-UCIZh0-OYPw-unsplash.webp";
 import WhatToDoCard from "@/components/whatToDo/WhatToDoCard";
 import { useRouter } from "next/router";
 

@@ -2,10 +2,10 @@
 import Image from "next/image";
 import React from "react";
 import styles from "@/styles/guide.module.scss";
-import img from "../../public/images/guide/joseph-barrientos-oQl0eVYd_n8-unsplash.jpg";
-import imgOne from "../../public/images/guide/oliver-sjostrom-4pxycrNRhvg-unsplash.jpg";
-import imgTwo from "../../public/images/guide/two.jpg";
-import imgThree from "../../public/images/guide/three.jpg";
+import img from "../../public/images/guide/joseph-barrientos-oQl0eVYd_n8-unsplash.webp";
+import imgOne from "../../public/images/guide/oliver-sjostrom-4pxycrNRhvg-unsplash.webp";
+import imgTwo from "../../public/images/guide/two.webp";
+import imgThree from "../../public/images/guide/three.webp";
 import PageComponent from "@/components/PageComponent";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";

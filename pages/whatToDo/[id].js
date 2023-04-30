@@ -21,7 +21,7 @@ const Index = ({ data, blogs }) => {
   return (
     <>
       <PageComponent
-        styles={styles}
+        
         title={data.title[locale]}
         hero={data.img_collection.responsive_urls[0]}
       >

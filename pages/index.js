@@ -11,7 +11,7 @@ import ProgressiveImage from "react-progressive-graceful-image";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Navbar from "../components/layouts/Navbar/index";
 import img from "@/public/images/home/hero.webp";
-
+import icon from '@/public/images/icon.png'
 const { Col } = Grid;
 export default function Home({ catalog, blogs }) {
   const { t } = useTranslation("home");
@@ -24,7 +24,7 @@ export default function Home({ catalog, blogs }) {
         <title>Marina</title>
         <meta name="description" content="Marina" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={icon.src} />
        
       </Head>
       <Navbar />
