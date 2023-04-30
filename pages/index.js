@@ -127,9 +127,9 @@ export default function Home({ catalog, blogs }) {
           </div>
         </Container>
         <section className={styles.footer}>
-          <a className={styles.footer_logo}>
+          <Link className={styles.footer_logo} href="/">
             <Image src={Logo} alt="logo"></Image>
-          </a>
+          </Link>
        
         </section>
       </main>
