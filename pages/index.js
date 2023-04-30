@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import ProgressiveImage from "react-progressive-graceful-image";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Navbar from "../components/layouts/Navbar/index";
+import img from "@/public/images/home/hero.webp";
 
 const { Col } = Grid;
 export default function Home({ catalog, blogs }) {
@@ -29,18 +30,16 @@ export default function Home({ catalog, blogs }) {
       <Navbar />
       <main>
         <section className={styles.home}>
-          <ProgressiveImage src="/images/home/hero.jpg" placeholder="loading">
-            {(src, loading) => (
+          
               <img
-                className={`image${loading ? " loading" : " loaded"}`}
-                src={src}
+                className={ " loaded"}
+                src={img.src}
                 alt="sea beach"
-                width="100%"
-                height="100%"
-                style={{ minHeight: "44vh", height: "100%" }}
+                width={100}
+                height={100}
+                style={{ minHeight: "44vh", height: "100%",width:"100%" }}
               />
-            )}
-          </ProgressiveImage>
+            
 
           <Container className={styles.home__container} fluid px={20}>
             <div className={styles.home__title}>
