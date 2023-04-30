@@ -1,6 +1,6 @@
 import PageUser from "@/components/PageUser";
 import NewService from "@/components/newService/NewService";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/services.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,13 +9,18 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
 function index({ data, userDate, userAuth }) {
+  const [TypeFilter ,setTypeFilter] = useState(null);
+  const [DateFilter ,setDateFilter] = useState(userDate);
   
   const Number_InPROGRESS = userDate.filter((item) => item.status === 3);
   const Number_Completed = userDate.filter((item) => item.status === 5);
   const { locale } = useRouter();
   const stringToArray = (str) => str.split(" ");
   const { t } = useTranslation("services");
-  console.log(userDate);
+  useEffect(()=>{
+
+    TypeFilter&&setDateFilter(DateFilter.filter((item)=>{ item.status == TypeFilter}))
+  },[TypeFilter])
   return (
     <div className={styles.services}>
       <PageUser>
@@ -34,19 +39,19 @@ function index({ data, userDate, userAuth }) {
             <div className={styles.box}>
               <h3>{Number_Completed.length}</h3>
               <p> {t("completed")}</p>
-              <Link href="/">{t("view")}</Link>
+              <Link href="#ser" onClick={()=>{setTypeFilter(5)}}>{t("view")} </Link>
             </div>
             <div className={styles.box}>
               <h3>{Number_InPROGRESS.length}</h3>
               <p>{t("progress")}</p>
-              <Link href="/">{t("view")}</Link>
+              <Link href="#ser" onClick={()=>{setTypeFilter(3)}}>{t("view")}</Link>
             </div>
           </div>
 
-          <div className={styles.pastreq}>
+          <div id="ser" className={styles.pastreq}>
             <h2>{t("Past")}</h2>
             <div className={styles.requests}>
-              {userDate.map((item, i) => (
+              {DateFilter.length ?  DateFilter.map((item, i) => (
                 <Accordion vvariant="filled" radius="xs" key={i}>
                   <Accordion.Item
                     value="customization"
@@ -57,15 +62,15 @@ function index({ data, userDate, userAuth }) {
                         <p>{item.id}</p>
                         <p>{item.service.name[locale]}</p>
                         <p>
-                          {item.status == 1
-                            ? "SUBMITTED "
-                            : item.status == 2
-                            ? "ACCEPTED"
-                            : item.status == 3
-                            ? "IN_PROGRESS"
-                            : item.status == 4
-                            ? "CANCELED"
-                            : "COMPLETED"}
+                        {item.status == 1
+                                    ? locale==="en"? "SUBMITTED " : "مقدم"
+                                    : item.status == 2
+                                    ? locale==="en"? "ACCEPTED" : "قبلت"
+                                    : item.status == 3
+                                    ? locale==="en"? "IN_PROGRESS" : "قيد التنفيذ"
+                                    : item.status == 4
+                                    ? locale==="en"? "CANCELED" : "ملغي"
+                                    : locale==="en"? "COMPLETED" : "اكتمل"}
                         </p>
                         <p>{new Date(item.updated_at).toLocaleDateString()}</p>
                       </div>
@@ -78,15 +83,15 @@ function index({ data, userDate, userAuth }) {
                                 <p>{history.id}</p>
                                 <p>{item.service.name[locale]}</p>
                                 <p>
-                                  {history.status == 1
-                                    ? "SUBMITTED "
+                                {history.status == 1
+                                    ? locale==="en"? "SUBMITTED " : "مقدم"
                                     : history.status == 2
-                                    ? "ACCEPTED"
+                                    ? locale==="en"? "ACCEPTED" : "قبلت"
                                     : history.status == 3
-                                    ? "IN_PROGRESS"
+                                    ? locale==="en"? "IN_PROGRESS" : "قيد التنفيذ"
                                     : history.status == 4
-                                    ? "CANCELED"
-                                    : "COMPLETED"}
+                                    ? locale==="en"? "CANCELED" : "ملغي"
+                                    : locale==="en"? "COMPLETED" : "اكتمل"}
                                 </p>
                                 <p>
                                   {new Date(
@@ -100,7 +105,7 @@ function index({ data, userDate, userAuth }) {
                     </Accordion.Panel>
                   </Accordion.Item>
                 </Accordion>
-              ))}
+              )) : <p className="text-[20px] text-center font-bold md:text-[30px] ">{ locale === "en" ? "no date" : "لا يوجد بيانات"}</p>}
             </div>
           </div>
           <NewService t={t} data={data} />

@@ -12,7 +12,7 @@ import { useTranslation } from 'next-i18next';
 
 function index({data}) {
   const { t } = useTranslation("services");
-    const {locale ,query} = useRouter()
+    const {locale ,query,push} = useRouter()
     const [value, setValue] = useState(new Date());
     const [valueSelect, setValueSelect] = useState(+query.id);
     const [message, setMessage] = useState("");
@@ -50,6 +50,7 @@ function index({data}) {
           .then((res) => {
             console.log(res);
              setLoading(false);
+             push("/services");
           })
           .catch((res) => {
              setLoading(false);

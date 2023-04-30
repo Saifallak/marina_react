@@ -118,7 +118,7 @@ span.mantine-p2utts.mantine-Accordion-chevron {
     border-bottom: 1px solid #707070;
     border-radius: 0;
   height: 50px;
-  @apply  text-[18px] sm:text-[22px];
+  @apply  text-[18px] sm:text-[22px]; 
 }
 .mantine-PasswordInput-input{
   border: none;
@@ -126,4 +126,8 @@ span.mantine-p2utts.mantine-Accordion-chevron {
 }
 .mantine-PasswordInput-input input[type="text"]{
   border: none;
+}
+.rtl .mantine-PasswordInput-root label{
+text-align: end;
+display: block;
 }

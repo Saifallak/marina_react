@@ -46,12 +46,16 @@ const SocialLinks = () => {
         </a>
       </li>
       <li className={styles.social__item}>
-        <Link className={styles.social__link} href="/signin">
-          {
-          
-          opened ? <FontAwesomeIcon icon={faArrowRightFromBracket} color="white"/> :<FontAwesomeIcon icon={faUser} color="white" />
-          }
-        </Link>
+        {
+            opened ?  <Link className={styles.social__link} href="/signin"  onClick={()=>{Cookies.remove("access_token")}}>    
+            <FontAwesomeIcon icon={faArrowRightFromBracket}  color="white"/>
+          </Link> :
+          <Link className={styles.social__link} href="/signin">
+          <FontAwesomeIcon icon={faUser} color="white" />
+          </Link>
+        }
+        
+       
       </li>
       <li className={styles.social__item}>
         <button

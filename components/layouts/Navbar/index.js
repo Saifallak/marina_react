@@ -16,9 +16,9 @@ const Index = ({ colorr, pos }) => {
 
   const { locale } = useRouter();
   const UserLinks = [
-    { href: "/Invoices", title: { en: "DASHBOARD", ar: " عن مرينا" } },
-    { href: "/services", title: { en: "SERVICES", ar: "مجلس الأدارة" } },
-    { href: "/Invoices", title: { en: "INVOICES", ar: "دليل الملاك" } },
+    { href: "/services", title: { en: "DASHBOARD", ar: " لوحه التحكم" } },
+    { href: "/services", title: { en: "SERVICES", ar: " الخدمات" } },
+    { href: "/Invoices", title: { en: "INVOICES", ar: " الفواتير" } },
   ];
 
   const navLinks=[
@@ -36,10 +36,14 @@ const Index = ({ colorr, pos }) => {
     },
     { href: "/whereToGo", title: { en: "WHERE TO GO?", ar: "تروح فين؟" } },
   ];
+  const [NavPage, setNavPage] = useState(navLinks);
 
   const [stateUser, setstateUser] = useState(
     Cookies.get("access_token") ? true : false
   );
+  useEffect(()=>{
+    stateUser? setNavPage(prevUsers => [...prevUsers, ...UserLinks]): setNavPage(navLinks)
+  },[stateUser])
 
   return (
     <Navbar
@@ -59,7 +63,7 @@ const Index = ({ colorr, pos }) => {
         className={styles.nav__menu}
       >
         <ul className={styles.list}>
-          {navLinks.map((link, i) => {
+          {NavPage.map((link, i) => {
             return (
               <li key={i}>
                 <Link

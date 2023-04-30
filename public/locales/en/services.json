@@ -11,6 +11,7 @@
   "new": "New Service Request",
   "welcome": "WELCOME",
   "amount": "Amount Due",
+  "amount2": "Bills payable",
   "type": "Service Type",
   "urgency": "Urgency",
   "date": "Availability Date",

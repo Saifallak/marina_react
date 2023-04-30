@@ -7,9 +7,9 @@ import { useRouter } from "next/router";
 import { Accordion } from "@mantine/core";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-function index({ userDate, userAuth }) {
+function index({ userDate, userAuth ,data }) {
   const Number_InPROGRESS = userDate.filter((item) => item.status === "unpaid");
-
+console.log(userDate);
   const userSum = userDate.reduce(
     (total, number) => total + number.remaining_amount,
     0
@@ -54,7 +54,7 @@ function index({ userDate, userAuth }) {
             </div>
             <div className={styles.box}>
               <h3>{Number_InPROGRESS.length}</h3>
-              <p>{t("progress")}</p>
+              <p>{t("amount2")}</p>
               <Link href="/">{t("view")}</Link>
             </div>
           </div>
@@ -72,9 +72,9 @@ function index({ userDate, userAuth }) {
                     key={i}
                   >
                     <div className={styles.req}>
-                      <p>{item.client_id}</p>
+                      <p>{item.id}</p>
                       <p>{item.desc[locale]}</p>
-                      <p>{item.status}</p>
+                      <p>{item.status==="unpaid"? locale==="en"? "unpaid" : "غير مدفوع" : locale==="en"? "paid" : " مدفوع" }</p>
                       <p>{new Date(item.updated_at).toLocaleDateString()}</p>
                     </div>
                   </Link>
@@ -82,7 +82,7 @@ function index({ userDate, userAuth }) {
               </div>
             </div>
           ) : (
-            <NewService />
+            <NewService t={t} data={data}  />
           )}
         </div>
       </PageUser>
@@ -114,9 +114,11 @@ export async function getServerSideProps({ req, locale }) {
   });
 
   const userAuth = await userauth.json();
-
+  const res = await fetch(`https://admin.marina.com.eg/api/data/services`);
+  const data = await res.json();
   return {
     props: {
+      data,
       userDate,
       userAuth,
       ...(await serverSideTranslations(locale, ["services", "common"])),

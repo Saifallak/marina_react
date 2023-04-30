@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 
 function index() {
   const { t } = useTranslation("sign");
+  const [email, setemail] = useState("");
   const [Erroremail, setErroremail] = useState("");
   const { locale } = useRouter();
   const router = useRouter();
