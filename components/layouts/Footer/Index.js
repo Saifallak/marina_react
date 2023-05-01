@@ -50,7 +50,7 @@ const Index = () => {
         <div className={styles.footer__container} fluid="true" px={20}>
           <div className="flex items-center flex-wrap justify-around gap-2">
             <div className="">
-              <a className={styles.logo}>
+              <a className={styles.logo} href="/">
                 <Image
                   alt="Logo"
                   src={Logo}
