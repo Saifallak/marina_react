@@ -11,7 +11,7 @@ import ProgressiveImage from "react-progressive-graceful-image";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Navbar from "../components/layouts/Navbar/index";
 import img from "@/public/images/home/hero.webp";
-import icon from '@/public/images/icon.png'
+import icon from '../public/Icon.png'
 const { Col } = Grid;
 export default function Home({ catalog, blogs }) {
   const { t } = useTranslation("home");
