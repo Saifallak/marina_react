@@ -54,7 +54,7 @@ const [email, setemail] = useState("saifallax@yahoo.com");
 
   return (
     <section className={styles.sign}>
-      <PageUser>
+      <PageUser title="ADMIN LOGIN">
         <div className=" container mt-[24px] md:mt-[100px]  mx-auto flex justify-between items-stretch lg:items-center flex-col   lg:flex-row">
           <h1>ADMIN LOGIN</h1>
           <form>

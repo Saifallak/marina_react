@@ -9,7 +9,7 @@ function index() {
   const { t } = useTranslation("sign");
   return (
     <section className={styles.sign}>
-      <PageUser>
+      <PageUser title={t("signup")}>
         <div className=" container mt-[24px] md:mt-[100px]  mx-auto flex justify-between items-stretch lg:items-center flex-col   lg:flex-row-reverse	">
           <h1>{t("signup")}</h1>
           <form className={styles.form3}>

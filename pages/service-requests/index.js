@@ -11,7 +11,7 @@ function index({  userDate }) {
     const { locale } = useRouter();
   return (
     
-    <PageUser>
+    <PageUser title={"services Requests"}>
         <div className={styles.dash}>
 
         

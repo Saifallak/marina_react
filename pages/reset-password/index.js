@@ -52,7 +52,7 @@ function index() {
   };
   return (
     <section className={styles.sign}>
-      <PageUser>
+      <PageUser title={t("reset")}>
         <div className=" container mt-[24px] md:mt-[100px]  mx-auto flex justify-between items-stretch lg:items-center flex-col   lg:flex-row	">
           <h1 className="!max-w-[850px]">{t("reset")}</h1>
           <form>

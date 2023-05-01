@@ -49,7 +49,7 @@ function index() {
 
   return (
     <div className={styles.services}>
-        <PageUser>
+        <PageUser title={t("pay")}>
         <div className={styles.addservices}>
 <div className='container mx-auto'>
 <div className={styles.addservices_flex}>

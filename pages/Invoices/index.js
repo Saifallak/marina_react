@@ -32,7 +32,7 @@ console.log(userDate);
   const { t } = useTranslation("services");
   return (
     <div className={styles.services}>
-      <PageUser>
+      <PageUser title={t("invoices")}>
         <h1>{t("welcome") + " " + userAuth.name}</h1>
         <div className="container mx-auto">
           <div className={styles.boxs}>

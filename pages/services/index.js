@@ -23,7 +23,7 @@ function index({ data, userDate, userAuth }) {
   },[TypeFilter])
   return (
     <div className={styles.services}>
-      <PageUser>
+      <PageUser title={t("services")}>
         <h1>{t("services") + " " + userAuth.name} </h1>
         <div className="container mx-auto">
           <div className={styles.boxs}>

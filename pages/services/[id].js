@@ -67,7 +67,7 @@ function index({data}) {
 
   return (
     <div className={styles.services}>
-        <PageUser>
+        <PageUser title={t("new")}>
         <div className={styles.addservices}>
 <div className='container mx-auto'>
 <div className={styles.addservices_flex}>

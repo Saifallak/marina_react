@@ -95,7 +95,7 @@ function index() {
   };
   return (
     <section className={styles.sign}>
-      <PageUser>
+      <PageUser title={t("update")}>
         <div className=" container mt-[24px] md:mt-[100px] gap-[30px]  mx-auto flex justify-between items-stretch lg:items-center flex-col   xl:flex-row-reverse	">
           <div className="flex  flex-col-reverse xl:flex-col gap-[30px]">
             <div className="">
