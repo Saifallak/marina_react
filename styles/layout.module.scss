@@ -48,16 +48,17 @@
     height: 100vh;
     background-color: #0cceff;
     z-index: 1;
+    overflow-x: auto;
     transition: top 0.2s ease-out;
     .list {
       list-style: none;
       display: flex;
       width: 100%;
       height: 100%;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      flex-direction: column;
-      margin-top: 60px;
+    flex-direction: column;
+    margin-top: 130px;
       gap: 4%;
     }
     .item {
