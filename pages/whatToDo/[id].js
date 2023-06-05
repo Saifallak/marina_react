@@ -7,6 +7,7 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Ad2 from "@/components/Ad2";
 
 const Index = ({ data, blogs }) => {
   const { locale } = useRouter();
@@ -65,6 +66,7 @@ const Index = ({ data, blogs }) => {
             </Link>
           </div>
         </div>
+        <Ad2/>
       </PageComponent>
     </>
   );

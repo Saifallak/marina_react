@@ -7,6 +7,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Script from "next/script";
 import Head from "next/head";
+import Ad1 from "@/components/Ad1";
 
 
 const Index = ({ data, CurrentCatalouge }) => {
@@ -16,12 +17,11 @@ const Index = ({ data, CurrentCatalouge }) => {
   return ( 
     <>
 <Head>
-<script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
-<script async  src="/prebid7.45.0.js" > </script>
-<script async  src="/preb.js" > </script>
+
+
 
 </Head>
-    
+
     <PageComponent
       styles={styles}
       title={CurrentCatalouge.name[locale]}
@@ -34,13 +34,8 @@ const Index = ({ data, CurrentCatalouge }) => {
         <CategoryGrid items={data} t={t}></CategoryGrid>
         <div className={styles.ad}>
 
-        <div id="div-1">
-      <script src="/one.js" ></script>
-
-      </div>
-      <div id="div-2">
-      <script src="/two.js" ></script>
-      </div>
+        <Ad1/>
+      
 
      
     </div>
