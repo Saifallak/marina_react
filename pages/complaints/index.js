@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "@/styles/information.module.scss";
-import { Button, Container} from "@mantine/core";
+import { Button, Container, NumberInput, TextInput, Textarea} from "@mantine/core";
 import Link from "next/link";
 import Navbar from "../../components/layouts/Navbar/index";
 import img from "@/public/images/complaints.jpg";
@@ -9,8 +9,78 @@ import img3 from "@/public/images/complaintsLogo.svg";
 import icon from '../../public/Icon.png'
 import Logo from "../../public/images/navbar/logo.svg";
 import Image from "next/image";
+import { useState } from "react";
+import axios from "axios";
 export default function Home() {
+  //data
+  const [FullName, setFullName] = useState("");
+  const [Phone, setPhone] = useState("");
+  const [Description, setDescription] = useState("");
+  const [Unit, setUnit] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  //Error
+  const [ErrorFullName, setErrorFullName] = useState("");
+  const [ErrorPhone, setErrorPhone] = useState("");
+  const [ErrorDescription, setErrorDescription] = useState("");
+  const [ErrorUnit, setErrorUnit] = useState("");
 
+
+  const formData = new FormData();
+  const handellogin = () => {
+    formData.append("name", FullName);
+    formData.append("telephone_number", Phone);
+    formData.append("description", Description);
+    formData.append("unit_number", Unit);
+    formData.append("image", selectedFile);
+    console.log(Unit)
+        console.log(Description)
+        console.log(Phone)
+        console.log(FullName)
+    const po = axios
+      .post(
+        "https://admin.marina.com.eg/api/complaint", formData,
+        {
+          headers: {
+            "Accept": " application/json",
+          },
+        }
+      )
+      .then((res) => {
+        setFullName("")
+        setPhone("")
+        setDescription("")
+        setUnit("")
+        setSelectedFile(null)
+
+
+        setErrorFullName("")
+        setErrorPhone("")
+        setErrorDescription("")
+        setErrorUnit("")
+        console.log(res)
+        
+      })
+      .catch((res) => {
+        console.log(res);
+        res.response.data.errors.name
+          ? setErrorFullName(res.response.data.errors.name[0])
+          : setErrorFullName("");
+           res.response.data.errors.description
+          ? setErrorDescription(res.response.data.errors.description[0])
+          : setErrorDescription("");
+           res.response.data.errors.unit_number
+          ? setErrorUnit(res.response.data.errors.unit_number[0])
+          : setErrorUnit("");
+          res.response.data.errors.telephone_number
+          ? setErrorPhone(res.response.data.errors.telephone_number[0])
+          : setErrorPhone("");
+      });
+  };
+
+  const handleHeaderInputChange = (e) => {
+  console.log(e)
+    setSelectedFile(e.target.files[0]);
+  };
 
  
   return (
@@ -52,39 +122,62 @@ export default function Home() {
         <section className="container" style={{margin:"auto"}}>
         <div  className={styles.information}>
         <img   src={img3.src} alt="logoLostFound"  className="md:max-w-[230px]   max-w-[150px] mx-[auto] md:mb-[52px] mb-[30px]"/>
-    <form>
-      
+        <form>
+        
         <div  className={styles.part}>
         <label>Name</label>
-        <input type="text"  />
+        <TextInput error={ErrorFullName} value={FullName} type="text" onChange={(e)=>{setFullName(e.target.value)}}  />
         <label className={styles.arabic}>الاسم</label>
         </div>
         <div  className={styles.part}>
-        <label>unit Number</label>
-        <input type="number"  />
+        <label>Unit Number</label>
+        <NumberInput type="number"  error={ErrorUnit} value={Unit}  onChange={setUnit} hideControls/>
         <label className={styles.arabic}>رقم الوحده</label>
         </div>
         <div  className={styles.part}>
         <label>Telephone Number</label>
-        <input type="number"  />
+        <TextInput type="number" error={ErrorPhone} value={Phone}  onChange={(e)=>{setPhone(e.target.value)}}  />
         <label className={styles.arabic}>رقم التليفون</label>
         </div>
         <div  className={styles.part}>
         <label>Description</label>
-      <textarea></textarea>
+      <Textarea onChange={(e)=>setDescription(e.target.value)} value={Description} error={ErrorDescription}/>
         <label className={styles.arabic}>التفاصيل</label>
         </div>
+      
+       
     </form>
     <div  className={styles.more}>
         <h3> for more details</h3>
     
-        <div className={styles.all_btn}>
-            <button>upload attachments</button>
-            <button className={styles.arabic}> تحميل المرفقات</button>
+        <div className={styles.all_btn}        id="file-input1">
+         
+          <div className="relative cursor-pointer">
+            <label className=" cursor-pointer ">Upload Attachments </label>
+          <input
+                        type="file"
+                        
+                        className="absolute top-0 left-0 w-[100%] opacity-0 cursor-pointer"
+                        onChange={handleHeaderInputChange}
+                      />{" "}
+          </div>
+          <div className="relative cursor-pointer">
+            <label className={[styles.arabic +  ' cursor-pointer ']}>تحميل المرفقات </label>
+          <input
+                        type="file"
+                        
+                        className=" absolute top-0 left-0 w-[100%] opacity-0 cursor-pointer"
+                        onChange={handleHeaderInputChange}
+                      />{" "}
+          </div>
+       
+            <input type="file" className={[styles.arabic," absolute top-0 left-0 w-[100%] opacity-0 cursor-pointer"]} />
         </div>
+        <input type="submit" onClick={(e)=>{e.preventDefault() ; handellogin()}} />
     </div>
-
+   
 </div>
+
         </section>
 
 

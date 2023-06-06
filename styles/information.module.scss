@@ -65,7 +65,7 @@
       display: flex;
       width: 100%;
       justify-content: space-evenly;
-      @apply md:flex-nowrap flex-wrap gap-y-[16px] xl:gap-x-[50px] gap-x-[20px];
+      @apply md:flex-nowrap flex-wrap gap-y-[16px] xl:gap-x-[30px] gap-x-[20px];
     }
   }
 
@@ -85,15 +85,28 @@
       gap: 20px;
       flex-wrap: wrap;
 
-      button {
+      label  {
         max-width: 100%;
         font-weight: 900;
         padding: 10px 4px;
         border-radius: 12px;
         background-color: black;
         color: white;
+   
         @apply xl:w-[430px] w-[300px] xl:text-[34px] text-[26px] md:h-[80px] h-[60px]
       }
+    }
+     input[type=submit] {
+      max-width: 100%;
+      font-weight: 900;
+      padding: 10px 4px;
+      border-radius: 12px;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      @apply xl:w-[430px] w-[300px] xl:text-[34px] text-[26px] md:h-[80px] h-[60px]
     }
   }
 
@@ -117,15 +130,26 @@
     border-radius: 20px;
     height: 80px;
     max-width: 100%;
-    width: 910px;
     padding: 6px 16px;
     font-size: 20px;
     font-weight: 700;
     outline: none;
-    @apply xl:w-[910px] sm:w-[500px] xl:h-[80px] md:h-[66px] h-[50px] md:order-none order-1;
+    @apply xl:w-[800px] w-[500px] xl:h-[80px] md:h-[66px] h-[50px] md:order-none order-1;
   }
   textarea {
     min-height: 300px;
+  }
+  @media(max-width:550px){
+    input,
+    textarea {
+    width: 400px;
+    }
+  }
+  @media(max-width:430px){
+    input,
+    textarea {
+   width: 100%;
+    }
   }
 }
 
