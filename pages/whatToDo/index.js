@@ -7,6 +7,7 @@ import { useTranslation } from "next-i18next";
 import WhatToDoCard from "@/components/whatToDo/WhatToDoCard";
 import { Button } from "@mantine/core";
 import { useRouter } from "next/router";
+import Ad1 from "@/components/Ad1";
 
 const Index = ({ blogs }) => {
   const { t } = useTranslation("todo");
@@ -14,8 +15,8 @@ const Index = ({ blogs }) => {
   return (
     <>
       <PageComponent styles={styles} title={t("what")} hero={img.src}>
-        <section className={styles.sectionOne}>
-          <div className="container px-4 mx-auto sm:px-10 mt-11">
+        <section className={[styles.sectionOne +" container mx-auto"]}>
+          <div className=" px-4 mx-auto sm:px-10 mt-11">
             {blogs.map((blog, index) => (
               <WhatToDoCard
                 key={index}
@@ -32,6 +33,9 @@ const Index = ({ blogs }) => {
             >
               {t("loadMore")}
             </Button>
+          </div>
+          <div className={styles.ad}>
+          <Ad1/>
           </div>
         </section>
       </PageComponent>

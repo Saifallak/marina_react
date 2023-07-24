@@ -41,7 +41,7 @@ export default function Home({ catalog, blogs }) {
               />
             
 
-          <Container className={styles.home__container} fluid px={20}>
+          <Container className={styles.home__container} fluid >
             <div className={styles.home__title}>
               <p className={styles.discover}>{t("discover")}</p>
               <h1 className="mt-4 text-2xl leading-tight sm:text-4xl lg:text-6xl">

@@ -7,6 +7,8 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import Ad1 from "@/components/Ad1";
+import Ad2 from "@/components/Ad2";
 
 const Product = ({ data }) => {
   const btn2 = { ar: "احجز", en: "RESERVE" };
@@ -19,12 +21,14 @@ const Product = ({ data }) => {
   }
 
   return (
+    <>
+   
     <PageComponent
       styles={styles}
       title={locale === "en" ? data.name.en : data.name.ar}
       hero={data.cover_collection.responsive_urls[0]}
     >
-      <div className="container px-4 mx-auto sm:px-10 mt-11">
+      <div className="container px-4 mx-auto sm:px-10 mt-11 flex xl:flex-row flex-col">
         <div className={styles.page__content}>
           <h2>A MATCH MADE IN HEAVEAN</h2>
           <div className={styles.gallery__nav}>
@@ -58,8 +62,17 @@ const Product = ({ data }) => {
             {btn2[locale]}
           </a>
         </div>
+        <div className=" min-w-[300px] xl:my-auto  my-6 flex-1 xl:flex-[0px]">
+          <Ad1/>
+
+        </div>
       </div>
     </PageComponent>
+    <div className=" w-[100%]   mt-6 ">
+          <Ad2/>
+
+        </div>
+    </>
   );
 };
 

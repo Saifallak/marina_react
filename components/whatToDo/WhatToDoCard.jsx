@@ -16,7 +16,7 @@ const WhatToDoCard = ({ image, titleOne, id, t }) => {
         <Link href={`/whatToDo/${id}`}>
           <Button
             variant="default"
-            className="uppercase bg-black text-white border-none text-sm lg:text-xl h-[40px] lg:h-[60px] px-10 rounded-3xl bottom-1 hover:bg-black"
+            className="uppercase bg-black text-white border-none font-black text-[16px] sm:text-[20px] lg:text-[30px] h-[54px] lg:h-[80px] px-6  sm:px-10 rounded-3xl bottom-1 hover:bg-black"
           >
             {t("buttonRead")}
           </Button>

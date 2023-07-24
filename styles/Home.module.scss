@@ -18,9 +18,14 @@
     top: 40%;
     transform: translateY(-50%);
     width: 100%;
-    
+    padding-right: 3rem;
+    padding-left: 3rem;
     @apply top-[50%] sm:top-[40%];
 
+    @media (max-width: 768px) {
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+    }
     @media (max-height: 500px) {
       top: 60%;
     }
