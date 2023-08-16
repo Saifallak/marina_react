@@ -74,6 +74,7 @@
     margin-top: 20px;
     height: 100%;
     max-width: 2000px;
+    justify-content: center;
     @apply  mx-auto;
   }
   .grid__grid {
@@ -84,7 +85,7 @@
     position: relative;
     height: 100vh;
    
-    @apply h-[200px] sm:h-[400px] md:h-screen;
+    @apply h-[170px] sm:h-[400px] md:h-[400px];
 
     img {
       width: 100%;

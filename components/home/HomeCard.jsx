@@ -28,7 +28,7 @@ const HomeCard = ({ title, image, reverse, id, t }) => {
         ) || <Skeleton count={10} />}
       </div>
       <div className={`flex-1 ${reverse && "text-right"}`}>
-        <h3 className="text-2xl md:text-8xl font-extrabold mb-8 leading">
+        <h3 className="text-2xl  xl:text-8xl md:text-6xl font-extrabold mb-8 leading">
           {title}
         </h3>
         <Link href={`/whatToDo/${id}`}>
