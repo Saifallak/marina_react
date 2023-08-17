@@ -11,6 +11,7 @@ import Ad1 from "@/components/Ad1";
 
 
 const Index = ({ data, CurrentCatalouge }) => {
+  console.log(data);
   const { locale } = useRouter();
   const { t } = useTranslation();
 

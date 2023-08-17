@@ -40,9 +40,43 @@
     background-color: #07e3ff;
   }
 }
+.linkBlog{
+  position: relative;
+  p{
+   opacity: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 100%;
+    bottom: 16%;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &:hover {
+    .cardBlog{
+      filter: contrast(0.5);
+      transition: 0.3s;
+      transform: scale(1.01);
+      border-radius: 8px;
+      box-shadow: 0px 0px 5px #1a1919
 
+    };
+    p{
+     opacity: 1;
+      
+    }
+  }
+ 
+}
 .cardBlog {
   height: 276px;
+  border-radius: 4px;
   background-color: #000000;
   @apply w-[100px] md:w-[150px] lg:w-[200px]  h-[100px] md:h-[150px] lg:h-[200px];
 }
@@ -61,6 +95,8 @@
 }
 .sectionOne {
  margin-top: 30px;
+ font-size: 1.4rem;
+ @apply  text-[1.2rem] lg:text-[1.4rem];
   h1{
     font-weight: bold;
     @apply  text-[28px]   md:text-[50px] mb-3 sm:mb-10 md:mb-20;
@@ -76,12 +112,13 @@
 }
 @media only screen and (min-width: 768px) {
   .sectionOne {
-    margin-top: 153px;
-    margin-bottom: 203px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    
   }
 
   .sectionTwo {
-    margin-top: 110px;
+    margin-top: 60px;
     margin-bottom: 66px;
   }
 

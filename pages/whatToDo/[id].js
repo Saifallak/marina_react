@@ -10,6 +10,7 @@ import Image from "next/image";
 import Ad2 from "@/components/Ad2";
 
 const Index = ({ data, blogs }) => {
+  console.log(blogs);
   const { locale } = useRouter();
   const { t } = useTranslation("blog");
   const SameType = blogs.filter((item) => item.type == data.type);
@@ -41,7 +42,7 @@ const Index = ({ data, blogs }) => {
                 {SameType.filter((item) => item.id !== data.id).map(
                   (item, i) => {
                     return (
-                      <Link key={i} href={`/whatToDo/${item.id}`}>
+                      <Link key={i} href={`/whatToDo/${item.id}`} className={styles.linkBlog}>
                         <Image
                           className={styles.cardBlog}
                           src={item.img_collection.responsive_urls[0]}
@@ -50,6 +51,7 @@ const Index = ({ data, blogs }) => {
                           srcSet={item.img_collection.responsive_urls}
                           alt={item.title[locale]}
                         />
+                        <p>{item.title[locale]}</p>
                       </Link>
                     );
                   }
