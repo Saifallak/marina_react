@@ -18,7 +18,7 @@
 .contantCard p {
   color: white;
   font-weight: 800;
-  @apply text-[28px] sm:text-[36px] lg:text-[80px]  xl:text-[100px] leading-[40px] lg:leading-[100px] xl:leading-[135px];
+  @apply text-[22px] sm:text-[36px] lg:text-[4.5rem]  xl:text-[5rem] leading-[32px] sm:leading-[44px] md:leading-[50px] lg:leading-[88px] xl:leading-[88px];
 }
 
 .card {
@@ -28,8 +28,8 @@
   margin-bottom: 50px;
   display: flex;
   align-items: flex-end;
-
-  @apply h-[30vh] lg:h-[58vh];
+max-height: 500px;
+  @apply h-[200px] md:h-[300px] md:mb-[50px] mb-[26px] lg:h-[440px];
 }
 .sectionOne{
   display: flex;
