@@ -9,7 +9,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 function index({ userDate, userAuth ,data }) {
   const Number_InPROGRESS = userDate.filter((item) => item.status === "unpaid");
-console.log(userDate);
   const userSum = userDate.reduce(
     (total, number) => total + number.remaining_amount,
     0

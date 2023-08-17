@@ -36,14 +36,11 @@ function index() {
             }
           )
           .then((res) => {
-            console.log(res);
           })
           .catch((error) => {
             console.log(error);
             alert(error);
           });
-    
-        console.log(po);
       };
 
 

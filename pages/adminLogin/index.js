@@ -35,8 +35,6 @@ const [email, setemail] = useState("saifallax@yahoo.com");
         }
       )
       .then((res) => {
-        console.log(res);
-
         if (res.status === 200) {
          push("/")
          Cookies.set("access_token",res.data.access_token);
@@ -47,8 +45,6 @@ const [email, setemail] = useState("saifallax@yahoo.com");
         console.log(error);
         alert(error);
       });
-
-    console.log(po);
   };
 
 

@@ -69,11 +69,9 @@ function index() {
       )
       .then((res) => {
         setLoading(false);  
-        console.log(res)
       })
       .catch((res) => {
         setLoading(false);
-        console.log(res);
         res.response.data.errors.email
           ? setErrorEmail(res.response.data.errors.email[0])
           : setErrorEmail("");

@@ -48,13 +48,11 @@ function index({data}) {
             }
           )
           .then((res) => {
-            console.log(res);
              setLoading(false);
              push("/services");
           })
           .catch((res) => {
              setLoading(false);
-            console.log(res);
             res.response.data.errors.message ? setErrorMessage(res.response.data.errors.message[0]) : setErrorMessage("");
             res.response.data.errors.available_date ? setErrorDate(res.response.data.errors.available_date[0]) : setErrorDate("");
             res.response.data.errors.urgency ? setErrorUrgency(res.response.data.errors.urgency[0]) : setErrorUrgency("");

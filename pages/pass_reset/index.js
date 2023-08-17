@@ -33,15 +33,9 @@ function index() {
       )
       .then((res) => {
        
-        console.log(res)
       })
       .catch((res) => {
-       
-        console.log(res)
-      
-      
-       
-       
+
       });
   };
   return (

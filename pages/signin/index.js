@@ -48,7 +48,6 @@ const [email, setemail] = useState("");
       })
       .catch((res) => {
         setLoading(false);
-        console.log(res)
         res.response.data.email ? setErroremail( res.response.data.email[0]) : setErroremail("");
         res.response.data.password ? setErrorpassword(res.response.data.password[0]) : setErrorpassword("");
         res.response.data.error ? setError( res.response.data.error) : setError("");

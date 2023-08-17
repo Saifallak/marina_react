@@ -32,10 +32,6 @@ export default function Home() {
     formData.append("description", Description);
     formData.append("unit_number", Unit);
     formData.append("image", selectedFile);
-    console.log(Unit)
-        console.log(Description)
-        console.log(Phone)
-        console.log(FullName)
     const po = axios
       .post(
         "https://admin.marina.com.eg/api/complaint", formData,
@@ -57,11 +53,9 @@ export default function Home() {
         setErrorPhone("")
         setErrorDescription("")
         setErrorUnit("")
-        console.log(res)
         
       })
       .catch((res) => {
-        console.log(res);
         res.response.data.errors.name
           ? setErrorFullName(res.response.data.errors.name[0])
           : setErrorFullName("");
@@ -78,7 +72,6 @@ export default function Home() {
   };
 
   const handleHeaderInputChange = (e) => {
-  console.log(e)
     setSelectedFile(e.target.files[0]);
   };
 

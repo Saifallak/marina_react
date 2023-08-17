@@ -18,19 +18,13 @@ function index() {
   const [selectedLogo , setSelectedLogo ] = useState(null);
 
   const handleHeaderInputChange = (e) => {
-    console.log("111");
-
-    console.log(e);
+    
     setSelectedHeader(e.target.files[0]);
   };
   const handleListingInputChange = (e) => {
-    console.log(e);
-
     setSelectedListing(e.target.files[0]);
   };
   const handleLogoInputChange = (e) => {
-    console.log(e);
-
     setSelectedLogo(e.target.files[0]);
   };
   return (

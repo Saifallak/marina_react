@@ -17,14 +17,12 @@
     position: absolute;
     top: 40%;
     transform: translateY(-50%);
-    width: 100%;
-    padding-right: 3rem;
-    padding-left: 3rem;
-    @apply top-[50%] sm:top-[40%];
+    width: 86%;
+  padding: 0 !important;
+    @apply top-[50%] xl:left-[8%] left-[6.5%] sm:top-[40%];
 
     @media (max-width: 768px) {
-      padding-right: 1.5rem;
-      padding-left: 1.5rem;
+    padding: 0;
     }
     @media (max-height: 500px) {
       top: 60%;
@@ -63,8 +61,9 @@
 }
 
 .looking__for {
-  margin-top: 80px;
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  @apply md:mt-[80px] sm:mt-[40px] mt-[24px];
   h2 {
     font-weight: 900;
     text-align: center;

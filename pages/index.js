@@ -37,7 +37,7 @@ export default function Home({ catalog, blogs }) {
                 alt="sea beach"
                 width={100}
                 height={100}
-                style={{ minHeight: "44vh", height: "100%",width:"100%" }}
+                style={{ minHeight: "300px", height: "100%",width:"100%" }}
               />
             
 
