@@ -2,6 +2,8 @@ import { Button } from "@mantine/core";
 import Link from "next/link";
 import React from "react";
 import styles from "../../styles/whatToDo.module.scss";
+import ReactReadMoreReadLess from "react-read-more-read-less";
+import LinesEllipsis from "react-lines-ellipsis";
 
 const WhatToDoCard = ({ image, titleOne, id, t }) => {
   return (
@@ -12,7 +14,17 @@ const WhatToDoCard = ({ image, titleOne, id, t }) => {
       }}
     >
       <div className={styles.contantCard}>
-        <p>{titleOne}</p>
+  
+        <p >
+        <LinesEllipsis
+  text={titleOne}
+  maxLine='2'
+  ellipsis='...'
+  trimRight
+  basedOn='letters'
+/>
+       
+        </p>
         <Link href={`/whatToDo/${id}`} >
           <Button
             variant="default"
