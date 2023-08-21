@@ -15,7 +15,7 @@ const WhatToDoCard = ({ image, titleOne, id, t }) => {
     >
       <div className={styles.contantCard}>
   
-        <p >
+        <div  className={styles.decCard}>
         <LinesEllipsis
   text={titleOne}
   maxLine='2'
@@ -24,7 +24,7 @@ const WhatToDoCard = ({ image, titleOne, id, t }) => {
   basedOn='letters'
 />
        
-        </p>
+        </div>
         <Link href={`/whatToDo/${id}`} >
           <Button
             variant="default"
