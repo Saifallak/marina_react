@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 const { Col } = Grid;
 
 const Index = ({ Catalog }) => {
-  const { locale } = useRouter();console.log(Catalog);
+  const { locale } = useRouter();
 
   const { t } = useTranslation("whereToGo");
   return (

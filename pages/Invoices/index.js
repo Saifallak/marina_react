@@ -4,7 +4,6 @@ import React from "react";
 import styles from "@/styles/services.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Accordion } from "@mantine/core";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 function index({ userDate, userAuth ,data }) {

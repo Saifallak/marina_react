@@ -10,7 +10,6 @@ import Image from "next/image";
 import Ad2 from "@/components/Ad2";
 
 const Index = ({ data, blogs }) => {
-  console.log(blogs);
   const { locale } = useRouter();
   const { t } = useTranslation("blog");
   const SameType = blogs.filter((item) => item.type == data.type);

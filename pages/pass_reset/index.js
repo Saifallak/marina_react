@@ -1,7 +1,7 @@
 import PageUser from "@/components/PageUser";
 import React, { useState } from "react";
 import styles from "@/styles/signin.module.scss";
-import { NumberInput, TextInput } from "@mantine/core";
+import {  TextInput } from "@mantine/core";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Cookies from "js-cookie";
@@ -11,9 +11,7 @@ import { useRouter } from "next/router";
 function index() {
   const { t } = useTranslation("sign");
   const [email, setemail] = useState("");
-  const [Erroremail, setErroremail] = useState("");
   const { locale } = useRouter();
-  const router = useRouter();
   
   const handellogin = () => {
     const po = axios

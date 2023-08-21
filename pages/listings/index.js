@@ -1,4 +1,4 @@
-import PageUser from '@/components/PageUser'
+
 import { Button } from '@mantine/core'
 import React from 'react'
 import styles from "@/styles/admin.module.scss";

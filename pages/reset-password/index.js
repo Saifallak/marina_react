@@ -1,7 +1,7 @@
 import PageUser from "@/components/PageUser";
 import React, { useState } from "react";
 import styles from "@/styles/signin.module.scss";
-import { NumberInput, PasswordInput, TextInput } from "@mantine/core";
+import { PasswordInput } from "@mantine/core";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Cookies from "js-cookie";
@@ -12,8 +12,6 @@ function index() {
   const { t } = useTranslation("sign");
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
-  const [ErrorPassword, setErrorPassword] = useState("");
-  const [ErrorConfirmPassword, setErrorConfirmPassword] = useState("");
   const { locale } = useRouter();
   const router = useRouter();
   const { token, email } = router.query;

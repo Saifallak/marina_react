@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "@/styles/whatToDo.module.scss";
 import img from "@/public/images/whatToDo/daan-evers-tKN1WXrzQ3s-unsplash.webp";
 import PageComponent from "@/components/PageComponent";

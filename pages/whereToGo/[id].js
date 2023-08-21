@@ -5,13 +5,11 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import Script from "next/script";
 import Head from "next/head";
 import Ad1 from "@/components/Ad1";
 
 
 const Index = ({ data, CurrentCatalouge }) => {
-  console.log(data);
   const { locale } = useRouter();
   const { t } = useTranslation();
 

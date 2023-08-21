@@ -10,7 +10,6 @@ import icon from '../../public/Icon.png'
 import Logo from "../../public/images/navbar/logo.svg";
 import Image from "next/image";
 import { useState } from "react";
-import img5 from "@/public/images/navbar/persone.png";
 import axios from "axios";
 export default function Home() {
 

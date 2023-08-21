@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '@/styles/services.module.scss'
 import PageUser from '@/components/PageUser'
-import { Loader, NumberInput, Select, Textarea } from '@mantine/core'
+import { Loader, Select, Textarea } from '@mantine/core'
 import { DatePickerInput } from '@mantine/dates';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

@@ -7,7 +7,6 @@ import { Button, Container, Grid } from "@mantine/core";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import ProgressiveImage from "react-progressive-graceful-image";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Navbar from "../components/layouts/Navbar/index";
 import img from "@/public/images/home/hero.webp";
