@@ -63,7 +63,7 @@ const Product = ({ data, Catalog }) => {
             </div>
             <p dangerouslySetInnerHTML={createMarkup(data)} />
 
-            <a href={`tel:${data.phone}`} uppercase className={styles.btn}>
+            <a href={`tel:${data.phone}`} className={styles.btn}>
               {btn2[locale]}
             </a>
           </div>
