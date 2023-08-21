@@ -89,13 +89,13 @@ export default function Home({ catalog, blogs }) {
                 );
               })}
             </Grid>
-            <div className={styles.see__more}>
+            {/*<div className={styles.see__more}>
               <Link href={"/whatToDo"}>
                 <Button uppercase className={styles.btn}>
                   {t("exploreMoreBtn")}
                 </Button>
               </Link>
-            </div>
+            </div>*/}
           </Container>
         </section>
         <Container fluid px={20}>
