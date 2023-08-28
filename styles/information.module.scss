@@ -59,13 +59,15 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 52px;
+   
     align-items: center;
+    @apply sm:gap-y-8 xl:gap-y-11 gap-y-5;
     .part {
       display: flex;
       width: 100%;
-      justify-content: space-evenly;
-      @apply md:flex-nowrap flex-wrap gap-y-[16px] xl:gap-x-[30px] gap-x-[20px];
+      flex-direction: column;
+    
+    
     }
   }
 
@@ -82,7 +84,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
       flex-wrap: wrap;
 
       label  {
@@ -111,15 +113,9 @@
   }
 
   label {
-    background-color: black;
-    color: white;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
     text-align: center;
     font-weight: 900;
-    @apply xl:h-[80px] md:h-[66px] h-[50px] lg:w-[330px] md:w-[200px] w-[140px] xl:text-[30px] md:text-[20px] text-[18px];
+    @apply   xl:text-[30px] md:text-[20px] text-[18px];
   }
   .arabic {
     font-family: "Cairo", sans-serif !important;
@@ -134,17 +130,13 @@
     font-size: 20px;
     font-weight: 700;
     outline: none;
-    @apply xl:w-[800px] w-[500px] xl:h-[80px] md:h-[66px] h-[50px] md:order-none order-1;
+    margin: auto;
+    @apply w-[800px]  xl:h-[80px] md:h-[66px] h-[54px] md:order-none order-1;
   }
   textarea {
     min-height: 300px;
   }
-  @media(max-width:550px){
-    input,
-    textarea {
-    width: 400px;
-    }
-  }
+ 
   @media(max-width:430px){
     input,
     textarea {

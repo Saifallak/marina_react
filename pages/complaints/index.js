@@ -118,24 +118,33 @@ export default function Home() {
         <form>
         
         <div  className={styles.part}>
+        <div className=" flex justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto">
         <label>Name</label>
-        <TextInput error={ErrorFullName} value={FullName} type="text" onChange={(e)=>{setFullName(e.target.value)}}  />
         <label className={styles.arabic}>الاسم</label>
         </div>
-        <div  className={styles.part}>
-        <label>Unit Number</label>
-        <NumberInput type="number"  error={ErrorUnit} value={Unit}  onChange={setUnit} hideControls/>
-        <label className={styles.arabic}>رقم الوحده</label>
+        <TextInput error={ErrorFullName} value={FullName} type="text" onChange={(e)=>{setFullName(e.target.value)}}  />
         </div>
         <div  className={styles.part}>
+        <div className=" flex justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto">
+        <label>Unit Number</label>
+        <label className={styles.arabic}>رقم الوحده</label>
+
+        </div>
+        <NumberInput type="number"  error={ErrorUnit} value={Unit}  onChange={setUnit} hideControls/>
+        </div>
+        <div  className={styles.part}>
+        <div className=" flex justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto">
         <label>Telephone Number</label>
-        <TextInput type="number" error={ErrorPhone} value={Phone}  onChange={(e)=>{setPhone(e.target.value)}}  />
         <label className={styles.arabic}>رقم التليفون</label>
         </div>
+        <TextInput type="number" error={ErrorPhone} value={Phone}  onChange={(e)=>{setPhone(e.target.value)}}  />
+        </div>
         <div  className={styles.part}>
+        <div className=" flex justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto">
         <label>Description</label>
-      <Textarea onChange={(e)=>setDescription(e.target.value)} value={Description} error={ErrorDescription}/>
         <label className={styles.arabic}>التفاصيل</label>
+        </div>
+      <Textarea onChange={(e)=>setDescription(e.target.value)} value={Description} error={ErrorDescription}/>
         </div>
       
        

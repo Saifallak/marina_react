@@ -113,28 +113,43 @@ export default function Home() {
         </section>
         <section className="container" style={{margin:"auto"}}>
         <div  className={styles.information}>
-          <img   src={img3.src} alt="logoLostFound"  className="md:max-w-[230px]   max-w-[150px] mx-[auto] md:mb-[52px] mb-[30px]"/>
+          <img src={img3.src} alt="logoLostFound"  className="md:max-w-[230px]   max-w-[150px] mx-[auto] md:mb-[52px] mb-[30px]"/>
     <form>
-        
         <div  className={styles.part}>
-        <label>Name</label>
-        <TextInput error={ErrorFullName} value={FullName} type="text" onChange={(e)=>{setFullName(e.target.value)}} />
+          <div className=" flex justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto">
+          <label>Name</label>
         <label className={styles.arabic}>الاسم</label>
+          </div>
+       
+        <TextInput error={ErrorFullName} value={FullName} type="text" onChange={(e)=>{setFullName(e.target.value)}} />
+       
         </div>
         <div  className={styles.part}>
+        <div className=" flex justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto">
         <label>Unit Number</label>
-        <NumberInput type="number" value={Unit} error={ErrorUnit}   onChange={setUnit} hideControls/>
         <label className={styles.arabic}>رقم الوحده</label>
         </div>
-        <div  className={styles.part}>
-        <label>Telephone Number</label>
-        <TextInput type="number" error={ErrorPhone} value={Phone}  onChange={(e)=>{setPhone(e.target.value)}}  />
-        <label className={styles.arabic}>رقم التليفون</label>
+        
+        <NumberInput type="number" value={Unit} error={ErrorUnit}   onChange={setUnit} hideControls/>
+        
         </div>
         <div  className={styles.part}>
+        <div className=" flex justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto">
+        <label>Telephone Number</label>
+        <label className={styles.arabic}>رقم التليفون</label>
+        </div>
+       
+        <TextInput type="number" error={ErrorPhone} value={Phone}  onChange={(e)=>{setPhone(e.target.value)}}  />
+        
+        </div>
+        <div  className={styles.part}>
+        <div className=" flex justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto">
         <label>Description</label>
-      <Textarea onChange={(e)=>setDescription(e.target.value)} value={Description} error={ErrorDescription}/>
         <label className={styles.arabic}>التفاصيل</label>
+        </div>
+       
+      <Textarea onChange={(e)=>setDescription(e.target.value)} value={Description} error={ErrorDescription}/>
+       
         </div>
       
        
