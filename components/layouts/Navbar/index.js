@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "@/styles/layout.module.scss";
 import Hamburger from "./Hamburger";
 import SocialLinks from "./SocialLinks";
-import Logo from "../../../public/images/navbar/logo.svg";
+import Logo from "../../../public/images/navbar/logo.png";
 import Image from "next/image";
 import { useRecoilState } from "recoil";
 import { navState } from "@/atoms";

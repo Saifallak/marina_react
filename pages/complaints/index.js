@@ -7,7 +7,7 @@ import img from "@/public/images/complaints.jpg";
 import img2 from "@/public/images/complaintsicon.svg";
 import img3 from "@/public/images/complaintsLogo.svg";
 import icon from '../../public/Icon.png'
-import Logo from "../../public/images/navbar/logo.svg";
+import Logo from "../../public/images/navbar/logo.png";
 import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "@/styles/layout.module.scss";
 import { Container, Grid } from "@mantine/core";
 import Image from "next/image";
-import Logo from "../../../public/images/navbar/logo.svg";
+import Logo from "../../../public/images/navbar/logo.png";
 import Link from "next/link";
 import { AiOutlineUser } from "react-icons/ai";
 import { useRouter } from "next/router";

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import HomeCard from "@/components/home/HomeCard";
 import styles from "@/styles/Home.module.scss";
-import Logo from ".././public/images/navbar/logo.svg";
+import Logo from ".././public/images/navbar/logo.png";
 import { Button, Container, Grid } from "@mantine/core";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
