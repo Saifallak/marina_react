@@ -27,22 +27,3 @@ function NewService({data ,t}) {
 }
 
 export default NewService
-
-
-
-
-/*export async function getServerSideProps() {
-    const res = await fetch(
-      `https://admin.marina.com.eg/api/data/services`
-    );
-    const data = await res.json();
-  
-    
-  
-   
-    return {
-      props: {
-        data,
-      },
-    };
-  }*/

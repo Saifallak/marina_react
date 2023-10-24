@@ -102,14 +102,8 @@ export default index
 
 
 export async function getServerSideProps({locale}) {
-
-    const res = await fetch(
-      `https://admin.marina.com.eg/api/data/services`
-    );
-    const data = await res.json();
     return {
       props: {
-        data,
         ...(await serverSideTranslations(locale, ["services", "common"])),
     
       },

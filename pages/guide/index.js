@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/guide.module.scss";
 import img from "../../public/images/guide/joseph-barrientos-oQl0eVYd_n8-unsplash.webp";
 import imgOne from "../../public/images/guide/oliver-sjostrom-4pxycrNRhvg-unsplash.webp";
@@ -11,10 +11,21 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import data from "../api/guide.json";
 import { useRouter } from "next/router";
-const Index = ({ quidePdf }) => {
+import { getPdf } from "@/components/useApi/dataApi";
+const Index = () => {
   const { t } = useTranslation("guide");
-  const [pdf] = quidePdf;
+
+  const [pdf,setpdf]=useState()
   const { locale } = useRouter();
+  useEffect(() => {
+    FetchDataOFPDF();
+  }, []);
+  const FetchDataOFPDF = async () => {
+    const Pdf = await getPdf();
+    if (!Pdf) console.log(Pdf?.message);
+
+   setpdf(Pdf[0])
+  };
   return (
     <>
       <PageComponent
@@ -22,7 +33,7 @@ const Index = ({ quidePdf }) => {
         title={t("guide")}
         hero={img.src}
         button="buttonDownload"
-        link={pdf.pdf}
+        link={pdf?.pdf}
       >
         <div className="container mx-auto">
           <div className="flex items-center mt-[100px] mb-[100px] md:mb-[150px] flex-col-reverse sm:flex-row">
@@ -103,12 +114,9 @@ const Index = ({ quidePdf }) => {
 export default Index;
 
 export const getServerSideProps = async (context) => {
-  const quidePdf = await fetch(
-    "https://admin.marina.com.eg/api/data/pdfs"
-  ).then((res) => res.json());
+  
   return {
     props: {
-      quidePdf: quidePdf,
       ...(await serverSideTranslations(context.locale, ["guide", "common"])),
     },
   };
