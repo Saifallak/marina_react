@@ -10,6 +10,9 @@ const nextConfig = {
   images: {
     domains: ['admin.marina.com.eg'],
   },
+  experimental: {
+    largePageDataBytes: 800 * 1000,
+  },
 }
 
 module.exports = nextConfig
