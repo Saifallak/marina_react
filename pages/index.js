@@ -12,12 +12,31 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Navbar from "../components/layouts/Navbar/index";
 import img from "@/public/images/home/hero.webp";
 import icon from '../public/Icon.png'
+import { useEffect, useState } from "react";
+import { getBlogs, getCatalog } from "@/components/useApi/dataApi";
 const { Col } = Grid;
-export default function Home({ catalog, blogs }) {
+export default function Home() {
   const { t } = useTranslation("home");
   const { locale } = useRouter();
-
- 
+  const [blogs,setBlogs] =useState([])
+  const [catalog,setCatalog] =useState([])
+  
+useEffect(()=>{
+  FetchDataOFBlogs()
+  FetchDataOFCatalog()
+},[])
+  const FetchDataOFBlogs = async () => {
+    const Blogs = await getBlogs();
+    if (!Blogs) console.log(Blogs?.message);
+   console.log(Blogs);
+   setBlogs(Blogs)
+  };
+  const FetchDataOFCatalog = async () => {
+    const Catalog = await getCatalog();
+    if (!Catalog) console.log(Catalog?.message);
+   console.log(Catalog);
+   setCatalog(Catalog)
+  };
   return (
     <>
       <Head>
@@ -59,7 +78,8 @@ export default function Home({ catalog, blogs }) {
             </div>
           </Container>
         </section>
-        <section className={styles.looking__for}>
+        {
+          catalog.length>0? <section className={styles.looking__for}>
           <Container fluid px={20}>
             <h2 className="text-[#3a3a3a] text-2xl sm:text-6xl uppercase mb-6">
               {t("discoverDistance")}
@@ -97,8 +117,11 @@ export default function Home({ catalog, blogs }) {
               </Link>
             </div>*/}
           </Container>
-        </section>
-        <Container fluid px={20}>
+        </section>:null
+        }
+       
+        {
+          blogs.length>0? <Container fluid px={20}>
           <section>
             {blogs.map((item, i) => (
               <HomeCard
@@ -111,7 +134,9 @@ export default function Home({ catalog, blogs }) {
               />
             ))}
           </section>
-        </Container>
+        </Container>:null
+        }
+       
 
         <Container fluid px={20}>
           <div className={styles.know__more}>
@@ -137,26 +162,8 @@ export default function Home({ catalog, blogs }) {
 }
 
 export async function getServerSideProps(context) {
-  const blogs = await fetch(
-    "https://admin.marina.com.eg/api/data/blogs?id=2"
-  ).then((res) => res.json());
-
-  const url = new URL("https://admin.marina.com.eg/api/data/catalog_types");
-
-  let headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    "Accept-Language": `${context.locale}`,
-  };
-  const res = await fetch(url, {
-    method: "GET",
-    headers,
-  });
-  const catalog = await res.json();
   return {
     props: {
-      catalog,
-      blogs,
       ...(await serverSideTranslations(context.locale, ["home", "common"])),
     },
   };
