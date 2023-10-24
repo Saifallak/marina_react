@@ -27,7 +27,7 @@
     "prebid.js": "^7.45.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-i18next": "^13.3.1",
+    "react-i18next": "^12.2.0",
     "react-icons": "^4.8.0",
     "react-lines-ellipsis": "^0.15.3",
     "react-loading-skeleton": "^3.2.0",
