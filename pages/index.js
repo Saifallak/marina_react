@@ -1,3 +1,4 @@
+'use client'
 import Head from "next/head";
 import Image from "next/image";
 import HomeCard from "@/components/home/HomeCard";
