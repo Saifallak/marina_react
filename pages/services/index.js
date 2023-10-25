@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "@/styles/services.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Accordion } from "@mantine/core";
+import { Accordion, Skeleton } from "@mantine/core";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import {
@@ -19,6 +19,8 @@ function index() {
   const [UserAuth, setUserAuth] = useState();
   const [DateFilter, setDateFilter] = useState(userDate);
   const [data, setData] = useState([]);
+  const [Load1, setLoad1] = useState(false);
+  const [Load2, setLoad2] = useState(false);
 
   const Number_InPROGRESS =
     userDate.length > 0 ? userDate.filter((item) => item.status === 3) : [];
@@ -28,16 +30,19 @@ function index() {
   const stringToArray = (str) => str.split(" ");
   const { t } = useTranslation("services");
 
-
   useEffect(() => {
     FetchDataOFServices();
     FetchDataOFUserDate();
     FetchDataOFUserAuth();
   }, []);
   const FetchDataOFServices = async () => {
+    setLoad2(true);
+    setLoad1(true);
     const Services = await getServices();
     if (!Services) console.log(Services?.message);
     console.log(Services);
+    setLoad2(false);
+    setLoad1(false);
     setData(Services);
   };
   const FetchDataOFUserDate = async () => {
@@ -93,189 +98,206 @@ function index() {
               </Link>
             </div>
           </div>
-{
-  TypeFilter ?
-  <div id="ser" className={styles.pastreq}>
-  <h2>{t("Past")}</h2>
-  <div className={styles.requests}>
-    {userDate?.filter((item) => 
-      item.status == TypeFilter
-    ).length > 0 ? (
-      userDate.filter((item) => 
-        item.status == TypeFilter
-      ).map((item, i) => (
-        <Accordion vvariant="filled" radius="xs" key={i}>
-          <Accordion.Item
-            value="customization"
-            className={styles.alldata}
-          >
-            <Accordion.Control>
-              <div className={styles.req}>
-                <p>{item.id}</p>
-                <p>{item.service.name[locale]}</p>
-                <p>
-                  {item.status == 1
-                    ? locale === "en"
-                      ? "SUBMITTED "
-                      : "مقدم"
-                    : item.status == 2
-                    ? locale === "en"
-                      ? "ACCEPTED"
-                      : "قبلت"
-                    : item.status == 3
-                    ? locale === "en"
-                      ? "IN_PROGRESS"
-                      : "قيد التنفيذ"
-                    : item.status == 4
-                    ? locale === "en"
-                      ? "CANCELED"
-                      : "ملغي"
-                    : locale === "en"
-                    ? "COMPLETED"
-                    : "اكتمل"}
-                </p>
-                <p>
-                  {new Date(item.updated_at).toLocaleDateString()}
-                </p>
-              </div>
-            </Accordion.Control>
-            <Accordion.Panel>
-              <div className={styles.his}>
-                {item.histories.length
-                  ? item.histories.map((history, i) => (
-                      <div className={styles.req} key={i}>
-                        <p>{history.id}</p>
-                        <p>{item.service.name[locale]}</p>
-                        <p>
-                          {history.status == 1
-                            ? locale === "en"
-                              ? "SUBMITTED "
-                              : "مقدم"
-                            : history.status == 2
-                            ? locale === "en"
-                              ? "ACCEPTED"
-                              : "قبلت"
-                            : history.status == 3
-                            ? locale === "en"
-                              ? "IN_PROGRESS"
-                              : "قيد التنفيذ"
-                            : history.status == 4
-                            ? locale === "en"
-                              ? "CANCELED"
-                              : "ملغي"
-                            : locale === "en"
-                            ? "COMPLETED"
-                            : "اكتمل"}
-                        </p>
-                        <p>
-                          {new Date(
-                            history.created_at
-                          ).toLocaleDateString()}
-                        </p>
-                      </div>
+          {TypeFilter ? (
+            <div id="ser" className={styles.pastreq}>
+              <h2>{t("Past")}</h2>
+              <div className={styles.requests}>
+                {userDate?.filter((item) => item.status == TypeFilter).length >
+                0 ? (
+                  userDate
+                    .filter((item) => item.status == TypeFilter)
+                    .map((item, i) => (
+                      <Accordion vvariant="filled" radius="xs" key={i}>
+                        <Accordion.Item
+                          value="customization"
+                          className={styles.alldata}
+                        >
+                          <Accordion.Control>
+                            <div className={styles.req}>
+                              <p>{item.id}</p>
+                              <p>{item.service.name[locale]}</p>
+                              <p>
+                                {item.status == 1
+                                  ? locale === "en"
+                                    ? "SUBMITTED "
+                                    : "مقدم"
+                                  : item.status == 2
+                                  ? locale === "en"
+                                    ? "ACCEPTED"
+                                    : "قبلت"
+                                  : item.status == 3
+                                  ? locale === "en"
+                                    ? "IN_PROGRESS"
+                                    : "قيد التنفيذ"
+                                  : item.status == 4
+                                  ? locale === "en"
+                                    ? "CANCELED"
+                                    : "ملغي"
+                                  : locale === "en"
+                                  ? "COMPLETED"
+                                  : "اكتمل"}
+                              </p>
+                              <p>
+                                {new Date(item.updated_at).toLocaleDateString()}
+                              </p>
+                            </div>
+                          </Accordion.Control>
+                          <Accordion.Panel>
+                            <div className={styles.his}>
+                              {item.histories.length
+                                ? item.histories.map((history, i) => (
+                                    <div className={styles.req} key={i}>
+                                      <p>{history.id}</p>
+                                      <p>{item.service.name[locale]}</p>
+                                      <p>
+                                        {history.status == 1
+                                          ? locale === "en"
+                                            ? "SUBMITTED "
+                                            : "مقدم"
+                                          : history.status == 2
+                                          ? locale === "en"
+                                            ? "ACCEPTED"
+                                            : "قبلت"
+                                          : history.status == 3
+                                          ? locale === "en"
+                                            ? "IN_PROGRESS"
+                                            : "قيد التنفيذ"
+                                          : history.status == 4
+                                          ? locale === "en"
+                                            ? "CANCELED"
+                                            : "ملغي"
+                                          : locale === "en"
+                                          ? "COMPLETED"
+                                          : "اكتمل"}
+                                      </p>
+                                      <p>
+                                        {new Date(
+                                          history.created_at
+                                        ).toLocaleDateString()}
+                                      </p>
+                                    </div>
+                                  ))
+                                : null}
+                            </div>
+                          </Accordion.Panel>
+                        </Accordion.Item>
+                      </Accordion>
                     ))
-                  : null}
+                ) : (
+                  <p className="text-[20px] text-center font-bold md:text-[30px] ">
+                    {locale === "en" ? "no date" : "لا يوجد بيانات"}
+                  </p>
+                )}
               </div>
-            </Accordion.Panel>
-          </Accordion.Item>
-        </Accordion>
-      ))
-    ) : (
-      <p className="text-[20px] text-center font-bold md:text-[30px] ">
-        {locale === "en" ? "no date" : "لا يوجد بيانات"}
-      </p>
-    )}
-  </div>
-</div>:<div id="ser" className={styles.pastreq}>
-  <h2>{t("Past")}</h2>
-  <div className={styles.requests}>
-    {userDate?.length > 0 ? (
-      userDate.map((item, i) => (
-        <Accordion vvariant="filled" radius="xs" key={i}>
-          <Accordion.Item
-            value="customization"
-            className={styles.alldata}
-          >
-            <Accordion.Control>
-              <div className={styles.req}>
-                <p>{item.id}</p>
-                <p>{item.service.name[locale]}</p>
-                <p>
-                  {item.status == 1
-                    ? locale === "en"
-                      ? "SUBMITTED "
-                      : "مقدم"
-                    : item.status == 2
-                    ? locale === "en"
-                      ? "ACCEPTED"
-                      : "قبلت"
-                    : item.status == 3
-                    ? locale === "en"
-                      ? "IN_PROGRESS"
-                      : "قيد التنفيذ"
-                    : item.status == 4
-                    ? locale === "en"
-                      ? "CANCELED"
-                      : "ملغي"
-                    : locale === "en"
-                    ? "COMPLETED"
-                    : "اكتمل"}
-                </p>
-                <p>
-                  {new Date(item.updated_at).toLocaleDateString()}
-                </p>
+            </div>
+          ) : (
+            <div id="ser" className={styles.pastreq}>
+              <h2>{t("Past")}</h2>
+              {Load2 && (
+            <div className="loadDiv">
+              <Skeleton height={100} width={"90%"} radius="8px" />
+              <Skeleton height={100} width={"90%"} radius="8px" />
+              <Skeleton height={100} width={"90%"} radius="8px" />
+              <Skeleton height={100} width={"90%"} radius="8px" />
+            </div>
+          )}
+              <div className={styles.requests}>
+                {userDate?.length > 0 ? (
+                  userDate.map((item, i) => (
+                    <Accordion vvariant="filled" radius="xs" key={i}>
+                      <Accordion.Item
+                        value="customization"
+                        className={styles.alldata}
+                      >
+                        <Accordion.Control>
+                          <div className={styles.req}>
+                            <p>{item.id}</p>
+                            <p>{item.service.name[locale]}</p>
+                            <p>
+                              {item.status == 1
+                                ? locale === "en"
+                                  ? "SUBMITTED "
+                                  : "مقدم"
+                                : item.status == 2
+                                ? locale === "en"
+                                  ? "ACCEPTED"
+                                  : "قبلت"
+                                : item.status == 3
+                                ? locale === "en"
+                                  ? "IN_PROGRESS"
+                                  : "قيد التنفيذ"
+                                : item.status == 4
+                                ? locale === "en"
+                                  ? "CANCELED"
+                                  : "ملغي"
+                                : locale === "en"
+                                ? "COMPLETED"
+                                : "اكتمل"}
+                            </p>
+                            <p>
+                              {new Date(item.updated_at).toLocaleDateString()}
+                            </p>
+                          </div>
+                        </Accordion.Control>
+                        <Accordion.Panel>
+                          <div className={styles.his}>
+                            {item.histories.length
+                              ? item.histories.map((history, i) => (
+                                  <div className={styles.req} key={i}>
+                                    <p>{history.id}</p>
+                                    <p>{item.service.name[locale]}</p>
+                                    <p>
+                                      {history.status == 1
+                                        ? locale === "en"
+                                          ? "SUBMITTED "
+                                          : "مقدم"
+                                        : history.status == 2
+                                        ? locale === "en"
+                                          ? "ACCEPTED"
+                                          : "قبلت"
+                                        : history.status == 3
+                                        ? locale === "en"
+                                          ? "IN_PROGRESS"
+                                          : "قيد التنفيذ"
+                                        : history.status == 4
+                                        ? locale === "en"
+                                          ? "CANCELED"
+                                          : "ملغي"
+                                        : locale === "en"
+                                        ? "COMPLETED"
+                                        : "اكتمل"}
+                                    </p>
+                                    <p>
+                                      {new Date(
+                                        history.created_at
+                                      ).toLocaleDateString()}
+                                    </p>
+                                  </div>
+                                ))
+                              : null}
+                          </div>
+                        </Accordion.Panel>
+                      </Accordion.Item>
+                    </Accordion>
+                  ))
+                ) : (
+                  <p className="text-[20px] text-center font-bold md:text-[30px] ">
+                    {locale === "en" ? "no date" : "لا يوجد بيانات"}
+                  </p>
+                )}
               </div>
-            </Accordion.Control>
-            <Accordion.Panel>
-              <div className={styles.his}>
-                {item.histories.length
-                  ? item.histories.map((history, i) => (
-                      <div className={styles.req} key={i}>
-                        <p>{history.id}</p>
-                        <p>{item.service.name[locale]}</p>
-                        <p>
-                          {history.status == 1
-                            ? locale === "en"
-                              ? "SUBMITTED "
-                              : "مقدم"
-                            : history.status == 2
-                            ? locale === "en"
-                              ? "ACCEPTED"
-                              : "قبلت"
-                            : history.status == 3
-                            ? locale === "en"
-                              ? "IN_PROGRESS"
-                              : "قيد التنفيذ"
-                            : history.status == 4
-                            ? locale === "en"
-                              ? "CANCELED"
-                              : "ملغي"
-                            : locale === "en"
-                            ? "COMPLETED"
-                            : "اكتمل"}
-                        </p>
-                        <p>
-                          {new Date(
-                            history.created_at
-                          ).toLocaleDateString()}
-                        </p>
-                      </div>
-                    ))
-                  : null}
-              </div>
-            </Accordion.Panel>
-          </Accordion.Item>
-        </Accordion>
-      ))
-    ) : (
-      <p className="text-[20px] text-center font-bold md:text-[30px] ">
-        {locale === "en" ? "no date" : "لا يوجد بيانات"}
-      </p>
-    )}
-  </div>
-</div>
-}
-          
+            </div>
+          )}
+          {Load1 && (
+            <div className="loadDiv">
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+            </div>
+          )}
           {data.length > 0 ? <NewService t={t} data={data} /> : null}
         </div>
       </PageUser>

@@ -19,7 +19,48 @@ export const getBlogs = async () => {
       console.log("Error in Add New Category (service) =>", error);
     }
   };
-  
+  export const getBlogsType = async (type) => { 
+    try {
+      const res = await fetch(
+        "https://admin.marina.com.eg/api/data/blogs?type=1",
+        {
+          method: "GET",
+        }
+      );
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log("Error in Add New Category (service) =>", error);
+    }
+  };
+  export const getAllBlogs = async () => { 
+    try {
+      const res = await fetch(
+        "https://admin.marina.com.eg/api/data/blogs",
+        {
+          method: "GET",
+        }
+      );
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log("Error in Add New Category (service) =>", error);
+    }
+  };
+  export const getBlogsDetails = async (id) => { 
+    try {
+      const res = await fetch(
+        `https://admin.marina.com.eg/api/data/blog_details?blog_id=${id}`,
+        {
+          method: "GET",
+        }
+      );
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log("Error in Add New Category (service) =>", error);
+    }
+  };
 export const getCatalog = async () => { 
     try {
       const res = await fetch(
@@ -100,6 +141,67 @@ export const getCatalog = async () => {
             Accept: "application/json",
             //"Accept-Language": `${locale}`,
           }
+        }
+      );
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log("Error in Add New Category (service) =>", error);
+    }
+  };
+  export const getCatalogWith = async () => { 
+    try {
+      const res = await fetch(
+        "https://admin.marina.com.eg/api/data/catalog_types?with_catalogs=1",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Accept-Language": "ar",
+          },
+        }
+      );
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log("Error in Add New Category (service) =>", error);
+    }
+  };
+  export const getCatalogDetails = async (id) => { 
+    try {
+      const res = await fetch(
+        `https://admin.marina.com.eg/api/data/catalogs/details?id=${id}`,
+        {
+          method: "GET",
+        }
+      );
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log("Error in Add New Category (service) =>", error);
+    }
+  };
+  export const getCatalogType = async (id) => { 
+    try {
+      const res = await fetch(
+        `https://admin.marina.com.eg/api/data/catalogs?catalog_type_id=${id}`,
+        {
+          method: "GET",
+        }
+      );
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log("Error in Add New Category (service) =>", error);
+    }
+  };
+  export const getCurrentCatalouge = async () => { 
+    try {
+      const res = await fetch(
+        "https://admin.marina.com.eg/api/data/catalog_types?with_catalogs=1",
+        {
+          method: "GET",
         }
       );
       const data = await res.json();

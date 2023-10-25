@@ -39,7 +39,8 @@ max-height: 500px;
   min-width: 300px;
   position: relative;
   margin-top: 40px;
-  @apply flex-1 xl:flex-[0px];
+ 
+  @apply flex-1 xl:flex-[0px] max-w-[100%] xl:max-w-[300px] ;
   
 }
 // @media only screen and (min-width: 600px) {
