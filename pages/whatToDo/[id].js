@@ -111,7 +111,7 @@ const Index = ({ id }) => {
         </PageComponent>
       ) : null}
       {Load2 && (
-                  <div className="loadDiv mt-11" style={{flexDirection:"column",marginTop:"100px",alignItems:"flex-end"}}>
+                  <div className="loadDiv mt-11" style={{flexDirection:"column",marginTop:"100px",alignItems:"flex-end",margin:"100px auto 60px",maxWidth:"1400px",width:"96%"}}>
                     <Skeleton height={90} width={"100%"} radius="8px" />
                     <Skeleton height={90} width={"80%"} radius="8px" />
                     <Skeleton height={90} width={"60%"} radius="8px" />
