@@ -31,7 +31,8 @@ export default function Home() {
     setLoad1(true);
     const Blogs = await getBlogs();
     if (!Blogs) console.log(Blogs?.message);
-    setBlogs(Blogs);
+    console.log(Blogs.data);
+    setBlogs(Blogs.data);
     setLoad1(false);
   };
   const FetchDataOFCatalog = async () => {

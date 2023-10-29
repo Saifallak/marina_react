@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 export const getBlogs = async () => { 
     try {
       const res = await fetch(
-        "https://admin.marina.com.eg/api/data/blogs?id=2",
+        "https://admin.marina.com.eg/api/data/blogs?page=1&featured=1",
         {
           method: "GET",
           headers: {
@@ -22,7 +22,7 @@ export const getBlogs = async () => {
   export const getBlogsType = async (type) => { 
     try {
       const res = await fetch(
-        "https://admin.marina.com.eg/api/data/blogs?type=1",
+        "https://admin.marina.com.eg/api/data/blogs?type=2&page=1",
         {
           method: "GET",
         }

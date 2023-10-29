@@ -22,7 +22,7 @@ const Index = () => {
     setLoad1(true);
     const Blogs = await getBlogsType();
     if (!Blogs) console.log(Blogs?.message);
-    setBlogs(Blogs);
+    setBlogs(Blogs.data);
     setLoad1(false);
   };
   return (
