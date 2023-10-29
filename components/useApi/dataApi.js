@@ -36,7 +36,7 @@ export const getBlogs = async () => {
   export const getAllBlogs = async () => { 
     try {
       const res = await fetch(
-        "https://admin.marina.com.eg/api/data/blogs",
+        "https://admin.marina.com.eg/api/data/blogs?type=1",
         {
           method: "GET",
         }
