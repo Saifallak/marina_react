@@ -109,7 +109,7 @@ export default function Home() {
                               loading="lazy"
                               decoding="async"
                               sizes="100%"
-                              alt={item.name[locale]}
+                              alt={item.name[locale].toLowerCase()}
                             />
                           ) || <Skeleton />}
                           <h3>{item.name[locale]}</h3>
