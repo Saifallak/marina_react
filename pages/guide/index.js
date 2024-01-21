@@ -23,8 +23,10 @@ const Index = () => {
   const FetchDataOFPDF = async () => {
     const Pdf = await getPdf();
     if (!Pdf) console.log(Pdf?.message);
-
-   setpdf(Pdf[0])
+console.log('====================================');
+console.log(Pdf);
+console.log('====================================');
+   setpdf(Pdf)
   };
   return (
     <>
@@ -33,7 +35,8 @@ const Index = () => {
         title={t("guide")}
         hero={img.src}
         button="buttonDownload"
-        link={pdf?.pdf}
+        link={pdf?pdf:null}
+        pdf={pdf?pdf:null}
       >
         <div className="container mx-auto">
           <div className="flex items-center mt-[100px] mb-[100px] md:mb-[150px] flex-col-reverse sm:flex-row">

@@ -35,15 +35,26 @@ const PageComponent = (props) => {
         <div className="flex-col page__hero__content">
           <h1 className="page__title">{props.title}</h1>
           {props.button && (
-            <a
-              href={props.link}
+            <div className="LinkPdf flex gap-2 md:gap-8 flex-wrap">
+
+             { props.link && props.pdf.map((pdfItem)=>{
+                return (
+                  
+                   <a
+                  key={pdfItem.id}
+              href={pdfItem.pdf}
               className="text-white text-[11px] md:text-lg font-bold bg-[#0cceff] mt-3 md:mt-6 p-2 md:p-4 px-3 md:px-6 rounded-2xl"
               download
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download the guide
+              {pdfItem.name}
             </a>
+                 
+                )
+              }) }           
+           
+           </div>
           )}
         </div>
       </section>
