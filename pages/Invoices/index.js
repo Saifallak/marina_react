@@ -12,7 +12,9 @@ function index({ userDate, userAuth ,data }) {
     (total, number) => total + number.remaining_amount,
     0
   );
-
+console.log('====================================');
+console.log(userDate);
+console.log('====================================');
   const formatNumber = (num) => {
     if (num >= 1000000) {
       return (num / 1000000).toFixed(1) + "m";
@@ -48,22 +50,22 @@ function index({ userDate, userAuth ,data }) {
             <div className={styles.box}>
               <h3>EGP {formatNumber(userSum)}</h3>
               <p> {t("amount")}</p>
-              <Link href="/">{t("payNow")}</Link>
+              <Link href="#InvoicesDetails">{t("payNow")}</Link>
             </div>
             <div className={styles.box}>
               <h3>{Number_InPROGRESS.length}</h3>
               <p>{t("amount2")}</p>
-              <Link href="/">{t("view")}</Link>
+              <Link href="#InvoicesDetails">{t("view")}</Link>
             </div>
           </div>
 
           {userDate.length ? (
-            <div className={styles.pastreq}>
+            <div className={styles.pastreq} id="InvoicesDetails">
               <h2>{t("Past")}</h2>
               <div className={styles.requests}>
                 {userDate.map((item, i) => (
                   <Link
-                    href={item.pdf_link ? item.pdf_link : ""}
+                    href={item.id ? `https://admin.marina.com.eg/payment/${item.id}` : ""}
                     target="_blank"
                     value="customization"
                     className={styles.alldata}
