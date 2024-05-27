@@ -96,6 +96,8 @@
 .sectionOne {
  margin-top: 30px;
  font-size: 1.4rem;
+ max-width: 100%;
+ overflow: scroll;
  @apply  text-[1.2rem] lg:text-[1.4rem];
   h1{
     font-weight: bold;
