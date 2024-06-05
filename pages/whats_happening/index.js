@@ -28,6 +28,27 @@ const Index = () => {
   return (
     <>
       <PageComponent styles={styles} title={t("happening")} hero={img.src}>
+      <section
+        className="page__header md:!max-h-[500px] !max-h-[300px] "
+        style={{ maxHeight: "100vh", overflow: "hidden" }}
+      >
+        <ProgressiveImage src={img.src} placeholder="loading">
+          {(src, loading) => (
+            <img
+              className={`image${loading ? " loading" : " loaded"}`}
+              src={src}
+              alt="sea beach"
+              width="100%"
+              height="100%"
+            />
+          )}
+        </ProgressiveImage>
+       { props.over ? null: <div className="page__overlay"></div>}
+        <div className="flex-col page__hero__content">
+          <h1 className="page__title">{t("happening")}</h1>
+          
+        </div>
+      </section>
         <section className={styles.sectionOne}>
           <div className="container px-4 mx-auto sm:px-10 mt-11">
             {Load1 && (
