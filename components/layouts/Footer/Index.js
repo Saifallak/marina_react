@@ -95,14 +95,7 @@ const Index = () => {
                 </ul>
               </div>
             </div>
-            <div className={`${styles.last__item} `}>
-              <Link href="/login" className={styles.user}>
-                <span className="text-[12px] md:text-xl lg:text-2xl text-white font-bold flex items-center flex-col">
-                  <AiOutlineUser className="text-3xl md:text-8xl mb-4" />
-                  OWNERS LOGIN
-                </span>
-              </Link>
-            </div>
+         
           </div>
         </div>
       </div>

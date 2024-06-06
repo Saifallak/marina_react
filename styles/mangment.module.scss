@@ -29,33 +29,31 @@
     position: absolute;
     top: 100%;
     left: 0;
-    
+
     background-color: rgba(71, 71, 71, 0.326);
-   opacity: 0;
-   transition: 0.4s;
-    
+    opacity: 0;
+    transition: 0.4s;
   }
-  &:hover{
+  &:hover {
     &:before {
       opacity: 1;
       top: 0;
     }
-    p{
+    p {
       opacity: 1 !important;
-
     }
   }
 }
 
 .CardOne p {
   color: white;
-opacity: 0;
-transition: 0.4s;
+  opacity: 0;
+  transition: 0.4s;
   font-weight: 800;
   margin-left: 30px;
   margin-bottom: 21px;
   position: relative;
-  @apply text-[26px] md:text-[30px] lg:text-[40px]
+  @apply text-[26px] md:text-[30px] lg:text-[40px];
 }
 
 .CardTwo,
@@ -75,7 +73,7 @@ transition: 0.4s;
   flex: 1;
   display: flex;
   align-items: flex-end;
-  background-position: center ;
+  background-position: center;
   background-size: cover;
   max-width: 360px;
   max-height: 820px;
@@ -83,29 +81,31 @@ transition: 0.4s;
   position: relative;
   opacity: 1;
   overflow: hidden;
+  transition: 0.4s;
   &:before {
     width: 100%;
     height: 100%;
     position: absolute;
-    
+
     left: 0;
     top: 100%;
     background-color: rgba(71, 71, 71, 0.326);
-   opacity: 0;
-   transition: 0.4s;
+    opacity: 0;
+    transition: 0.4s;
     content: "";
   }
-  &:hover{
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 8px #0e0e0e;
+    border-radius: 6px;
     &:before {
       opacity: 1;
       top: 0;
     }
-    p{
+    p {
       opacity: 1;
-
     }
   }
-  
 }
 
 .CardTwo {
@@ -188,11 +188,10 @@ transition: 0.4s;
   transition: 0.4s;
   position: relative;
   @apply text-[10px] md:text-[16px] lg:text-[25px] leading-4 md:leading-[20px] lg:leading-[34px] pl-[3px] pr-[2px] md:pl-[10px] lg:pl-[15px];
- 
 }
 
 /*small tablet styles*/
-@media (min-width:620px) {
+@media (min-width: 620px) {
   .CardOne p {
     color: white;
     font-size: 24px;
@@ -203,7 +202,7 @@ transition: 0.4s;
 }
 
 /* large tablet & laptop styles */
-@media (min-width:960px) {
+@media (min-width: 960px) {
   .CardOne p {
     color: white;
     font-size: 26px;
@@ -214,7 +213,7 @@ transition: 0.4s;
 }
 
 /* desktop styles */
-@media  (min-width: 1200px) {
+@media (min-width: 1200px) {
   .CardOne p {
     color: white;
     font-size: 30px;
