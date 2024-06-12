@@ -8,6 +8,7 @@ import img from "@/public/images/whatsHappening/linus-nylund-UCIZh0-OYPw-unsplas
 import WhatToDoCard from "@/components/whatToDo/WhatToDoCard";
 import { useRouter } from "next/router";
 import { getBlogsType } from "@/components/useApi/dataApi";
+import ProgressiveImage from "react-progressive-graceful-image";
 
 const Index = () => {
   const { t } = useTranslation("happening");
