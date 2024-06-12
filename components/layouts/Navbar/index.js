@@ -30,10 +30,6 @@ const Index = ({ colorr, pos }) => {
       href: "/whatToDo",
       title: { en: "WHAT TO DO?", ar: "تعمل أيه في مارينا؟" },
     },
-    {
-      href: "/whats_happening",
-      title: { en: "WHAT'S HAPPENING?", ar: "ايه اللي بيحصل؟" },
-    },
     { href: "/whereToGo", title: { en: "WHERE TO GO?", ar: "تروح فين؟" } },
     { href: "/complaints", title: { en: "COMPLAINTS", ar: " الشكاوي" } },
     { href: "/lost-found", title: { en: "LOST-FOUND", ar: " العثور على المفقودات" } },
