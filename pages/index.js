@@ -14,6 +14,7 @@ import img from "@/public/images/home/hero.webp";
 import icon from "../public/Icon.png";
 import { useEffect, useState } from "react";
 import { getBlogs, getCatalog } from "@/components/useApi/dataApi";
+import Questions from "@/components/Questions";
 const { Col } = Grid;
 export default function Home() {
   const { t } = useTranslation("home");
@@ -167,6 +168,7 @@ export default function Home() {
             </Link>
           </div>
         </Container>
+        <Questions/>
         <section className={styles.footer}>
           <Link className={styles.footer_logo} href="/">
             <Image src={Logo} alt="logo"></Image>
