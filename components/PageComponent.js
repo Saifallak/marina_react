@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "@/components/layouts/Footer/Index";
+
 import ProgressiveImage from "react-progressive-graceful-image";
 import Navbar from "./layouts/Navbar/index";
 import Head from "next/head";
@@ -60,7 +60,7 @@ const PageComponent = (props) => {
       </section>
       <div>
         {props.children}
-        <Footer></Footer>
+      
       </div>
     </>
   );

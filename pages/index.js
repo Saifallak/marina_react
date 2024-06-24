@@ -169,11 +169,7 @@ export default function Home() {
           </div>
         </Container>
         <Questions title={t("faq")}/>
-        <section className={styles.footer}>
-          <Link className={styles.footer_logo} href="/">
-            <Image src={Logo} alt="logo"></Image>
-          </Link>
-        </section>
+       
       </main>
     </>
   );

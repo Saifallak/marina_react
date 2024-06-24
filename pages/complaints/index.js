@@ -216,11 +216,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.footer}>
-        <Link className={styles.footer_logo} href="/">
-          <Image src={Logo} alt="logo"></Image>
-        </Link>
-      </section>
+      
     </>
   );
 }
