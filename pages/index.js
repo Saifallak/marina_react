@@ -168,7 +168,7 @@ export default function Home() {
             </Link>
           </div>
         </Container>
-        <Questions/>
+        <Questions title={t("faq")}/>
         <section className={styles.footer}>
           <Link className={styles.footer_logo} href="/">
             <Image src={Logo} alt="logo"></Image>

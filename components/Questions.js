@@ -1,6 +1,9 @@
+
 import { Accordion } from "@mantine/core";
 import styles from "@/styles/question.module.scss";
 import React from "react";
+
+
 const groceries = [
   {
     value: "Apples",
@@ -19,18 +22,19 @@ const groceries = [
   },
 ];
 
-function Questions() {
+function Questions({title}) {
+
   const items = groceries.map((item) => (
     <Accordion.Item key={item.value} value={item.value}>
-      <Accordion.Control>{item.value}</Accordion.Control>
+      <Accordion.Control className={styles.acc}>{item.value}</Accordion.Control>
       <Accordion.Panel>{item.description}</Accordion.Panel>
     </Accordion.Item>
   ));
   return (
     <section className={styles.questions}>
-    <div  className={`container questionsDiv mx-auto max-w-[2000px]  md:mt-[170px] mt-[90px]`}  >
+    <div  className={`container questionsDiv mx-auto max-w-[2000px]  md:mt-[70px] mt-[40px]`}  >
 
-      <h2 className="text-2xl sm:text-5xl font-extrabold mb-6">Faq
+      <h2 className="text-3xl sm:text-4xl font-extrabold mb-6">{title}
 
 </h2>
       <Accordion className={styles.Accordion5} defaultValue="Apples">{items}</Accordion>
