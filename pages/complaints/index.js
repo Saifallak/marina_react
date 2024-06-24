@@ -105,7 +105,7 @@ export default function Home() {
               complaints <br /> & suggestions
             </h1>
 
-            <Link href={"/whereToGo"}>
+            <Link href={"#improveService"}>
               <Button uppercase className={styles.header__btn}>
                 for improve service
               </Button>
@@ -113,7 +113,7 @@ export default function Home() {
           </div>
         </Container>
       </section>
-      <section className="container" style={{ margin: "auto" }}>
+      <section id="improveService" className="container" style={{ margin: "auto" }}>
         <div className={styles.information}>
           <img
             src={img3.src}

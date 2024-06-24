@@ -192,3 +192,22 @@ justify-content: center;
     }
   }
 }
+/*ownerInfo*/
+.ownerInfo{}
+.ownerInfo .imgOwner{
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 30px auto 30px;
+  border-radius: 50px;
+}
+.ownerInfo .imgOwner img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.ownerInfo .conentOwner{}
+.ownerInfo .conentOwner p{
+  margin-bottom: 6px;
+  @apply  text-[18px] sm:text-[22px]; 
+}

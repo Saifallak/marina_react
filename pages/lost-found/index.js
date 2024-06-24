@@ -103,7 +103,7 @@ export default function Home() {
               Lost <br/> & Found
               </h1>
              
-              <Link href={"/whereToGo"}>
+              <Link href={"#FindOut"}>
                 <Button uppercase className={styles.header__btn}>
               Find out what's missing
                 </Button>
@@ -111,7 +111,7 @@ export default function Home() {
             </div>
           </Container>
         </section>
-        <section className="container" style={{margin:"auto"}}>
+        <section id="FindOut" className="container" style={{margin:"auto"}}>
         <div  className={styles.information}>
           <img src={img3.src} alt="logoLostFound"  className="md:max-w-[230px]   max-w-[150px] mx-[auto] md:mb-[52px] mb-[30px]"/>
     <form>
