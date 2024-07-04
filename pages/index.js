@@ -140,7 +140,7 @@ export default function Home() {
               <Skeleton height={300} width={"90%"} radius="8px" />
               
             </div>}
-            {blogs.length > 0 ? (
+            {blogs?.length > 0 ? (
               blogs.map((item, i) => (
                 <HomeCard
                   key={i}
