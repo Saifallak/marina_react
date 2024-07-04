@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/mangment.module.scss";
 import img from "@/public/images/mangment/jamie-street-gZlQZFCA1Vc-unsplash.png";
 import PageComponent from "@/components/PageComponent";
@@ -6,72 +7,48 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { getDirectors, getYears } from "@/components/useApi/dataApi";
+import { Skeleton } from "@mantine/core";
 
 const Index = () => {
   const { t } = useTranslation("mangment");
   const { locale } = useRouter();
-  const mangment = [
-    {
-      en: " SAFWA \n EL NAHAS",
-      ar: "صفوة\n النحاس",
-    },
-    {
-      en: "MOHAMED \nABDELKADER\n SALEM \n(Board  member)",
-      ar: "محمد عبد القادر سالم (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "SAMIR \n YOUSSEF \n EL SAIAD (Board  member)",
-      ar: "سمير يوسف الصياد (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "HATEM \n  MAHMOUD \n HASSAN (Board  member)",
-      ar: "حاتم محمود حسن (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "HASSAN\n  ISAMIL\n  GHANEM (Board  member)",
-      ar: "حسن إسماعيل غانم (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "MOHAMED\n  SAAD\n  EL SHERBINI (Board  member)",
-      ar: "محمد سعد الشربيني (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "IBRAHIM \n SABRY\n  ABDELHAMID (Board  member)",
-      ar: "إبراهيم صبري عبد الحميد (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "HASSAN\n  ISAMIL\n  GHANEM (Board  member)",
-      ar: "حسن إسماعيل غانم (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "MOHAMED \n ABDELFATAH\n  EL GAMAL (Board  member)",
-      ar: "محمد عبد الفتاح الجمل (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "ASHRAF\n  EL SAMALIGI (Board  member)",
-      ar: "أشرف السمالجي (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "ABDELAAL \n EL SHEIKH (Board  member)",
-      ar: "عبد العال الشيخ (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "ABDELHAMID \n MOHAMED (Board  member)",
-      ar: "عبد الحميد محمد (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "WALID \n ABBAS (Board  member)",
-      ar: "وليد عباس (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "AHMED \n ABDELAZIZ (Board  member)",
-      ar: "أحمد عبد العزيز (عضو  \n مجلس الإدارة)",
-    },
-    {
-      en: "AbdelAl \n Ali \n AbdelAl (Board  member)",
-      ar: "عبد العال عبد العال (عضو  \n مجلس الإدارة)",
-    },
-  ];
+  const [directors, setDirectors] = useState([]);
+  const [years, setYears] = useState([]);
+  const [SelectYears, setSelectYears] = useState('2024');
+  const [Load1, setLoad1] = useState(false);
+  useEffect(() => {
+    FetchDataYears();
+  }, []);
+  useEffect(() => {
+    FetchDataDirectors();
+  }, [SelectYears]);
+  const FetchDataDirectors = async () => {
+    setLoad1(true);
+    const Directors = await getDirectors(SelectYears);
+    if (!Directors) console.log(Directors?.message);
+    setDirectors(Directors);
+    console.log('====================================');
+    console.log(Directors);
+    console.log('====================================');
+    setLoad1(false);
+  };
+  const FetchDataYears = async () => {
+    const Years = await getYears();
+    if (!Years) console.log(Years?.message);
+    setYears(Years);
+  };
+  const groupSize = 4;
+  const groups = [];
+  const manger = directors?.filter((item) => item.is_head_of_board == 1);
+  const directorsWithOutManger = directors?.filter(
+    (item) => item.is_head_of_board !== 1
+  );
+  for (let i = 0; i < directorsWithOutManger.length; i += groupSize) {
+    groups.push(directorsWithOutManger.slice(i, i + groupSize));
+  }
+
+
   
   return (
     <>
@@ -79,63 +56,65 @@ const Index = () => {
         <span className="text-2xl sm:text-3xl md:text-5xl text-[#3a3a3a] font-extrabold text-center">
           <p className="mt-2 md:mt-[40px] mb-5 md:mb-10">{t("border")}</p>
         </span>
+        {Load1 && (
+          <div className="loadDiv" style={{ marginTop: "50px" }}>
+            <Skeleton height={300} width={"90%"} radius="8px" />
+            <Skeleton height={300} width={"90%"} radius="8px" />
+            <Skeleton height={300} width={"90%"} radius="8px" />
+          </div>
+        )}
         <div className="container mx-auto">
-          <Link href={"#"} className={styles.CardOne}>
-            <p>{mangment[0][locale]}</p>
-          </Link>
-          <div className={styles.imgContainerTwo}>
-            <div className="flex w-full gap-2 md:gap-5">
-              <Link href="#" className={styles.CardTwo}>
-                <p>{mangment[1][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardThree}>
-                <p>{mangment[2][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardFour}>
-                {" "}
-                <p>{mangment[3][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardFive}>
-                <p>{mangment[4][locale]}</p>
-              </Link>
+          <div className="boxmanege">
+           
+            <div className="options">
+              {
+                years.length>0 ? <>
+                {years.sort((a, b)=> b - a).map((item,i)=>{
+                  return (<button onClick={(e)=>{e.preventDefault();setSelectYears(item)}}  className={`${SelectYears===item?"active":"" }`}>{item}</button>)
+                })}
+                </>: null
+              }
+            
             </div>
-            <div className="flex w-full gap-2 md:gap-5">
-              <Link href="#" className={styles.CardSex}>
-                <p>{mangment[5][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardSeven}>
-                <p>{mangment[6][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardEight}>
-                <p>{mangment[7][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardNine}>
-                <p>{mangment[8][locale]}</p>
-              </Link>
-            </div>
-            <div className="flex w-full gap-2 md:gap-5">
-              <Link href="#" className={styles.CardTen}>
-                <p>{mangment[9][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardEleven}>
-                <p>{mangment[10][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardTwelve}>
-                <p>{mangment[11][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardThirteen}>
-                <p>{mangment[12][locale]}</p>
-              </Link>
-            </div>
-            <div className="flex gap-2 w-[52%] md:gap-5">
-              <div className={styles.CardFourteen}></div>
-              <Link href="#" className={styles.CardFifteen}>
-                <p>{mangment[13][locale]}</p>
-              </Link>
-              <Link href="#" className={styles.CardSixteen}>
-                <p>{mangment[14][locale]}</p>
-              </Link>
-              <div className={styles.CardSeventeen}></div>
+            <div className="boxDirectors">
+              <h2>{SelectYears}</h2>
+              {manger.length > 0 ? (
+                <Link
+                  href={`/mangment/${manger[0].id}`}
+                  style={{
+                    backgroundImage: `url(${manger[0].image.url})`,
+                  }}
+                  className={styles.CardOne}
+                >
+                  <p>{manger[0].name[locale]}</p>
+                </Link>
+              ) : null}
+              <div className={styles.imgContainerTwo}>
+                {groups.length > 0 ? (
+                  <>
+                    {groups.map((item, i) => {
+                      return (
+                        <div className="flex w-full gap-2 md:gap-5" key={i}>
+                          {item.map((member, j) => {
+                            return (
+                              <Link
+                                key={j}
+                                href={`/mangment/${member.id}`}
+                                style={{
+                                  backgroundImage: `url(${member.image.url})`,
+                                }}
+                                className={styles.CardTwo}
+                              >
+                                <p>{member.name[locale]}</p>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      );
+                    })}
+                  </>
+                ) : null}
+              </div>
             </div>
           </div>
         </div>

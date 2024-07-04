@@ -98,6 +98,17 @@ function index() {
               </Link>
             </div>
           </div>
+          {Load1 && (
+            <div className="loadDiv">
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+              <Skeleton height={300} width={"22%"} radius="8px" />
+            </div>
+          )}
+          {data.length > 0 ? <NewService t={t} data={data} /> : null}
           {TypeFilter ? (
             <div id="ser" className={styles.pastreq}>
               <h2>{t("Past")}</h2>
@@ -288,17 +299,7 @@ function index() {
               </div>
             </div>
           )}
-          {Load1 && (
-            <div className="loadDiv">
-              <Skeleton height={300} width={"22%"} radius="8px" />
-              <Skeleton height={300} width={"22%"} radius="8px" />
-              <Skeleton height={300} width={"22%"} radius="8px" />
-              <Skeleton height={300} width={"22%"} radius="8px" />
-              <Skeleton height={300} width={"22%"} radius="8px" />
-              <Skeleton height={300} width={"22%"} radius="8px" />
-            </div>
-          )}
-          {data.length > 0 ? <NewService t={t} data={data} /> : null}
+         
         </div>
       </PageUser>
     </div>

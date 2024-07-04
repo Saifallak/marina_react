@@ -24,6 +24,9 @@ const Index = () => {
     const Catalog = await getCatalogWith();
     if (!Catalog) console.log(Catalog?.message);
     setLoad1(false);
+    console.log('====================================');
+    console.log(Catalog);
+    console.log('====================================');
     setCatalog(Catalog);
   };
   return (

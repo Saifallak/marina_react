@@ -1,20 +1,22 @@
 import PageUser from "@/components/PageUser";
 import NewService from "@/components/newService/NewService";
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/services.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-function index({ userDate, userAuth ,data }) {
+import { SegmentedControl } from "@mantine/core";
+function index({ userDate, userAuth, data }) {
   const Number_InPROGRESS = userDate.filter((item) => item.status === "unpaid");
   const userSum = userDate.reduce(
     (total, number) => total + number.remaining_amount,
     0
   );
-console.log('====================================');
-console.log(userDate);
-console.log('====================================');
+  const [typeInvoices, setTypeInvoices] = useState("paid");
+  console.log("====================================");
+  console.log(userDate);
+  console.log("====================================");
   const formatNumber = (num) => {
     if (num >= 1000000) {
       return (num / 1000000).toFixed(1) + "m";
@@ -24,7 +26,9 @@ console.log('====================================');
       return num;
     }
   };
-
+  console.log("====================================");
+  console.log(typeInvoices);
+  console.log("====================================");
   const formattedNumber = new Intl.NumberFormat().format(userSum);
 
   const { locale } = useRouter();
@@ -34,6 +38,7 @@ console.log('====================================');
     <div className={styles.services}>
       <PageUser title={t("invoices")}>
         <h1>{t("welcome") + " " + userAuth.name}</h1>
+
         <div className="container mx-auto">
           <div className={styles.boxs}>
             <div className={styles.box2}>
@@ -58,15 +63,27 @@ console.log('====================================');
               <Link href="#InvoicesDetails">{t("view")}</Link>
             </div>
           </div>
-
+        
           {userDate.length ? (
             <div className={styles.pastreq} id="InvoicesDetails">
-              <h2>{t("Past")}</h2>
+                <div className="filterInvoices">
+                <SegmentedControl
+                color="blue"
+                size="md"
+                radius="md"
+                  value={typeInvoices}
+                  onChange={setTypeInvoices}
+                  data={[
+                    { label: "paid", value: "paid" },
+                    { label: "unpaid", value: "unpaid" },
+                  ]}
+                />
+              </div>
+
+              <h2>{t("Past2")}</h2>
               <div className={styles.requests}>
-                {userDate.map((item, i) => (
-                  <Link
-                    href={item.id ? `https://admin.marina.com.eg/payment/${item.id}` : ""}
-                    target="_blank"
+                {userDate.filter(itemF=>itemF.status==typeInvoices).map((item, i) => (
+                  <div
                     value="customization"
                     className={styles.alldata}
                     key={i}
@@ -74,15 +91,28 @@ console.log('====================================');
                     <div className={styles.req}>
                       <p>{item.id}</p>
                       <p>{item.desc[locale]}</p>
-                      <p>{item.status==="unpaid"? locale==="en"? "unpaid" : "غير مدفوع" : locale==="en"? "paid" : " مدفوع" }</p>
+                      <p>
+                        {item.status === "unpaid"
+                          ? locale === "en"
+                            ? "unpaid"
+                            : "غير مدفوع"
+                          : locale === "en"
+                          ? "paid"
+                          : " مدفوع"}
+                      </p>
                       <p>{new Date(item.updated_at).toLocaleDateString()}</p>
+                      <a target="_blank" href={
+                      item.id
+                        ? `https://admin.marina.com.eg/payment/${item.id}`
+                        : ""
+                    } className="btnPay">{t('pay')}</a>
                     </div>
-                  </Link>
+                  </div>
                 ))}
               </div>
             </div>
           ) : (
-            <NewService t={t} data={data}  />
+            <NewService t={t} data={data} />
           )}
         </div>
       </PageUser>

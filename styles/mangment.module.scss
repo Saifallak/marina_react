@@ -56,32 +56,19 @@
   @apply text-[26px] md:text-[30px] lg:text-[40px];
 }
 
-.CardTwo,
-.CardThree,
-.CardFour,
-.CardFive,
-.CardSex,
-.CardSeven,
-.CardEight,
-.CardNine,
-.CardTen,
-.CardEleven,
-.CardTwelve,
-.CardThirteen,
-.CardFifteen,
-.CardSixteen {
+.CardTwo {
   flex: 1;
   display: flex;
   align-items: flex-end;
   background-position: center;
   background-size: cover;
-  max-width: 360px;
   max-height: 820px;
   aspect-ratio: 1/1;
   position: relative;
   opacity: 1;
   overflow: hidden;
   transition: 0.4s;
+  max-width: calc(25% - 15px);
   &:before {
     width: 100%;
     height: 100%;
@@ -108,76 +95,9 @@
   }
 }
 
-.CardTwo {
-  background-image: url("../public/images/mangment/OÑOº\ páº\ ƒTtƒº¬\ OÑOº\ ò\ OƒTF.png");
-}
 
-.CardThree {
-  background-image: url("../public/images/mangment/º- ½On¬ ƒT¡nƒº.png");
-}
 
-.CardFour {
-  background-image: url("../public/images/mangment/O.\ ÑƒóO\ OÑOfº\ Ñ½d.png");
-}
-
-.CardFive {
-  background-image: url("../public/images/mangment/Ñ½d ƒ½OƒpnT ÑTOe òOƒTF 2F.png");
-}
-
-.CardSex {
-  background-image: url("../public/images/mangment/ƒTTfƒÿ - OÑOº ½pº ƒT¼¬ándn òOƒTF1F.png");
-}
-
-.CardSeven {
-  background-image: url("../public/images/mangment/ƒá¬ƒ8nO ¡á¬e páº ƒTÑOnº ƒTOƒTF.png");
-}
-
-.CardEight {
-  background-image: url("../public/images/mangment/OÑOº ƒÑOº páº ƒTsóƒÑ ƒTñOT  òOƒTF.png");
-}
-
-.CardNine {
-  background-image: url("../public/images/mangment/½On¬ ½TnOƒd òOƒTF.png");
-}
-
-.CardTen {
-  background-image: url("../public/images/mangment/اشرف السماليجى.png");
-}
-
-.CardEleven {
-  background-image: url("../public/images/mangment/دكتور عبد العال الشيخ.png");
-}
-
-.CardTwelve {
-  background-image: url("../public/images/mangment/عبد الحميد محمد ابو موسى.png");
-}
-
-.CardThirteen {
-  background-image: url("../public/images/mangment/وليد عباس 1.png");
-}
-
-.CardFifteen {
-  background-image: url("../public/images/mangment/احمد عبد العزيز.png");
-}
-
-.CardSixteen {
-  background-image: url("../public/images/mangment/عبد العال علي عبد العال.png");
-}
-
-.CardTwo p,
-.CardThree p,
-.CardFour p,
-.CardFive p,
-.CardSex p,
-.CardSeven p,
-.CardEight p,
-.CardNine p,
-.CardTen p,
-.CardEleven p,
-.CardTwelve p,
-.CardThirteen p,
-.CardFifteen p,
-.CardSixteen p {
+.CardTwo p {
   padding-left: 15px;
   padding-bottom: 39.5;
   color: white;

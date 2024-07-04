@@ -40,7 +40,7 @@ const Index = ({ colorr, pos }) => {
     Cookies.get("access_token") ? true : false
   );
   useEffect(()=>{
-    stateUser? setNavPage(prevUsers => [...prevUsers, ...UserLinks]): setNavPage(navLinks)
+    stateUser? setNavPage(prevUsers => [...prevUsers]): setNavPage(navLinks)
   },[stateUser])
 
   return (
@@ -74,6 +74,24 @@ const Index = ({ colorr, pos }) => {
               </li>
             );
           })}
+          {
+            stateUser? <>
+            
+            {UserLinks.map((link, i) => {
+            return (
+              <li key={i+10}>
+                <Link
+                  href={link.href}
+                  className={styles.item}
+                  onClick={() => setIsNavOpen(false)}
+                >
+                  {link.title[locale]}
+                </Link>
+              </li>
+            );
+          })}
+            </>:null
+          }
          
         </ul>
       </div>

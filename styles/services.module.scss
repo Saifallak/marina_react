@@ -6,7 +6,7 @@
     font-weight: bolder;
     background-color: #0cceff;
     color: white;
-    @apply text-[28px] sm:text-[50px] pb-[20px] md:pb-[40px] xl:text-[100px] font-black;
+    @apply text-[28px] sm:text-[34px] pb-[16px] md:pb-[20px] xl:text-[60px] font-black;
   }
   .boxs {
     display: flex;
@@ -15,7 +15,7 @@
     justify-content: center;
  
     flex-wrap: wrap;
-    @apply mt-[40px] sm:mt-[80px];
+    @apply mt-[40px] sm:mt-[50px];
     .box {
       flex: 1;
       align-items: center;
@@ -23,11 +23,11 @@
       background-color: #0cceff;
       border-radius: 20px;
       text-align: center;
-      @apply flex flex-col gap-[24px] min-w-[100%] sm:pt-[100px] pt-[40px] sm:pb-[66px] pb-[30px]  sm:min-w-[380px];
+      @apply flex flex-col gap-[24px] min-w-[100%] sm:pt-[60px] pt-[40px] sm:pb-[60px] pb-[30px]  sm:min-w-[380px];
 
       h3 {
         color: #ffffff;
-        @apply text-[40px] font-black  sm:text-[70px];
+        @apply text-[40px] font-black  sm:text-[50px];
       }
       p {
         color: #ffffff;
@@ -41,7 +41,7 @@
         background-color: #ffffff;
         border-radius: 20px;
         color: #0cceff;
-        @apply text-[18px] flex sm:text-[30px] sm:w-[286px] w-[170px]  sm:h-[86px] h-[50px];
+        @apply text-[18px] flex sm:text-[26px] sm:w-[250px] w-[170px]  sm:h-[74px] h-[50px];
       }
     }
     .box2 {
@@ -51,14 +51,14 @@
       justify-content: center;
       @apply flex min-w-[100%]   sm:min-w-[380px];
       h2 {
-        @apply p-[25px] sm:p-[60px]   text-[30px] font-semibold   lg:text-[50px];
+        @apply p-[25px] sm:p-[46px]   text-[30px] font-semibold   lg:text-[40px];
       }
     }
   }
 .pastreq{
     h2{
         color: #0cceff;
-        @apply text-[28px] sm:text-[50px] mb-[20px] sm:mb-[40px]  xl:text-[100px] font-black;
+        @apply text-[28px] sm:text-[50px] mb-[20px] sm:mb-[40px]  xl:text-[80px] font-black;
             }
             .requests{
                 display: flex;
@@ -113,7 +113,7 @@ margin-bottom: 20px;
 
 
 color: #0cceff;
-@apply text-[28px] sm:text-[50px]  xl:text-[100px] font-black;
+@apply text-[28px] sm:text-[50px]  xl:text-[80px] font-black;
     }
     .allser{
         display: flex;
@@ -159,7 +159,7 @@ color: #0cceff;
 
     color: white;
     max-width: 674px;
-    @apply text-[30px]  font-bold text-center md:text-start    md:font-black sm:text-[50px] xl:text-[100px]
+    @apply text-[30px]  font-bold text-center md:text-start    md:font-black sm:text-[50px] xl:text-[80px]
       }
       form{
         padding: 40px 40px;
