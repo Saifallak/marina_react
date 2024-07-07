@@ -229,10 +229,10 @@ export const getFAQ = async () => {
     console.log("Error in Add New Category (service) =>", error);
   }
 };
-export const getDirectors = async (year) => { 
+export const getDirectors = async () => { 
   try {
     const res = await fetch(
-      `https://admin.marina.com.eg/api/data/directors?year=${year}`,
+      `https://admin.marina.com.eg/api/data/directors?grouped=true`,
       {
         method: "GET",
         headers: {

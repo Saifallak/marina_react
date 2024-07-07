@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
 
 html,
 body {
@@ -29,13 +29,13 @@ span.mantine-1rxml5w.mantine-Accordion-chevron {
 .rtl {
   direction: rtl;
   * {
-    font-family: 'Cairo', sans-serif !important;
+    font-family: "Cairo", sans-serif !important;
   }
 }
 .ltr {
   direction: ltr;
 }
-.rtl .bbr{
+.rtl .bbr {
   display: none;
 }
 .page__header {
@@ -48,7 +48,7 @@ span.mantine-1rxml5w.mantine-Accordion-chevron {
     position: relative;
     z-index: 5;
     min-height: 240px;
-    @apply  object-cover sm:object-fill ;
+    @apply object-cover sm:object-fill;
   }
 }
 
@@ -75,7 +75,7 @@ span.mantine-1rxml5w.mantine-Accordion-chevron {
 .page__title {
   font-size: 80px;
   font-weight: 900;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
   text-align: center;
   @apply text-sm sm:text-6xl;
@@ -101,8 +101,8 @@ span.mantine-1rxml5w.mantine-Accordion-chevron {
     height: 100%;
   }
 }
-.mantine-DatePickerInput-input{
-  border: 2px solid #0CCEFF;
+.mantine-DatePickerInput-input {
+  border: 2px solid #0cceff;
   border-radius: 20px;
   padding: 0px 30px;
 }
@@ -114,132 +114,130 @@ span.mantine-1rxml5w.mantine-Accordion-chevron {
 span.mantine-p2utts.mantine-Accordion-chevron {
   display: none;
 }
-.datebtn  button{
+.datebtn button {
   border: none;
-    border-bottom: 1px solid #707070;
-    border-radius: 0;
+  border-bottom: 1px solid #707070;
+  border-radius: 0;
   height: 50px;
-  @apply  text-[18px] sm:text-[22px]; 
+  @apply text-[18px] sm:text-[22px];
 }
-.mantine-PasswordInput-input{
+.mantine-PasswordInput-input {
   border: none;
   border-bottom: 1px solid #707070;
 }
-.mantine-PasswordInput-input input[type="text"]{
+.mantine-PasswordInput-input input[type="text"] {
   border: none;
 }
-.rtl .mantine-PasswordInput-root label{
-text-align: end;
-display: block;
+.rtl .mantine-PasswordInput-root label {
+  text-align: end;
+  display: block;
 }
 div#sp-wi-10905 {
   position: sticky;
   top: 20px;
 }
-.loadDiv{
-display: flex;
-gap: 20px;
-flex-wrap: wrap;
-justify-content: center;
+.loadDiv {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.LinkPdf{
+.LinkPdf {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-.questions{
-
+.questions {
 }
 
- .questionsDiv .mantine-Accordion-label{
-
-  @apply text-xl sm:text-3xl font-bold 
+.questionsDiv .mantine-Accordion-label {
+  @apply text-xl sm:text-3xl font-bold;
 }
- .questionsDiv .mantine-Accordion-item{
-  @apply mt-3 sm:mt-4 
- 
+.questionsDiv .mantine-Accordion-item {
+  @apply mt-3 sm:mt-4;
 }
-.questionsDiv .mantine-Accordion-content{
-  @apply text-lg sm:text-2xl  
+.questionsDiv .mantine-Accordion-content {
+  @apply text-lg sm:text-2xl;
 }
-.questionsDiv .mantine-Accordion-chevron{
- min-width: auto;
+.questionsDiv .mantine-Accordion-chevron {
+  min-width: auto;
   background-color: rgba(0, 0, 0, 0.798);
   border-radius: 50%;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  @apply  w-[20px] sm:w-[28px]  h-[20px] sm:h-[28px]; 
-  svg{
-   
+  @apply w-[20px] sm:w-[28px]  h-[20px] sm:h-[28px];
+  svg {
     border-radius: 50%;
-    path{
+    path {
       fill: white;
     }
   }
 }
-.questionsDiv .mantine-Accordion-item[data-active='true']{
-  .mantine-Accordion-chevron{
+.questionsDiv .mantine-Accordion-item[data-active="true"] {
+  .mantine-Accordion-chevron {
     background-color: rgba(73, 206, 255, 0.907);
   }
- 
-  svg{
-   
+
+  svg {
     border-radius: 50%;
-    path{
+    path {
       fill: white;
     }
   }
 }
 /*ownerInfo*/
-.ownerInfo{}
+.ownerInfo {
+}
 
-.ownerInfo .imgOwner{
+.ownerInfo .imgOwner {
   width: 200px;
   height: 200px;
   display: block;
   margin: 30px auto 30px;
   border-radius: 50px;
 }
-.ownerInfo .imgOwner img{
+.ownerInfo .imgOwner img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
 }
-.ownerInfo .conentOwner{}
-.ownerInfo .conentOwner p{
+.ownerInfo .conentOwner {
+}
+.ownerInfo .conentOwner p {
   margin-bottom: 6px;
-  @apply  text-[18px] sm:text-[22px]; 
+  @apply text-[18px] sm:text-[22px];
 }
 /*boxmanege*/
 .boxDirectors {
   width: 100%;
   flex: 1;
+  padding: 30px 0px;
 }
 .boxmanege {
   display: flex;
   align-items: flex-start;
   gap: 14px;
 }
- .options{
+.options {
   background: #c6c5c5;
-border-radius: 20px;
-display: flex;
-align-items: center;
-justify-content: flex-start;
-gap: 20px;
-padding: 18px;
-margin-bottom: 20px;
-flex-direction: column;
-min-width: 200px;
-width: 200px;
-overflow-x: scroll;
-padding: 18px 12px 0px;
-max-height: 500px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 18px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  min-width: 200px;
+  width: 200px;
+  overflow-x: scroll;
+  padding: 18px 12px 0px;
+  max-height: 500px;
 }
-.options button {
+.options a {
   font-size: 18px;
   line-height: normal;
   font-weight: 700;
@@ -250,18 +248,19 @@ max-height: 500px;
   height: 40px;
   width: 100%;
   min-height: 40px;
-}
-.options button.active {
-  background: #000000;
-  border-radius: 5px;
-  color: #FFFFFF;
-  padding: 0px 24px;
-  min-width: 100%;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 100px;
 }
- .options::-webkit-scrollbar {
+.options a.active {
+  background: #000000;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 0px 24px;
+}
+.options::-webkit-scrollbar {
   width: 0px;
 }
 .btnPay {
@@ -273,42 +272,69 @@ max-height: 500px;
   color: white;
 }
 
-@media (max-width:992px) {
+@media (max-width: 992px) {
   .boxmanege {
-   flex-direction: column;
+    flex-direction: column;
   }
   .options {
     width: 100%;
     flex-direction: row;
     margin-bottom: 0;
- }
- .options button {
-
-}
-.options button.active {
-  min-width: auto;
-}
-.btnPay {
-  border-radius: 10px;
-  color: white;
-  font-size: 12px;
-}
+  }
+  .options button {
+  }
+  .options button.active {
+    min-width: auto;
+  }
+  .btnPay {
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+  }
 }
 /*filterInvoices*/
-.filterInvoices{
+.filterInvoices {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px  auto;
+  margin: 20px auto;
   direction: ltr;
 }
-.filterInvoices .mantine-SegmentedControl-root{
+.filterInvoices .mantine-SegmentedControl-root {
   background-color: #c1c1c1;
-    width: 300px;
-    max-width: 96%;
-  
+  width: 300px;
+  max-width: 96%;
 }
-.filterInvoices .mantine-SegmentedControl-control{
+.filterInvoices .mantine-SegmentedControl-control {
   height: 100%;
 }
-.filterInvoices .mantine-SegmentedControl-controlActive{}
+.filterInvoices .mantine-SegmentedControl-controlActive {
+}
+.allMembers {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+}
+.allMembers .boxDirectors {
+}
+.allMembers .boxDirectors h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0px 0px 20px;
+}
+.allMembers .boxDirectors {
+}
+.allMembers .boxDirectors .itemImg {
+  max-width: calc(25% - 15px);
+  aspect-ratio: 1/1;
+}
+@media (max-width: 768px) {
+  .allMembers .boxDirectors .itemImg {
+    max-width: calc(33% - 15px);
+    min-width: calc(33% - 15px);
+  }
+  .allMembers .boxDirectors h2 {
+    font-size: 22px;
+  }
+}

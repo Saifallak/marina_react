@@ -2,10 +2,10 @@
 
 .imgContainerTwo {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 20px;
   margin-top: 50px;
+  flex-wrap: wrap;
   @apply mt-[20px] md:mt-[50px];
 }
 
@@ -63,12 +63,14 @@
   background-position: center;
   background-size: cover;
   max-height: 820px;
-  aspect-ratio: 1/1;
+
   position: relative;
   opacity: 1;
   overflow: hidden;
   transition: 0.4s;
-  max-width: calc(25% - 15px);
+width: 100%;
+height: 100%;
+
   &:before {
     width: 100%;
     height: 100%;

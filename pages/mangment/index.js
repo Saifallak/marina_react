@@ -19,20 +19,17 @@ const Index = () => {
   const [Load1, setLoad1] = useState(false);
   useEffect(() => {
     FetchDataYears();
-  }, []);
-  useEffect(() => {
     FetchDataDirectors();
-  }, [SelectYears]);
+  }, []);
+
   const FetchDataDirectors = async () => {
     setLoad1(true);
-    const Directors = await getDirectors(SelectYears);
+    const Directors = await getDirectors();
     if (!Directors) console.log(Directors?.message);
-    setDirectors(Directors);
-    console.log('====================================');
-    console.log(Directors);
-    console.log('====================================');
+setDirectors(Object.entries(Directors))
     setLoad1(false);
   };
+
   const FetchDataYears = async () => {
     const Years = await getYears();
     if (!Years) console.log(Years?.message);
@@ -64,58 +61,65 @@ const Index = () => {
           </div>
         )}
         <div className="container mx-auto">
+         
           <div className="boxmanege">
            
             <div className="options">
               {
                 years.length>0 ? <>
                 {years.sort((a, b)=> b - a).map((item,i)=>{
-                  return (<button onClick={(e)=>{e.preventDefault();setSelectYears(item)}}  className={`${SelectYears===item?"active":"" }`}>{item}</button>)
+                  return (<Link href={`/mangment#${item}`} onClick={(e)=>{setSelectYears(item)}}  className={`${SelectYears===item?"active":"" }`}>{item}</Link>)
                 })}
                 </>: null
               }
             
             </div>
-            <div className="boxDirectors">
-              <h2>{SelectYears}</h2>
-              {manger.length > 0 ? (
-                <Link
-                  href={`/mangment/${manger[0].id}`}
-                  style={{
-                    backgroundImage: `url(${manger[0].image.url})`,
-                  }}
-                  className={styles.CardOne}
-                >
-                  <p>{manger[0].name[locale]}</p>
-                </Link>
-              ) : null}
-              <div className={styles.imgContainerTwo}>
-                {groups.length > 0 ? (
-                  <>
-                    {groups.map((item, i) => {
-                      return (
-                        <div className="flex w-full gap-2 md:gap-5" key={i}>
-                          {item.map((member, j) => {
-                            return (
-                              <Link
-                                key={j}
-                                href={`/mangment/${member.id}`}
-                                style={{
-                                  backgroundImage: `url(${member.image.url})`,
-                                }}
-                                className={styles.CardTwo}
-                              >
-                                <p>{member.name[locale]}</p>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      );
-                    })}
-                  </>
+            <div className="allMembers">
+            {
+            directors.sort((a, b)=> b[0] - a[0]).map((item,i)=>{
+              return(
+                <div className="boxDirectors" id={item[0]}>
+                <h2>{item[0]}</h2>
+                {item[1].head_of_board.length  ? (
+                  <Link
+                    href={`/mangment/${item[1].head_of_board[0].id}`}
+                    style={{
+                      backgroundImage: `url(${item[1].head_of_board[0].image.url})`,
+                    }}
+                    className={styles.CardOne}
+                  >
+                    <p>{item[1].head_of_board[0].name[locale]}</p>
+                  </Link>
                 ) : null}
+                <div className={styles.imgContainerTwo}>
+                   
+                    <>
+                      {  item[1].members.map((member, j) => {
+                        return (
+                          <div className="itemImg" key={i}>
+                                  <Link
+                                  key={j}
+                                  href={`/mangment/${member.id}`}
+                                  style={{
+                                    backgroundImage: `url(${member.image.url})`,
+                                  }}
+                                  className={styles.CardTwo}
+                                >
+                                  <p>{member.name[locale]}</p>
+                                </Link>
+                          </div>
+                        );
+                      })}
+                    </>
+                  
+                </div>
               </div>
+              )
+            })
+          }
             </div>
+           
+           
           </div>
         </div>
       </PageComponent>
