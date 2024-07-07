@@ -33,6 +33,7 @@ const Index = ({ colorr, pos }) => {
     { href: "/whereToGo", title: { en: "WHERE TO GO?", ar: "تروح فين؟" } },
     { href: "/complaints", title: { en: "COMPLAINTS", ar: " الشكاوي" } },
     { href: "/lost-found", title: { en: "LOST-FOUND", ar: " العثور على المفقودات" } },
+    { href: "/contactUS", title: { en: "Contact US", ar: " اتصل بنا  " } },
   ];
   const [NavPage, setNavPage] = useState(navLinks);
 

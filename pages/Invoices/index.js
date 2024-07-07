@@ -1,4 +1,5 @@
 import PageUser from "@/components/PageUser";
+import Bills from "@/components/Bills";
 import NewService from "@/components/newService/NewService";
 import React, { useState } from "react";
 import styles from "@/styles/services.module.scss";
@@ -6,17 +7,22 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { SegmentedControl } from "@mantine/core";
+import { Pagination, SegmentedControl } from "@mantine/core";
 function index({ userDate, userAuth, data }) {
-  const Number_InPROGRESS = userDate.filter((item) => item.status === "unpaid");
-  const userSum = userDate.reduce(
+
+
+
+  
+  console.log("====================================");
+  console.log(userDate);
+  console.log("====================================");
+  const Number_InPROGRESS = userDate.data.filter((item) => item.status === "unpaid");
+  const userSum = userDate.data.reduce(
     (total, number) => total + number.remaining_amount,
     0
   );
   const [typeInvoices, setTypeInvoices] = useState("paid");
-  console.log("====================================");
-  console.log(userDate);
-  console.log("====================================");
+
   const formatNumber = (num) => {
     if (num >= 1000000) {
       return (num / 1000000).toFixed(1) + "m";
@@ -34,6 +40,8 @@ function index({ userDate, userAuth, data }) {
   const { locale } = useRouter();
   const stringToArray = (str) => str.split(" ");
   const { t } = useTranslation("services");
+  const [pageNum,setPageNum]=useState(1)
+  console.log(pageNum);
   return (
     <div className={styles.services}>
       <PageUser title={t("invoices")}>
@@ -64,7 +72,7 @@ function index({ userDate, userAuth, data }) {
             </div>
           </div>
         
-          {userDate.length ? (
+          {userDate.data.length ? (
             <div className={styles.pastreq} id="InvoicesDetails">
                 <div className="filterInvoices">
                 <SegmentedControl
@@ -82,7 +90,7 @@ function index({ userDate, userAuth, data }) {
 
               <h2>{t("Past2")}</h2>
               <div className={styles.requests}>
-                {userDate.filter(itemF=>itemF.status==typeInvoices).map((item, i) => (
+                {userDate.data.filter(itemF=>itemF.status==typeInvoices).map((item, i) => (
                   <div
                     value="customization"
                     className={styles.alldata}
@@ -101,20 +109,26 @@ function index({ userDate, userAuth, data }) {
                           : " مدفوع"}
                       </p>
                       <p>{new Date(item.updated_at).toLocaleDateString()}</p>
-                      <a target="_blank" href={
-                      item.id
-                        ? `https://admin.marina.com.eg/payment/${item.id}`
-                        : ""
-                    } className="btnPay">{t('pay')}</a>
+                      {
+                        item.status === "unpaid" ? <a target="_blank" href={
+                          item.id
+                            ? `https://admin.marina.com.eg/payment/${item.id}`
+                            : ""
+                        } className="btnPay">{t('pay')}</a> :null 
+                      }
+                      
                     </div>
                   </div>
                 ))}
               </div>
+              <Pagination onChange={(e)=>{setPageNum(e)}} total={userDate.per_page} />
             </div>
+            
           ) : (
-            <NewService t={t} data={data} />
+            <NewService  t={t} data={data} />
           )}
         </div>
+        <Bills/>
       </PageUser>
     </div>
   );
@@ -129,13 +143,13 @@ export async function getServerSideProps({ req, locale }) {
     "Accept-Language": `${locale}`,
   };
 
-  const url = new URL("https://admin.marina.com.eg/api/auth/bills");
+  const url = new URL("https://admin.marina.com.eg/api/auth/bills?page=1");
   const user = await fetch(url, {
     method: "GET",
     headers,
   });
 
-  const userDate = await user.json();
+  const userDate = await user.json()
 
   const urlUser = new URL("https://admin.marina.com.eg/api/auth/user");
   const userauth = await fetch(urlUser, {
