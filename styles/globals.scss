@@ -343,4 +343,62 @@ div#sp-wi-10905 {
   display: flex;
   align-items: center;
   justify-content: center;
+  direction: ltr;
+}
+.partModal {
+}
+.partModal ul {
+  display: flex;
+  flex-direction: column;
+
+  @apply gap-[24px] md:gap-[40px]
+}
+.partModal ul li {
+}
+.partModal ul li .parts {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px 40px;
+  flex-wrap: wrap;
+}
+.partModal ul li .part{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.partModal ul li h3 {
+  line-height: normal;
+  text-wrap: nowrap;
+  @apply text-[16px]   sm:text-[18px] md:text-[18px] font-light;
+}
+.partModal ul li p {
+  line-height: normal;
+  @apply text-[18px]   sm:text-[20px] md:text-[22px]  font-semibold;
+}
+.boxModal .mantine-Modal-title {
+
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+.boxModal .mantine-CloseButton-root {
+}
+.boxModal .mantine-CloseButton-root svg {
+  width: 40px;
+  height: 40px;
+}
+.boxModal .mantine-CloseButton-root svg path {
+  fill: #3dace6;
+}
+.boxModal .mantine-Modal-content {
+  border-radius: 20px;
+  border: 6px solid #0babe4;
+}
+.partPay {
+  margin: 40px auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
