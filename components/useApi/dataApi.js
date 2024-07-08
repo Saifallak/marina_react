@@ -288,18 +288,18 @@ export const getYears = async () => {
 export const getUserBills = async (numPage,locale) => { 
   try {
     const res = await fetch(
-      `https://admin.marina.com.eg/api/auth/bills?page=1`,
+      `https://admin.marina.com.eg/api/auth/bills?page=${numPage}`,
       {
         method: "GET",
         headers : {
           Authorization: `Bearer ${Cookies.get('access_token')} `,
           "Content-Type": "application/json",
           Accept: "application/json",
-          "Accept-Language": 'ar',
+          "Accept-Language": locale,
         }
       }
     );
-    const data = await res.json().data;
+    const data = await res.json();
     return data;
   } catch (error) {
     console.log("Error in Add New Category (service) =>", error);

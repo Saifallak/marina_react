@@ -72,63 +72,10 @@ function index({ userDate, userAuth, data }) {
             </div>
           </div>
         
-          {userDate.data.length ? (
-            <div className={styles.pastreq} id="InvoicesDetails">
-                <div className="filterInvoices">
-                <SegmentedControl
-                color="blue"
-                size="md"
-                radius="md"
-                  value={typeInvoices}
-                  onChange={setTypeInvoices}
-                  data={[
-                    { label: "paid", value: "paid" },
-                    { label: "unpaid", value: "unpaid" },
-                  ]}
-                />
-              </div>
-
-              <h2>{t("Past2")}</h2>
-              <div className={styles.requests}>
-                {userDate.data.filter(itemF=>itemF.status==typeInvoices).map((item, i) => (
-                  <div
-                    value="customization"
-                    className={styles.alldata}
-                    key={i}
-                  >
-                    <div className={styles.req}>
-                      <p>{item.id}</p>
-                      <p>{item.desc[locale]}</p>
-                      <p>
-                        {item.status === "unpaid"
-                          ? locale === "en"
-                            ? "unpaid"
-                            : "غير مدفوع"
-                          : locale === "en"
-                          ? "paid"
-                          : " مدفوع"}
-                      </p>
-                      <p>{new Date(item.updated_at).toLocaleDateString()}</p>
-                      {
-                        item.status === "unpaid" ? <a target="_blank" href={
-                          item.id
-                            ? `https://admin.marina.com.eg/payment/${item.id}`
-                            : ""
-                        } className="btnPay">{t('pay')}</a> :null 
-                      }
-                      
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <Pagination onChange={(e)=>{setPageNum(e)}} total={userDate.per_page} />
-            </div>
-            
-          ) : (
-            <NewService  t={t} data={data} />
-          )}
+        
+           <Bills t={t}/>
         </div>
-        <Bills/>
+       
       </PageUser>
     </div>
   );
