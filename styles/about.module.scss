@@ -2,7 +2,7 @@
 
 .sectionOne {
   margin-bottom: 203px;
-  @apply mt-10 lg:mt-[120px];
+  @apply mt-10 lg:mt-[60px];
 }
 
 .ContantnOne {
@@ -133,7 +133,7 @@
 /*small tablet styles*/
 @media only screen and (min-width: 620px) {
   .sectionOne {
-    margin-bottom: 203px;
+    margin-bottom: 100px;
   }
 
   .sectionTwo {
@@ -216,7 +216,7 @@
 /* large tablet & laptop styles */
 @media only screen and (min-width: 960px) {
   .sectionOne {
-    margin-bottom: 203px;
+    margin-bottom: 100px;
   }
 
   .sectionTwo {
@@ -304,7 +304,7 @@
 /* desktop styles */
 @media only screen and (min-width: 1200px) {
   .sectionOne {
-    margin-bottom: 203px;
+    margin-bottom: 100px;
   }
 
   .ContantnOne {

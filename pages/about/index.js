@@ -15,13 +15,13 @@ const Index = () => {
         <div className="container mx-auto sm:px-10">
           <section className={styles.sectionOne}>
             <div>
-              <span className="font-extrabold text-4xl md:text-6xl lg:text-8xl text-[#3a3a3a] leading-tight">
+              <span className="font-extrabold text-3xl md:text-3xl  text-[#3a3a3a] leading-tight">
                 {t("how")}
                 <br></br>
                 {t("all")}
               </span>
 
-              <p className=" text-xl sm:pr-4 text-[#3a3a3a] leading-relaxed mt-6 sm:mt-11">
+              <p className=" text-3xl sm:pr-4 text-[#3a3a3a] leading-relaxed  sm:mt-5">
                 Marina Al Alamein Tourist Center is considered the finest and
                 most beautiful site on the north coast and even one of the most
                 beautiful and finest tourist resorts in Egypt, with its
@@ -48,7 +48,7 @@ const Index = () => {
         <section className={styles.sectionTwo}>
           <div className="mb-10">
             <Container fluid px={20}>
-              <span className="block text-white text-center text-3xl md:text-6xl lg:text-8xl font-bold leading-tight mb-6 md:mb-[60px]">
+              <span className="block text-white text-center text-3xl md:text-3xl lg:text-3xl font-bold leading-tight mb-6 ">
                 <p className="">
                   {" "}
                   {t("marina")}
@@ -60,7 +60,7 @@ const Index = () => {
 
             <Container fluid px={20}>
               <span className="mt-5 text-xl leading-relaxed text-white">
-                <p>
+                <p className="text-3xl">
                   Marina Center is located between kilometer 94 - kilometer 105
                   north of the coastal road Alexandria Matrouh and has been
                   fully constructed. Marina Center is located in one of the best
@@ -95,7 +95,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="mt-[100px]">
             <div className="text-2xl md:text-6xl lg:text-7xl text-[#3a3a3a] mt-6 mb-11 font-extrabold leading-tight">
-              <p>
+              <p className="text-3xl">
                 {t("textOne")}
 
                 <span> {t("textTwo")} </span>
