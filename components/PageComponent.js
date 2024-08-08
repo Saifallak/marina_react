@@ -17,7 +17,7 @@ const PageComponent = (props) => {
     </Head>
       <Navbar />
       <section
-        className="page__header md:!max-h-[350px] !max-h-[300px] "
+        className="page__header md:!max-h-[420px] !max-h-[300px] "
         style={{ maxHeight: "100vh", overflow: "hidden" }}
       >
         <ProgressiveImage src={props.hero} placeholder="loading">

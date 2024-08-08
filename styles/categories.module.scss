@@ -18,7 +18,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    border: 1px solid #707070;
+    // border: 1px solid #707070;
     position: relative;
     width: 100%;
     @apply mt-[30px] md:mt-[60px] p-3;
@@ -31,7 +31,7 @@
   }
 
   .item__body {
-    display: flex;
+    // display: flex;
     gap: 32px;
     width: 100%;
     flex-wrap: wrap;
@@ -43,7 +43,8 @@
     align-self: center;
     flex: 1;
     place-self: flex-start;
-    @apply text-[14px] md:text-[16px] lg:text-[18px];
+    @apply text-[14px] md:text-[16px] lg:text-[18px] ;
+    
   }
 
   .buttons {
