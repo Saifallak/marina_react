@@ -39,7 +39,7 @@ console.log('====================================');
         pdf={pdf?pdf:null}
       >
         <div className="container mx-auto">
-          <div className="flex items-center mt-[100px] mb-[100px] md:mb-[150px] flex-col-reverse sm:flex-row">
+          <div className="flex items-start mt-[100px] mb-[100px] md:mb-[150px] flex-col-reverse sm:flex-row">
             <ul className="flex-1 flex gap-5 md:gap-2 md:gap-[30px] flex-col  text-[14px] list-['-']  md:text-[16px]">
               {data[0].title[locale].map((item, i) => (
                 <li key={i}>{item}</li>
@@ -95,7 +95,7 @@ console.log('====================================');
           </div>
 
           <div className="">
-            <p className="text-2xl sm:text-2xl lg:text-6xl font-extrabold text-center leading-tight mt-[100px] mb-[20px] sm:mb-[70px]">
+            <p className="text-2xl sm:text-2xl lg:text-4xl font-extrabold text-center leading-tight mt-[100px] mb-[20px] sm:mb-[70px]">
               {t("landing")}
             </p>
           </div>

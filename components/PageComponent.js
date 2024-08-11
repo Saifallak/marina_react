@@ -32,10 +32,10 @@ const PageComponent = (props) => {
           )}
         </ProgressiveImage>
        { props.over ? null: <div className="page__overlay"></div>}
-        <div className="flex-col page__hero__content">
+        <div className="flex-col page__hero__content mt-10">
           <h1 className="page__title">{props.title}</h1>
           {props.button && (
-            <div className="LinkPdf flex gap-2 md:gap-8 flex-wrap">
+            <div className="LinkPdf flex gap-[2px] md:gap-8 flex-wrap mt-[-9px]">
 
              { props.link && props.pdf.map((pdfItem)=>{
                 return (
