@@ -72,23 +72,22 @@ console.log(data);
                   alt="Gallery"
                 ></img>
                 <ul className={styles.gallery__switcher}>
-                  {data.cover_collection.responsive_urls.map((item, i) => {
-                    return (
-                      <li key={i}>
-                        {(
-                          <Image
-                            // onClick={(e) => setSrc(e.target.src)}
-                            className={styles.img}
-                            src={item}
-                            alt="Gallery Item"
-                            width={70}
-                            height={70}
-                          />
-                        ) || <Skeleton />}
-                      </li>
-                    );
-                  })}
-                </ul>
+                <li >
+                  {data.cover_collection.responsive_urls.length > 0 ? (
+                    <Image
+                      // onClick={(e) => setSrc(e.target.src)}
+                      className={styles.img}
+                      src={data.cover_collection.responsive_urls[0]} 
+                      alt="Gallery Item"
+                      width={70}
+                      height={70}
+                    />
+                  ) : (
+                    <Skeleton />
+                  )}
+                </li>
+              </ul>
+
               </div>
               <p dangerouslySetInnerHTML={createMarkup(data)} />
 

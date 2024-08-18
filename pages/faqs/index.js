@@ -3,7 +3,7 @@ import styles from "@/styles/information.module.scss";
 
 import React, { useEffect } from "react";
 import { Accordion, Skeleton } from "@mantine/core";
-import { getFAQ } from "../../../components/useApi/dataApi";
+import { getFAQ } from "../../components/useApi/dataApi";
 import Navbar from "../../components/layouts/Navbar/index";
 import img from "@/public/images/complaints2.jpg";
 import icon from "../../public/Icon.png";
