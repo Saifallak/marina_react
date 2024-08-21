@@ -65,12 +65,12 @@ const Index = () => {
               />
             ))}
 
-            <Button
+            {/* <Button
               variant="default"
               className="uppercase bg-black text-white border-none text-sm lg:text-xl h-[40px] lg:h-[60px] px-10 rounded-3xl bottom-1 hover:bg-black block m-auto mt-16 sm:mt-28"
             >
               {t("loadMore")}
-            </Button>
+            </Button> */}
           </div>
           <div className={styles.ad}>
             <Ad1 />
@@ -116,13 +116,13 @@ const Index = () => {
                   t={t}
                 />
               ))}
-  
+{/*   
               <Button
                 variant="default"
                 className="uppercase bg-black text-white border-none text-sm lg:text-xl h-[40px] lg:h-[60px] px-10 rounded-3xl bottom-1 hover:bg-black block m-auto mt-16 sm:mt-28"
               >
                 {t("loadMore")}
-              </Button>
+              </Button> */}
             </div>
           </section>
         

@@ -5,7 +5,7 @@
     h1{
       color: white;
 max-width: 586px;
-      @apply text-[50px] m-auto font-bold text-center lg:text-start  md:font-black sm:text-[90px] xl:text-[150px]
+      @apply text-[30px] m-auto font-bold text-center lg:text-center  md:font-black sm:text-[30px] xl:text-[90px]
       
     }
  form{
@@ -18,8 +18,8 @@ width: 100%;
 margin: auto;
 @apply p-[20px] sm:pt-[100px] sm:pb-[80px] sm:pr-[80px]  sm:pl-[50px];
 
- }
- 
+}
+
 label{
 
 

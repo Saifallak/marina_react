@@ -21,7 +21,7 @@ const Product = ({ id }) => {
   const [Load1, setLoad1] = useState(false);
   const [Load2, setLoad2] = useState(false);
 
-  const btn2 = { ar: "احجز", en: "RESERVE" };
+  const btn2 = { ar: "احجز", en: "Call us now for a reservation!" };
   const SameType =
     Catalog.length > 0
       ? Catalog.filter((item) => item.id == data.catalog_type_id)

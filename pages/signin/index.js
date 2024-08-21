@@ -65,8 +65,15 @@ const [email, setemail] = useState("");
           <form>
             <div>
               <div className="mt-2">
-                <TextInput label={t("username")} radius="xs" error={Erroremail}   onChange={(e) => setemail(e.target.value)} />
-              </div>
+                <TextInput label={t("email")} radius="xs" error={Erroremail} onChange={(e) => setemail(e.target.value)}
+                    styles={{
+                      error: {
+                        marginTop: '-40px', 
+                        fontSize:'1rem'
+                      },
+                      }}
+                    />          
+                </div>
 
               <div className={styles.pass}>
                 <div className="mt-2 ">
@@ -76,6 +83,13 @@ const [email, setemail] = useState("");
                     variant="unstyled"
                     onChange={(e) => setpassword(e.target.value)}
                     error={Errorpassword}
+                    styles={{
+                      error: {
+                        marginTop: '17px', 
+                        fontSize:'1rem',
+                        textDecoration:'none'
+                      },
+                      }}
                   />
                 </div>
               </div>

@@ -9,6 +9,12 @@
   @apply mt-[20px] md:mt-[50px];
 }
 
+@media (max-width: 500px) {
+  .imgContainerTwo {
+    display: grid;
+  }
+}
+
 .CardOne {
   margin-bottom: 10px;
   display: flex;

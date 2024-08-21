@@ -107,7 +107,7 @@ export default function Home() {
 
             <Link href={"#improveService"}>
               <Button uppercase className={styles.header__btn}>
-                for improve service
+                To improve service
               </Button>
             </Link>
           </div>
@@ -187,7 +187,7 @@ export default function Home() {
                 />{" "}
               </div>
               <div className="relative cursor-pointer">
-                <label className={[styles.arabic + " cursor-pointer "]}>
+                <label className={[styles.arabic + " cursor-pointer "]} style={{display:'block',width:'310px' , height:'65px'}}>
                   تحميل المرفقات{" "}
                 </label>
                 <input

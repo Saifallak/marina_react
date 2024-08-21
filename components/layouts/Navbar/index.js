@@ -16,7 +16,7 @@ const Index = ({ colorr, pos }) => {
 
   const { locale } = useRouter();
   const UserLinks = [
-    { href: "/services", title: { en: "DASHBOARD", ar: " لوحه التحكم" } },
+    // { href: "/services", title: { en: "DASHBOARD", ar: " لوحه التحكم" } },
     { href: "/services", title: { en: "SERVICES", ar: " الخدمات" } },
     { href: "/Invoices", title: { en: "INVOICES", ar: " الفواتير" } },
   ];

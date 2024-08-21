@@ -132,6 +132,10 @@ span.mantine-p2utts.mantine-Accordion-chevron {
   text-align: end;
   display: block;
 }
+.rtl .mantine-TextInput-root label {
+  text-align: end;
+  display: block;
+}
 div#sp-wi-10905 {
   position: sticky;
   top: 20px;
@@ -292,6 +296,14 @@ div#sp-wi-10905 {
     font-size: 12px;
   }
 }
+
+@media (min-width: 1024px) {
+  .options {
+    margin-top: 100px;
+    margin-left: -15px;
+  }
+}
+
 /*filterInvoices*/
 .filterInvoices {
   display: flex;
@@ -322,7 +334,18 @@ div#sp-wi-10905 {
   font-size: 40px;
   font-weight: bold;
   margin: 0px 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+@media (min-width: 1024px) {
+  .allMembers .boxDirectors h2 {
+    margin-top: -60px;
+    margin-bottom: 47px;
+  }
+}
+
 .allMembers .boxDirectors {
 }
 .allMembers .boxDirectors .itemImg {
