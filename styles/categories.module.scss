@@ -43,8 +43,35 @@
     align-self: center;
     flex: 1;
     place-self: flex-start;
+    position: relative;
+    max-height: 3em; 
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    align-self: center;
+    flex: 1;
+    place-self: flex-start;
+    text-align: justify;
     @apply text-[14px] md:text-[16px] lg:text-[18px] ;
     
+  }
+
+  .desc.expanded {
+    max-height: none;
+  }
+  
+  .desc:after {
+    content: '...';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white; 
+    padding: 0 0.5em;
+    cursor: pointer;
+  }
+  
+  .desc.expanded:after {
+    content: '\25B2';
   }
 
   .buttons {

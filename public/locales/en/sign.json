@@ -20,5 +20,7 @@
     "address":"Address",
     "profession":"Profession",
     "state":"Social State",
-    "nationality":"Nationality"
+    "nationality":"Nationality",
+    "emailError":"The email field must contain a correctly structured email address.",
+    "passwordError":"Password must be at least 8 characters long."
 }
