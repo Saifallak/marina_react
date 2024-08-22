@@ -10,7 +10,7 @@ const CategoryGrid = ({ items }) => {
   const { locale } = useRouter();
 
   const btn1 = { ar: "المزيد", en: "more info" };
-  const btn2 = { ar: "احجز", en: "RESERVE" };
+  const btn2 = { ar: "كلمنا", en: "Call us" };
 
   function createMarkup(item) {
     return {

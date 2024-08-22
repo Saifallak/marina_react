@@ -11,13 +11,24 @@ import { useRouter } from "next/router";
 function index() {
   const { t } = useTranslation("sign");
   const [email, setemail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const { locale } = useRouter();
-  
-  const handellogin = () => {
-    const po = axios
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = regex.test(email);
+    if (!isValidEmail) {
+      setEmailError(t("Invalid email format")); 
+      return;
+    }
+
+    setEmailError(""); 
+
+    axios
       .post(
         "https://admin.marina.com.eg/api/auth/reset",
-        {
+        { 
           email: email,
         },
         {
@@ -30,25 +41,33 @@ function index() {
         }
       )
       .then((res) => {
-       
+
       })
       .catch((res) => {
 
-      });
+            });
   };
   return (
     <section className={styles.sign}>
       <PageUser title={t("reset")}>
-        <div className=" container mt-[24px] md:mt-[100px]  mx-auto flex justify-between items-stretch lg:items-center flex-col   lg:flex-row	">
+        <div className=" container mt-[24px] md:mt-[100px] mx-auto flex justify-between items-stretch lg:items-center flex-col   lg:flex-row ">
           <h1 className="!max-w-[850px]">{t("reset")}</h1>
-          <form>
+          <form onSubmit={handleLogin}>
             <div>
-              <div className="mt-2 ">
-                <TextInput label={t("email")} onChange={(e)=>setemail(e.target.value)} radius="xs" />
+              <div className="mt-2">
+                <TextInput
+                  label={t("email")}
+                  onChange={(e) => setemail(e.target.value)}
+                  value={email}
+                  radius="xs"
+                />
+                {emailError && (
+                  <p className="text-red-500  mt-[-30px]">{emailError}</p>
+                )}
               </div>
             </div>
 
-            <button type="submit" onClick={(e)=>{e.preventDefault(); handellogin()}} className={styles.btnSign}>
+            <button type="submit"  className={styles.btnSign}>
               {t("btnreset")}
             </button>
           </form>

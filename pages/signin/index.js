@@ -75,14 +75,14 @@ const [email, setemail] = useState("");
                     />          
                 </div>
 
-              <div className={styles.pass}>
+              <div >
                 <div className="mt-2 ">
                   <PasswordInput
                     label={t("password")}
                     radius="xs"
-                    variant="unstyled"
+                    // variant="unstyled"
                     onChange={(e) => setpassword(e.target.value)}
-                     error={Errorpassword ? t("passwordError") : ""}
+                    error={Errorpassword ? t("passwordError") : ""}
                     styles={{
                       error: {
                         marginTop: '17px', 
@@ -102,7 +102,7 @@ const [email, setemail] = useState("");
 {t("signin")}
 </button>
 }
-         { Error&&<p style={{color:"red",textAlign:"center"}}>{Error}</p>}   
+         { Error&&<p style={{color:"red",textAlign:"center"}}>{t("Error")}</p>}   
             <div className={styles.SignLinks}>
               <Link href={"/pass_reset"}>{t("forget")}</Link>
             </div>
