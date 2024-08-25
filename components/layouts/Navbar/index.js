@@ -21,7 +21,7 @@ const Index = ({ colorr, pos }) => {
     { href: "/Invoices", title: { en: "INVOICES", ar: " الفواتير" } },
   ];
 
-  const navLinks=[
+  const navLinks = [
     { href: "/", title: { en: "HOME", ar: "الصفحة الرئيسية" } },
     { href: "/about", title: { en: "ABOUT MARINA", ar: " عن مرينا" } },
     { href: "/mangment", title: { en: "THE BOARD", ar: "مجلس الأدارة" } },
@@ -35,16 +35,22 @@ const Index = ({ colorr, pos }) => {
     { href: "/lost-found", title: { en: "LOST-FOUND", ar: " العثور على المفقودات" } },
     { href: "/contactUS", title: { en: "Contact US", ar: " اتصل بنا  " } },
     { href: "/faqs", title: { en: "FAQs", ar: " FAQs " } },
-
   ];
+
   const [NavPage, setNavPage] = useState(navLinks);
 
-  const [stateUser, setstateUser] = useState(
+  const [stateUser, setStateUser] = useState(
     Cookies.get("access_token") ? true : false
   );
-  useEffect(()=>{
-    stateUser? setNavPage(prevUsers => [...prevUsers]): setNavPage(navLinks)
-  },[stateUser])
+
+  useEffect(() => {
+    setStateUser(Cookies.get("access_token") ? true : false);
+    setNavPage(stateUser ? [...navLinks, ...UserLinks] : navLinks);
+  }, [stateUser]);
+
+  const closeNav = () => {
+    setIsNavOpen(false);
+  };
 
   return (
     <Navbar
@@ -55,47 +61,26 @@ const Index = ({ colorr, pos }) => {
       height={64}
     >
       <Hamburger />
-      <Link href="/" className={styles.logo}>
+      <Link href="/" className={styles.logo} onClick={closeNav}>
         <Image alt="Logo" src={Logo} />
       </Link>
-      <SocialLinks />
+      <SocialLinks closeNav={closeNav} />
       <div
         style={isNavOpen ? { top: "0" } : { top: "-150%" }}
         className={styles.nav__menu}
       >
         <ul className={styles.list}>
-          {NavPage.map((link, i) => {
-            return (
-              <li key={i}>
-                <Link
-                  href={link.href}
-                  className={styles.item}
-                  onClick={() => setIsNavOpen(false)}
-                >
-                  {link.title[locale]}
-                </Link>
-              </li>
-            );
-          })}
-          {
-            stateUser? <>
-            
-            {UserLinks.map((link, i) => {
-            return (
-              <li key={i+10}>
-                <Link
-                  href={link.href}
-                  className={styles.item}
-                  onClick={() => setIsNavOpen(false)}
-                >
-                  {link.title[locale]}
-                </Link>
-              </li>
-            );
-          })}
-            </>:null
-          }
-         
+          {NavPage.map((link, i) => (
+            <li key={i}>
+              <Link
+                href={link.href}
+                className={styles.item}
+                onClick={closeNav}
+              >
+                {link.title[locale]}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </Navbar>

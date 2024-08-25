@@ -30,20 +30,29 @@ export default function Home() {
   const [ErrorDescription, setErrorDescription] = useState("");
   const [ErrorUnit, setErrorUnit] = useState("");
 
+  // Submission status
+  const [submitting, setSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   const formData = new FormData();
-  const handellogin = () => {
+
+  const handleLogin = () => {
     formData.append("name", FullName);
     formData.append("telephone_number", Phone);
     formData.append("description", Description);
     formData.append("unit_number", Unit);
     formData.append("image", selectedFile);
+
+    setSubmitting(true);
+
     const po = axios
-      .post("https://admin.marina.com.eg/api/complaint", formData, {
-        headers: {
-          Accept: " application/json",
-        },
-      })
+    .post("https://admin.marina.com.eg/api/complaint", formData, {
+      headers: {
+        Accept: " application/json",
+      },
+    })
       .then((res) => {
+        setSubmitSuccess(true);
         setFullName("");
         setPhone("");
         setDescription("");
@@ -55,19 +64,16 @@ export default function Home() {
         setErrorDescription("");
         setErrorUnit("");
       })
-      .catch((res) => {
-        res.response.data.errors.name
-          ? setErrorFullName(res.response.data.errors.name[0])
-          : setErrorFullName("");
-        res.response.data.errors.description
-          ? setErrorDescription(res.response.data.errors.description[0])
-          : setErrorDescription("");
-        res.response.data.errors.unit_number
-          ? setErrorUnit(res.response.data.errors.unit_number[0])
-          : setErrorUnit("");
-        res.response.data.errors.telephone_number
-          ? setErrorPhone(res.response.data.errors.telephone_number[0])
-          : setErrorPhone("");
+      .catch((error) => {
+        if (error.response) {
+          setErrorFullName(error.response.data.errors.name?.[0] || "");
+          setErrorDescription(error.response.data.errors.description?.[0] || "");
+          setErrorUnit(error.response.data.errors.unit_number?.[0] || "");
+          setErrorPhone(error.response.data.errors.telephone_number?.[0] || "");
+        }
+      })
+      .finally(() => {
+        setSubmitting(false);
       });
   };
 
@@ -196,7 +202,6 @@ export default function Home() {
                   onChange={handleHeaderInputChange}
                 />{" "}
               </div>
-
               <input
                 type="file"
                 className={[
@@ -204,19 +209,35 @@ export default function Home() {
                   " absolute top-0 left-0 w-[100%] opacity-0 cursor-pointer",
                 ]}
               />
+              </div>
+
+            <div style={{display:'flex',justifyContent:'center'}}>
+              <Button
+                type="submit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLogin();
+                }}
+                className="mt-4"
+                style={{backgroundColor:'black', width:'310px',height:'55px', borderRadius:'12px',fontSize:'26px',fontWeight:'900'}}
+              >
+                Submit
+              </Button>
             </div>
-            <input
-              type="submit"
-              onClick={(e) => {
-                e.preventDefault();
-                handellogin();
-              }}
-            />
+
           </div>
+          {submitSuccess && (
+            <p className="text-green-500 mt-4 flex justify-center">
+              Your complaint has been submitted successfully!
+            </p>
+          )}
+          {submitting && !submitSuccess && (
+            <p className="text-blue-500 mt-4 flex justify-center">
+              Submitting your complaint...
+            </p>
+          )}
         </div>
       </section>
-
-      
     </>
   );
 }

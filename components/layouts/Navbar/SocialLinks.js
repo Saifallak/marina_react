@@ -7,9 +7,10 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Cookies from "js-cookie";
 
-const SocialLinks = () => {
+const SocialLinks = ({ closeNav }) => {
   const router = useRouter();
   const { locale, locales, push } = router;
+
   const handelChangeLanguage = () => {
     push(`${router.asPath}`, `${router.asPath}`, {
       locale: locale === "en" ? "ar" : "en",
@@ -18,7 +19,6 @@ const SocialLinks = () => {
   const [opened,setopened] = useState(false)
 
   useEffect(()=>{
-    
     setopened(Cookies.get("access_token") ? true:false)
   },[opened])
 
@@ -46,16 +46,22 @@ const SocialLinks = () => {
         </a>
       </li>
       <li className={styles.social__item}>
-        {
-            opened ?  <Link className={styles.social__link} href="/signin"  onClick={()=>{Cookies.remove("access_token")}}>    
-            <FontAwesomeIcon icon={faArrowRightFromBracket}  color="white"/>
-          </Link> :
-          <Link className={styles.social__link} href="/signin">
-          <FontAwesomeIcon icon={faUser} color="white" />
+        {opened ? (
+          <Link
+            className={styles.social__link}
+            href="/signin"
+            onClick={() => {
+              Cookies.remove("access_token");
+              closeNav();
+            }}
+          >
+            <FontAwesomeIcon icon={faArrowRightFromBracket} color="white" />
           </Link>
-        }
-        
-       
+        ) : (
+          <Link className={styles.social__link} href="/signin" onClick={closeNav}>
+            <FontAwesomeIcon icon={faUser} color="white" />
+          </Link>
+        )}
       </li>
       <li className={styles.social__item}>
         <button
