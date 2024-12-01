@@ -33,6 +33,8 @@ const Index = ({ colorr, pos }) => {
     { href: "/whereToGo", title: { en: "WHERE TO GO?", ar: "تروح فين؟" } },
     { href: "/complaints", title: { en: "COMPLAINTS", ar: " الشكاوي" } },
     { href: "/lost-found", title: { en: "LOST-FOUND", ar: " العثور على المفقودات" } },
+    { href: "/News", title: { en: "NEWS", ar: "الأخبار" } },
+    { href: "/articles", title: { en: "ARTICLES", ar: " المقالات" } },
     { href: "/contactUS", title: { en: "Contact US", ar: " اتصل بنا  " } },
     { href: "/faqs", title: { en: "FAQs", ar: " FAQs " } },
   ];

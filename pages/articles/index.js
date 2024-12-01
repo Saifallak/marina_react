@@ -53,7 +53,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <main>
-      <PageComponent styles={styles} title={t("knowMore")}  hero={img.src}>
+      <PageComponent styles={styles} title={t("articles")}  hero={img.src}>
 
           <section className={styles.looking__for}>
 
@@ -105,6 +105,63 @@ export default function Home() {
               </div>*/}
             </Container>
           </section>
+
+          
+          <Container fluid px={20} dir={locale === "ar" ? "rtl" : "ltr"}>
+            <section>
+              {Load1 && (
+                <div className="loadDiv" style={{ marginTop: "50px" }}>
+                  <Skeleton height={300} width={"90%"} radius="8px" />
+                  <Skeleton height={300} width={"90%"} radius="8px" />
+                  <Skeleton height={300} width={"90%"} radius="8px" />
+                </div>
+              )}
+
+          {blogs?.length > 0 && (
+            <>
+              <h1 className="text-2xl font-bold mt-8">
+                {t("articles")}
+              </h1>
+
+              {blogs.reduce((acc, item, index) => {
+                const chunkIndex = Math.floor(index / 4); 
+                if (!acc[chunkIndex]) acc[chunkIndex] = [];
+                acc[chunkIndex].push(item);
+                return acc;
+              }, []).map((chunk, chunkIndex) => (
+                <div key={chunkIndex}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {chunk.map((item, i) => (
+                      <HomeCard
+                        key={i}
+                        title={item.title[locale]}
+                        image={item.img_collection.responsive_urls}
+                        id={item.id}
+                        t={t}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+
+              <Link 
+                href="/articles" 
+                className={`flex items-center justify-center`}
+              >
+                <Button 
+                  size="xl" 
+                  uppercase 
+                  className={`mt-10 text-white rounded-lg px-6 py-3 ${styles.btn}`}
+                >
+                  {t("knowmore")}
+                </Button>
+              </Link>
+            </>
+          )}
+
+
+            </section>
+          </Container>
         </PageComponent>
       </main>
     </>

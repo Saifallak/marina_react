@@ -153,7 +153,7 @@ export default function Home() {
         }, []).map((chunk, chunkIndex) => (
           <div key={chunkIndex}>
             <h1 className="text-2xl font-bold mt-8">
-              {chunkIndex === 0 ? t("Artics") : t("News")}
+              {chunkIndex === 0 ? t("articles") : t("news")}
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -176,7 +176,7 @@ export default function Home() {
                 uppercase 
                 className={`mt-10 text-white rounded-lg px-6 py-3 ${styles.btn}`}
               >
-                {t("readmore")}
+                {t("knowmore")}
               </Button>
             </Link>
           </div>
