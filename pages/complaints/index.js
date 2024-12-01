@@ -168,6 +168,72 @@ export default function Home() {
                 }}
               />
             </div>
+
+            <div class="form-part ml-0 xl:ml-[350px] lg:ml-[100px]">
+              <div class="form-labels">
+                <label>Milestones</label>
+              </div>
+                <div class="checkbox-group" style={{display: 'grid', gridTemplateColumns: "1fr 1fr", gap: "15px"}}>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="agriculture" name="agriculture" value="agriculture" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="agriculture">الزراعة</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="plumber" name="plumber" value="plumber" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="plumber">سباك</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="cleanliness" name="cleanliness" value="cleanliness" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="cleanliness">النظافة</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="NetworkTechnician" name="NetworkTechnician" value="NetworkTechnician" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="NetworkTechnician">فني شبكات</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="projects" name="projects" value="projects" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="projects">مشروعات</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="carpenter" name="carpenter" value="carpenter" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="carpenter">نجار</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="electricity" name="electricity" value="electricity" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="electricity">كهرباء</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="Spraying" name="Spraying" value="Spraying" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="Spraying">رش المبيدات</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="Sanitation" name="Sanitation" value="Sanitation" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="Sanitation">صرف صحي</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="beaches" name="beaches" value="beaches" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="beaches">شواطئ</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="security" name="security" value="security" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="security">الأمن</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="central" name="central" value="central" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="central">الدش المركزي</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="device" name="device" value="device" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="device">البوتاجاز الجهاز</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="financialInquiries" name="financialInquiries" value="financialInquiries" style={{width:"20px" , height:"20px" , marginRight:'10px'}} />
+                    <label for="financialInquiries">استفسارات مالية</label>
+                  </div>
+                </div>
+
+            </div>
+
             <div className={styles.part}>
               <div className=" flex justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto">
                 <label>Description</label>
@@ -179,6 +245,7 @@ export default function Home() {
                 error={ErrorDescription}
               />
             </div>
+
           </form>
           <div className={styles.more}>
             <h3> for more details</h3>
