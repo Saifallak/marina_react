@@ -119,7 +119,7 @@ export default function Home() {
 
           {blogs?.length > 0 && (
             <>
-              <h1 className="text-2xl font-bold mt-8">
+              <h1 className="text-6xl font-bold mt-8">
                 {t("articles")}
               </h1>
 

@@ -152,11 +152,11 @@ export default function Home() {
           return acc;
         }, []).map((chunk, chunkIndex) => (
           <div key={chunkIndex}>
-            <h1 className="text-2xl font-bold mt-8">
+            <h1 className="text-6xl font-bold mt-8">
               {chunkIndex === 0 ? t("articles") : t("news")}
             </h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2">
               {chunk.map((item, i) => (
                 <HomeCard
                   key={i}
