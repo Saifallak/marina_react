@@ -63,11 +63,11 @@ export default function Home() {
             style={{ minHeight: "300px", height: "100%", width: "100%" }}
           />
 
-          <Container className={styles.home__container} fluid>
+          <Container className={styles.home__container} fluid dir={locale === "ar" ? "rtl" : "ltr"}>
             <div className={styles.home__title}>
               <p className={styles.discover}>{t("discover")}</p>
               <h1 className="mt-4 text-2xl leading-tight sm:text-4xl lg:text-6xl">
-                {t("textOneHeader")} <br className="bbr" /> {t("textTwoHeader")}{" "}
+                {t("textOneHeader")}  {t("textTwoHeader")}{" "}
                 <br className="bbr" />
                 {t("textThreeHeader")}
                 {t("yourTrue")}
@@ -82,6 +82,7 @@ export default function Home() {
           </Container>
         </section>
         <section className={styles.looking__for}>
+
           <Container fluid px={20}>
             <h2 className="text-[#3a3a3a] text-2xl sm:text-6xl uppercase mb-6">
               {t("discoverDistance")}
@@ -132,29 +133,61 @@ export default function Home() {
         </section>
 
         
-          <Container fluid px={20}>
-            <section>
-            {Load1&&<div className="loadDiv" style={{marginTop:"50px"}}>
-              <Skeleton height={300} width={"90%"} radius="8px" />
-              <Skeleton height={300} width={"90%"} radius="8px" />
-              <Skeleton height={300} width={"90%"} radius="8px" />
-              
-            </div>}
-            {blogs?.length > 0 ? (
-              blogs.map((item, i) => (
+        <Container fluid px={20} dir={locale === "ar" ? "rtl" : "ltr"}>
+  <section>
+    {Load1 && (
+      <div className="loadDiv" style={{ marginTop: "50px" }}>
+        <Skeleton height={300} width={"90%"} radius="8px" />
+        <Skeleton height={300} width={"90%"} radius="8px" />
+        <Skeleton height={300} width={"90%"} radius="8px" />
+      </div>
+    )}
+
+    {blogs?.length > 0 && (
+      <>
+        {blogs.reduce((acc, item, index) => {
+          const chunkIndex = Math.floor(index / 4); 
+          if (!acc[chunkIndex]) acc[chunkIndex] = [];
+          acc[chunkIndex].push(item);
+          return acc;
+        }, []).map((chunk, chunkIndex) => (
+          <div key={chunkIndex}>
+            <h1 className="text-2xl font-bold mt-8">
+              {chunkIndex === 0 ? t("Artics") : t("News")}
+            </h1>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {chunk.map((item, i) => (
                 <HomeCard
                   key={i}
                   title={item.title[locale]}
                   image={item.img_collection.responsive_urls}
                   id={item.id}
                   t={t}
-                  reverse={i % 2 == 0 ? "" : "true"}
                 />
-              ))
-              ) : null}
-            </section>
-          </Container>
-       
+              ))}
+            </div>
+            <Link 
+              href={chunkIndex === 0 ? "/artics" : "/News"}
+              className={`flex items-center justify-center`}
+            >
+              <Button 
+                size="xl" 
+                uppercase 
+                className={`mt-10 text-white rounded-lg px-6 py-3 ${styles.btn}`}
+              >
+                {t("readmore")}
+              </Button>
+            </Link>
+          </div>
+        ))}
+      </>
+    )}
+  </section>
+</Container>
+
+
+
 
         <Container fluid px={20}>
           <div className={styles.know__more}>
@@ -169,7 +202,6 @@ export default function Home() {
           </div>
         </Container>
         <Questions title={t("faq")}/>
-       
       </main>
     </>
   );
