@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import img from "../../public/images/about/pawel-nolbert-xe-ss5Tg2mo-unsplash.webp";
-const [Load2, setLoad2] = useState(false);
 
 const Index = () => {
+  // const [Load2, setLoad2] = useState(false);  
   const { t } = useTranslation("about");
 
   return (
