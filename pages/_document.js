@@ -15,6 +15,8 @@ export default function Document(props) {
           href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         ></link>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2730811879986977"
+        crossorigin="anonymous"></script>
       </Head>
       <body>
         <Main />
