@@ -70,7 +70,7 @@ export default function Home() {
                   {catalog.map((item) => {
                     return (
                       <Col span={2} key={item.id} className={styles.grid__grid}>
-                        <Link href='#'>
+                          <Link href={`/articles/filter?id=${item.id}`}>
                           <div className={`${styles.grid__item} cursor-pointer `}>
                             {(
                               <Image
