@@ -80,6 +80,27 @@ export const getCatalog = async () => {
       console.log("Error in Add New Category (service) =>", error);
     }
   };
+
+  export const getnewsCatalog = async () => { 
+    try {
+      const res = await fetch(
+        "https://www.admin.marina.com.eg/api/data/blog-types",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Accept-Language": "ar",
+          },
+        }
+      );
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log("Error in Add New Category (service) =>", error);
+    }
+  };
+
   export const getPdf= async () => { 
     try {
       const res = await fetch(

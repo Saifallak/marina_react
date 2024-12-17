@@ -14,7 +14,7 @@ import Navbar from "../../components/layouts/Navbar/index";
 import img from "@/public/images/home/hero.webp";
 import icon from "../../public/Icon.png";
 import { useEffect, useState } from "react";
-import { getBlogs, getCatalog } from "@/components/useApi/dataApi";
+import { getBlogs, getnewsCatalog } from "@/components/useApi/dataApi";
 import Questions from "@/components/Questions";
 const { Col } = Grid;
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
   };
   const FetchDataOFCatalog = async () => {
     setLoad2(true);
-    const Catalog = await getCatalog();
+    const Catalog = await getnewsCatalog();
     if (!Catalog) console.log(Catalog?.message);
     setCatalog(Catalog);
     setLoad2(false);
@@ -58,14 +58,10 @@ export default function Home() {
           <section className={styles.looking__for}>
 
             <Container fluid px={20}>
-              <h2 className="text-[#3a3a3a] text-2xl sm:text-6xl uppercase mb-6">
-                {t("discoverDistance")}
-              </h2>
+            <h3 className="text-[#3a3a3a] text-2xl flex items-center justify-center sm:text-4xl uppercase mb-6">
+              {t("discoverDistance")}
+              </h3>
             {Load2&&<div className="loadDiv">
-                <Skeleton height={300} width={"22%"} radius="8px" />
-                <Skeleton height={300} width={"22%"} radius="8px" />
-                <Skeleton height={300} width={"22%"} radius="8px" />
-                <Skeleton height={300} width={"22%"} radius="8px" />
                 <Skeleton height={300} width={"22%"} radius="8px" />
                 <Skeleton height={300} width={"22%"} radius="8px" />
               </div>}
@@ -74,7 +70,7 @@ export default function Home() {
                   {catalog.map((item) => {
                     return (
                       <Col span={2} key={item.id} className={styles.grid__grid}>
-                        <Link href={`/whereToGo/${item.id}`}>
+                        <Link href='#'>
                           <div className={`${styles.grid__item} cursor-pointer `}>
                             {(
                               <Image
@@ -88,7 +84,7 @@ export default function Home() {
                                 alt={item.name[locale].toLowerCase()}
                               />
                             ) || <Skeleton />}
-                            <h3>{item.name[locale]}</h3>
+                            <h3 style={{color:'white'}}>{item.name[locale]}</h3>
                           </div>
                         </Link>
                       </Col>

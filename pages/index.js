@@ -143,46 +143,66 @@ export default function Home() {
       </div>
     )}
 
-    {blogs?.length > 0 && (
-      <>
-        {blogs.reduce((acc, item, index) => {
-          const chunkIndex = Math.floor(index / 4); 
-          if (!acc[chunkIndex]) acc[chunkIndex] = [];
-          acc[chunkIndex].push(item);
-          return acc;
-        }, []).map((chunk, chunkIndex) => (
-          <div key={chunkIndex}>
-            <h1 className="text-6xl font-bold mt-8">
-              {chunkIndex === 0 ? t("articles") : t("news")}
-            </h1>
-
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              {chunk.map((item, i) => (
-                <HomeCard
-                  key={i}
-                  title={item.title[locale]}
-                  image={item.img_collection.responsive_urls}
-                  id={item.id}
-                  t={t}
-                />
-              ))}
-            </div>
-            <Link 
-              href={chunkIndex === 0 ? "/artics" : "/News"}
-              className={`flex items-center justify-center`}
-            >
-              <Button 
-                size="xl" 
-                uppercase 
-                className={`mt-10 text-white rounded-lg px-6 py-3 ${styles.btn}`}
-              >
-                {t("knowmore")}
-              </Button>
-            </Link>
-          </div>
+{blogs?.length > 0 && (
+  <>
+    {/* Section 1: Articles */}
+    <div>
+      <h1 className="text-6xl font-bold mt-8">{t("articles")}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {blogs.slice(0, 4).map((item, i) => (
+          <HomeCard
+            key={i}
+            title={item.title[locale]}
+            image={item.img_collection.responsive_urls}
+            id={item.id}
+            t={t}
+          />
         ))}
-      </>
-    )}
+      </div>
+      <Link 
+        href="/articles"
+        className="flex items-center justify-center"
+      >
+        <Button 
+          size="xl" 
+          uppercase 
+          className={`mt-10 text-white rounded-lg px-6 py-3 ${styles.btn}`}
+        >
+          {t("knowmore")}
+        </Button>
+      </Link>
+    </div>
+
+    {/* Section 2: News */}
+    <div>
+      <h1 className="text-6xl font-bold mt-8">{t("news")}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {blogs.slice(4, 8).map((item, i) => (
+          <HomeCard
+            key={i}
+            title={item.title[locale]}
+            image={item.img_collection.responsive_urls}
+            id={item.id}
+            t={t}
+          />
+        ))}
+      </div>
+      <Link 
+        href="/News"
+        className="flex items-center justify-center"
+      >
+        <Button 
+          size="xl" 
+          uppercase 
+          className={`mt-10 text-white rounded-lg px-6 py-3 ${styles.btn}`}
+        >
+          {t("knowmore")}
+        </Button>
+      </Link>
+    </div>
+  </>
+)}
+
   </section>
 </Container>
 
