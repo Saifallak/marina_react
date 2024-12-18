@@ -8,22 +8,29 @@ import {
   Textarea,
 } from "@mantine/core";
 import Link from "next/link";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Navbar from "../../components/layouts/Navbar/index";
 import img from "@/public/images/complaints.jpg";
 import img2 from "@/public/images/complaintsicon.svg";
 import img3 from "@/public/images/complaintsLogo.svg";
 import icon from "../../public/Icon.png";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 import Logo from "../../public/images/navbar/logo.png";
 import Image from "next/image";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import axios from "axios";
+import { getMessgaeTypes } from "@/components/useApi/dataApi";
 export default function Home() {
+  const { t } = useTranslation("home");
+  const { locale } = useRouter();
   //data
   const [FullName, setFullName] = useState("");
   const [Phone, setPhone] = useState("");
   const [Description, setDescription] = useState("");
   const [Unit, setUnit] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+  const [complaintId, setCompliantId] = useState("");
   //Error
   const [ErrorFullName, setErrorFullName] = useState("");
   const [ErrorPhone, setErrorPhone] = useState("");
@@ -41,10 +48,10 @@ export default function Home() {
     formData.append("telephone_number", Phone);
     formData.append("description", Description);
     formData.append("unit_number", Unit);
+    formData.append("compliant_type_id", complaintId);
     formData.append("image", selectedFile);
 
     setSubmitting(true);
-
     const po = axios
     .post("https://admin.marina.com.eg/api/complaint", formData, {
       headers: {
@@ -80,6 +87,15 @@ export default function Home() {
   const handleHeaderInputChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
+
+  const [messageTypes, setMessageTypes] = useState([]);
+  const fetchMessageTypes = async () => {
+    const data = await getMessgaeTypes()
+    setMessageTypes(data.data)
+  }
+  useEffect(() => {
+    fetchMessageTypes();
+  }, []);  
 
   return (
     <>
@@ -169,69 +185,24 @@ export default function Home() {
               />
             </div>
 
-            <div class="form-part ml-0 xl:mr-[350px] lg:mr-[100px]" dir="rtl">
-              <div class="form-labels">
-                <label>نوع المشكلة</label>
+            <div className="form-part flex flex-col justify-between gap-3 mb-3 w-[100%] max-w-[800px] mx-auto"  dir={locale === "ar" ? "rtl" : "ltr"}>
+              <div className="form-labels">
+                <label className="mb-3">{t("problemType")}</label>
               </div>
-                <div class="checkbox-group" style={{display: 'grid', gridTemplateColumns: "1fr 1fr", gap: "15px"}}>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="agriculture" name="agriculture" value="agriculture" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="agriculture">الزراعة</label>
+              <div className="checkbox-group" style={{ display: 'grid', gridTemplateColumns: "1fr 1fr", gap: "15px" }}>
+                {messageTypes.map((type, index) => (
+                  <div className="checkbox-item" key={index}>
+                    <input 
+                      type="checkbox" 
+                      id={type.name["ar"]} 
+                      name={type.name["ar"]} 
+                      style={{ width: "20px", height: "20px", marginLeft: '10px' , marginRight:'10px' }} 
+                      onChange={() => setCompliantId(type.id)}
+                    />
+                    <label htmlFor={type.name["ar"]}>{type.name[locale]}</label>
                   </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="plumber" name="plumber" value="plumber" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="plumber">سباك</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="cleanliness" name="cleanliness" value="cleanliness" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="cleanliness">النظافة</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="NetworkTechnician" name="NetworkTechnician" value="NetworkTechnician" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="NetworkTechnician">فني شبكات</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="projects" name="projects" value="projects" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="projects">مشروعات</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="carpenter" name="carpenter" value="carpenter" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="carpenter">نجار</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="electricity" name="electricity" value="electricity" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="electricity">كهرباء</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="Spraying" name="Spraying" value="Spraying" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="Spraying">رش المبيدات</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="Sanitation" name="Sanitation" value="Sanitation" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="Sanitation">صرف صحي</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="beaches" name="beaches" value="beaches" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="beaches">شواطئ</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="security" name="security" value="security" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="security">الأمن</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="central" name="central" value="central" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="central">الدش المركزي</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="device" name="device" value="device" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="device">البوتاجاز الجهاز</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="financialInquiries" name="financialInquiries" value="financialInquiries" style={{width:"20px" , height:"20px" , marginLeft:'10px'}} />
-                    <label for="financialInquiries">استفسارات مالية</label>
-                  </div>
-                </div>
-
+                ))}
+              </div>
             </div>
 
             <div className={styles.part}>
@@ -307,4 +278,12 @@ export default function Home() {
       </section>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      ...(await serverSideTranslations(context.locale, ["home", "common"])),
+    },
+  };
 }

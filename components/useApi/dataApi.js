@@ -356,3 +356,15 @@ export const getServicesWithUser = async () => {
     console.log("Error in Add New Category (service) =>", error);
   }
 };
+
+
+
+export const getMessgaeTypes = async () => {
+    try {
+    const res = await fetch('https://www.admin.marina.com.eg/api/data/complaint-types')
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    error => console.error('Error fetching data:', error)
+  }
+}
