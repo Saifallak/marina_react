@@ -83,9 +83,11 @@ export default function Home() {
         setSubmitting(false);
       });
   };
+  const [isFileSelected, setIsFileSelected] = useState(false);
 
   const handleHeaderInputChange = (e) => {
     setSelectedFile(e.target.files[0]);
+    setIsFileSelected(true);
   };
 
   const [messageTypes, setMessageTypes] = useState([]);
@@ -231,15 +233,23 @@ export default function Home() {
                 />{" "}
               </div>
               <div className="relative cursor-pointer">
-                <label className={[styles.arabic + " cursor-pointer "]} style={{display:'block',width:'310px' , height:'65px'}}>
-                  تحميل المرفقات{" "}
-                </label>
-                <input
-                  type="file"
-                  className=" absolute top-0 left-0 w-[100%] opacity-0 cursor-pointer"
-                  onChange={handleHeaderInputChange}
-                />{" "}
-              </div>
+      <label
+        className={`${
+          isFileSelected ? 'bg-green-200' : 'bg-transparent'
+        } cursor-pointer block w-[310px] h-[65px] text-center flex items-center justify-center`}
+      >
+        {isFileSelected ? (
+          <span>تم اختيار الملف</span> // Indication text when file is selected
+        ) : (
+          'تحميل المرفقات'
+        )}
+      </label>
+      <input
+        type="file"
+        className="absolute top-0 left-0 w-[100%] opacity-0 cursor-pointer"
+        onChange={handleHeaderInputChange}
+      />
+    </div>
               <input
                 type="file"
                 className={[
