@@ -51,7 +51,7 @@ const NewsFilterPage = () => {
                 </div>
             ) : filteredBlogs.length > 0 ? (
                 <div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
                         {filteredBlogs.map((item) => (
                             <HomeCard
                                 key={item.id}

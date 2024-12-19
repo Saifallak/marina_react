@@ -148,7 +148,7 @@ export default function Home() {
     {/* Section 1: Articles */}
     <div>
       <h1 className="text-6xl font-bold mt-8">{t("articles")}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-2 md:grid-cols-2">
         {blogs.slice(0, 4).map((item, i) => (
           <HomeCard
             key={i}
@@ -176,7 +176,7 @@ export default function Home() {
     {/* Section 2: News */}
     <div>
       <h1 className="text-6xl font-bold mt-8">{t("news")}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-2 md:grid-cols-2">
         {blogs.slice(4, 8).map((item, i) => (
           <HomeCard
             key={i}
