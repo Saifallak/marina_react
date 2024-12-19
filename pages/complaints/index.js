@@ -30,7 +30,7 @@ export default function Home() {
   const [Description, setDescription] = useState("");
   const [Unit, setUnit] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-  const [complaintId, setCompliantId] = useState("");
+  const [complaintIds, setCompliantIds] = useState([]);
   //Error
   const [ErrorFullName, setErrorFullName] = useState("");
   const [ErrorPhone, setErrorPhone] = useState("");
@@ -48,7 +48,7 @@ export default function Home() {
     formData.append("telephone_number", Phone);
     formData.append("description", Description);
     formData.append("unit_number", Unit);
-    formData.append("compliant_type_id", complaintId);
+    formData.append("compliant_type_id", complaintIds);
     formData.append("image", selectedFile);
 
     setSubmitting(true);
@@ -196,12 +196,12 @@ export default function Home() {
                   <div className="checkbox-item" key={index}>
                     <input 
                       type="checkbox" 
-                      id={type.name["ar"]} 
-                      name={type.name["ar"]} 
-                      style={{ width: "20px", height: "20px", marginLeft: '10px' , marginRight:'10px' }} 
-                      onChange={() => setCompliantId(type.id)}
+                      id={type.name[locale]} 
+                      name={type.name[locale]} 
+                      className="!size-5 !mx-[10px]"
+                      onChange={() => setCompliantIds(prev => [...prev, type.id])}
                     />
-                    <label htmlFor={type.name["ar"]}>{type.name[locale]}</label>
+                    <label htmlFor={type.name[locale]}>{type.name[locale]}</label>
                   </div>
                 ))}
               </div>
