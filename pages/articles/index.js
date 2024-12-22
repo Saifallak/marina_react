@@ -43,6 +43,8 @@ export default function Home() {
     setCatalog(Catalog);
     setLoad2(false);
   };
+  const [showAll, setShowAll] = useState(false); 
+  const displayedBlogs = showAll ? blogs : blogs.slice(0, 4);
   return (
     <>
       <Head>
@@ -119,7 +121,7 @@ export default function Home() {
                 {t("articles")}
               </h1>
 
-              {blogs.reduce((acc, item, index) => {
+              {displayedBlogs.reduce((acc, item, index) => {
                 const chunkIndex = Math.floor(index / 4); 
                 if (!acc[chunkIndex]) acc[chunkIndex] = [];
                 acc[chunkIndex].push(item);
@@ -140,18 +142,18 @@ export default function Home() {
                 </div>
               ))}
 
-              <Link 
-                href="/articles" 
-                className={`flex items-center justify-center`}
-              >
+                      {!showAll && (
+                        <Link href="/articles" className={`flex items-center justify-center`}>
                 <Button 
                   size="xl" 
                   uppercase 
                   className={`mt-10 text-white rounded-lg px-6 py-3 ${styles.btn}`}
+                  onClick={() => setShowAll(true)} 
                 >
-                  {t("knowmore")}
+                  {t("loadMore")}
                 </Button>
               </Link>
+            )}
             </>
           )}
 
