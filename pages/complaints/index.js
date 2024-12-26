@@ -48,7 +48,7 @@ export default function Home() {
     formData.append("telephone_number", Phone);
     formData.append("description", Description);
     formData.append("unit_number", Unit);
-    formData.append("compliant_type_id", complaintIds);
+    formData.append("complaint_type_ids[]", complaintIds);
     formData.append("image", selectedFile);
 
     setSubmitting(true);
