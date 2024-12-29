@@ -361,7 +361,7 @@ export const getServicesWithUser = async () => {
 
 export const getMessgaeTypes = async () => {
     try {
-    const res = await fetch('https://www.admin.marina.com.eg/api/data/complaint-types')
+    const res = await fetch('https://admin.marina.com.eg/api/data/complaint-types')
     const data = await res.json();
     return data;
   } catch (error) {

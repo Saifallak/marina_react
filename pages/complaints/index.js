@@ -199,8 +199,12 @@ export default function Home() {
                       id={type.name[locale]} 
                       name={type.name[locale]} 
                       className="!size-5 !mx-[10px]"
-                      onChange={() => setCompliantIds(prev => [...prev, type.id])}
-                    />
+                      onChange={() => setCompliantIds(prev => 
+                        prev.includes(type.id) 
+                          ? prev.filter(t => t !== type.id) 
+                          : [...prev, type.id]
+                      )}
+                      />
                     <label htmlFor={type.name[locale]}>{type.name[locale]}</label>
                   </div>
                 ))}
